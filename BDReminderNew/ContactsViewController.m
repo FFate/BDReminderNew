@@ -30,21 +30,21 @@
     [super viewDidLoad];
     
     //初始化一个“获取请求”到我们的实体“contact"
-    NSFetchRequest *request = [[NSFetchRequest alloc] init];
-    NSEntityDescription *entity = [NSEntityDescription entityForName:@"contact" inManagedObjectContext:managedObjectContext];
-    [request setEntity:entity];
+    //NSFetchRequest *request = [[NSFetchRequest alloc] init];
+    //NSEntityDescription *entity = [NSEntityDescription entityForName:@"contact" inManagedObjectContext:managedObjectContext];
+    //[request setEntity:entity];
     
     //执行“获取”操作，得到一个“可变数组”的拷贝
     
-    NSError *error = nil;
-    NSMutableArray *mutableFetchResults = [[managedObjectContext executeFetchRequest:request error:&error] mutableCopy];
+    //NSError *error = nil;
+    //NSMutableArray *mutableFetchResults = [[managedObjectContext executeFetchRequest:request error:&error] mutableCopy];
     
-    if(mutableFetchResults == nil){
+    //if(mutableFetchResults == nil){
         //如果结果为空，在这作错误响应
-    }
+    //}
     
     //将得到的本地数组赋值到本类的全局数组，然后清理无用的对象
-    [self setContacts:mutableFetchResults];
+    //[self setContacts:mutableFetchResults];
     //[mutableFetchResults release];
     //[request release];
     

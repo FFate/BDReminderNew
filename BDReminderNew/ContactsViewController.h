@@ -10,7 +10,6 @@
 
 @interface ContactsViewController : UITableViewController{
     NSMutableArray *contactsArray;
-    NSManagedObjectContext *managedObjectContext;
 }
 
 @property (nonatomic, strong) NSMutableArray *contacts;

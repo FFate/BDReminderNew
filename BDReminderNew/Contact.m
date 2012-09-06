@@ -13,14 +13,15 @@
 
 @implementation Contact
 
-@dynamic name;
-@dynamic birthday;
-@dynamic aggregatedContact;
-@dynamic account;
+@synthesize name;
+@synthesize birthday;
+@synthesize aggregatedContact;
+@synthesize account;
 
 
 -(Contact*) initWithName: (NSString*) name birthday: (NSDate*) birthday{
     self = [super init];
+//    self = (Contact *) [NSEntityDescription insertNewObjectForEntityForName:@"Contact" inManagedObjectContext:managedObjectContext];
     
     if (self) {
         self.name = name;
