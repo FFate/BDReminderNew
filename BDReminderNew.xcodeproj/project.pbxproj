@@ -1,0 +1,513 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		18CB515515EBAF41009A8741 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 18CB515415EBAF41009A8741 /* UIKit.framework */; };
+		18CB515715EBAF41009A8741 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 18CB515615EBAF41009A8741 /* Foundation.framework */; };
+		18CB515915EBAF41009A8741 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 18CB515815EBAF41009A8741 /* CoreGraphics.framework */; };
+		18CB515F15EBAF41009A8741 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 18CB515D15EBAF41009A8741 /* InfoPlist.strings */; };
+		18CB516115EBAF41009A8741 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 18CB516015EBAF41009A8741 /* main.m */; };
+		18CB516515EBAF41009A8741 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 18CB516415EBAF41009A8741 /* AppDelegate.m */; };
+		18CB516815EBAF41009A8741 /* MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 18CB516615EBAF41009A8741 /* MainStoryboard.storyboard */; };
+		18CB516B15EBAF41009A8741 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 18CB516A15EBAF41009A8741 /* ViewController.m */; };
+		18CB517315EBAF41009A8741 /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 18CB517215EBAF41009A8741 /* SenTestingKit.framework */; };
+		18CB517415EBAF41009A8741 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 18CB515415EBAF41009A8741 /* UIKit.framework */; };
+		18CB517515EBAF41009A8741 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 18CB515615EBAF41009A8741 /* Foundation.framework */; };
+		18CB517D15EBAF41009A8741 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 18CB517B15EBAF41009A8741 /* InfoPlist.strings */; };
+		18CB518015EBAF41009A8741 /* BDReminderNewTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 18CB517F15EBAF41009A8741 /* BDReminderNewTests.m */; };
+		18CB519615EBAF94009A8741 /* Model.xcdatamodel in Sources */ = {isa = PBXBuildFile; fileRef = 18CB518A15EBAF94009A8741 /* Model.xcdatamodel */; };
+		18CB519715EBAF94009A8741 /* FacebookAccount.m in Sources */ = {isa = PBXBuildFile; fileRef = 18CB518C15EBAF94009A8741 /* FacebookAccount.m */; };
+		18CB519815EBAF94009A8741 /* RenrenAccount.m in Sources */ = {isa = PBXBuildFile; fileRef = 18CB518E15EBAF94009A8741 /* RenrenAccount.m */; };
+		18CB519915EBAF94009A8741 /* Account.m in Sources */ = {isa = PBXBuildFile; fileRef = 18CB519015EBAF94009A8741 /* Account.m */; };
+		18CB519A15EBAF94009A8741 /* AggregatedContact.m in Sources */ = {isa = PBXBuildFile; fileRef = 18CB519215EBAF94009A8741 /* AggregatedContact.m */; };
+		18CB519B15EBAF94009A8741 /* Contact.m in Sources */ = {isa = PBXBuildFile; fileRef = 18CB519415EBAF94009A8741 /* Contact.m */; };
+		18CB519D15EBAFC2009A8741 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 18CB519C15EBAFC2009A8741 /* CoreData.framework */; };
+		94408C4F15F528C200653E77 /* ContactCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 94408C4E15F528C200653E77 /* ContactCell.m */; };
+		94E9AF8115EBBE2300940CF7 /* ContactsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 94E9AF8015EBBE2300940CF7 /* ContactsViewController.m */; };
+		94E9AF8215EBBE2300940CF7 /* ContactsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 94E9AF8015EBBE2300940CF7 /* ContactsViewController.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		18CB517615EBAF41009A8741 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 18CB514715EBAF41009A8741 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 18CB514F15EBAF41009A8741;
+			remoteInfo = BDReminderNew;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		18CB515015EBAF41009A8741 /* BDReminderNew.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BDReminderNew.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		18CB515415EBAF41009A8741 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		18CB515615EBAF41009A8741 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		18CB515815EBAF41009A8741 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		18CB515C15EBAF41009A8741 /* BDReminderNew-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "BDReminderNew-Info.plist"; sourceTree = "<group>"; };
+		18CB515E15EBAF41009A8741 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		18CB516015EBAF41009A8741 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		18CB516215EBAF41009A8741 /* BDReminderNew-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "BDReminderNew-Prefix.pch"; sourceTree = "<group>"; };
+		18CB516315EBAF41009A8741 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		18CB516415EBAF41009A8741 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		18CB516715EBAF41009A8741 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard.storyboard; sourceTree = "<group>"; };
+		18CB516915EBAF41009A8741 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
+		18CB516A15EBAF41009A8741 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		18CB517115EBAF41009A8741 /* BDReminderNewTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BDReminderNewTests.octest; sourceTree = BUILT_PRODUCTS_DIR; };
+		18CB517215EBAF41009A8741 /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
+		18CB517A15EBAF41009A8741 /* BDReminderNewTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "BDReminderNewTests-Info.plist"; sourceTree = "<group>"; };
+		18CB517C15EBAF41009A8741 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		18CB517E15EBAF41009A8741 /* BDReminderNewTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BDReminderNewTests.h; sourceTree = "<group>"; };
+		18CB517F15EBAF41009A8741 /* BDReminderNewTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BDReminderNewTests.m; sourceTree = "<group>"; };
+		18CB518A15EBAF94009A8741 /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
+		18CB518B15EBAF94009A8741 /* FacebookAccount.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FacebookAccount.h; sourceTree = "<group>"; };
+		18CB518C15EBAF94009A8741 /* FacebookAccount.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FacebookAccount.m; sourceTree = "<group>"; };
+		18CB518D15EBAF94009A8741 /* RenrenAccount.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RenrenAccount.h; sourceTree = "<group>"; };
+		18CB518E15EBAF94009A8741 /* RenrenAccount.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RenrenAccount.m; sourceTree = "<group>"; };
+		18CB518F15EBAF94009A8741 /* Account.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Account.h; sourceTree = "<group>"; };
+		18CB519015EBAF94009A8741 /* Account.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Account.m; sourceTree = "<group>"; };
+		18CB519115EBAF94009A8741 /* AggregatedContact.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AggregatedContact.h; sourceTree = "<group>"; };
+		18CB519215EBAF94009A8741 /* AggregatedContact.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AggregatedContact.m; sourceTree = "<group>"; };
+		18CB519315EBAF94009A8741 /* Contact.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Contact.h; sourceTree = "<group>"; };
+		18CB519415EBAF94009A8741 /* Contact.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Contact.m; sourceTree = "<group>"; };
+		18CB519515EBAF94009A8741 /* AccountProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AccountProtocol.h; sourceTree = "<group>"; };
+		18CB519C15EBAFC2009A8741 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		94408C4D15F528C200653E77 /* ContactCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ContactCell.h; sourceTree = "<group>"; };
+		94408C4E15F528C200653E77 /* ContactCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ContactCell.m; sourceTree = "<group>"; };
+		94E9AF7F15EBBE2300940CF7 /* ContactsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ContactsViewController.h; sourceTree = "<group>"; };
+		94E9AF8015EBBE2300940CF7 /* ContactsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ContactsViewController.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		18CB514D15EBAF41009A8741 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				18CB519D15EBAFC2009A8741 /* CoreData.framework in Frameworks */,
+				18CB515515EBAF41009A8741 /* UIKit.framework in Frameworks */,
+				18CB515715EBAF41009A8741 /* Foundation.framework in Frameworks */,
+				18CB515915EBAF41009A8741 /* CoreGraphics.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		18CB516D15EBAF41009A8741 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				18CB517315EBAF41009A8741 /* SenTestingKit.framework in Frameworks */,
+				18CB517415EBAF41009A8741 /* UIKit.framework in Frameworks */,
+				18CB517515EBAF41009A8741 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		18CB514515EBAF41009A8741 = {
+			isa = PBXGroup;
+			children = (
+				18CB519C15EBAFC2009A8741 /* CoreData.framework */,
+				18CB515A15EBAF41009A8741 /* BDReminderNew */,
+				18CB517815EBAF41009A8741 /* BDReminderNewTests */,
+				18CB515315EBAF41009A8741 /* Frameworks */,
+				18CB515115EBAF41009A8741 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		18CB515115EBAF41009A8741 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				18CB515015EBAF41009A8741 /* BDReminderNew.app */,
+				18CB517115EBAF41009A8741 /* BDReminderNewTests.octest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		18CB515315EBAF41009A8741 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				18CB515415EBAF41009A8741 /* UIKit.framework */,
+				18CB515615EBAF41009A8741 /* Foundation.framework */,
+				18CB515815EBAF41009A8741 /* CoreGraphics.framework */,
+				18CB517215EBAF41009A8741 /* SenTestingKit.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		18CB515A15EBAF41009A8741 /* BDReminderNew */ = {
+			isa = PBXGroup;
+			children = (
+				18CB518915EBAF6B009A8741 /* Model */,
+				18CB516315EBAF41009A8741 /* AppDelegate.h */,
+				18CB516415EBAF41009A8741 /* AppDelegate.m */,
+				18CB516615EBAF41009A8741 /* MainStoryboard.storyboard */,
+				94408C4D15F528C200653E77 /* ContactCell.h */,
+				94408C4E15F528C200653E77 /* ContactCell.m */,
+				18CB516915EBAF41009A8741 /* ViewController.h */,
+				18CB516A15EBAF41009A8741 /* ViewController.m */,
+				94E9AF7F15EBBE2300940CF7 /* ContactsViewController.h */,
+				94E9AF8015EBBE2300940CF7 /* ContactsViewController.m */,
+				18CB515B15EBAF41009A8741 /* Supporting Files */,
+			);
+			path = BDReminderNew;
+			sourceTree = "<group>";
+		};
+		18CB515B15EBAF41009A8741 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				18CB515C15EBAF41009A8741 /* BDReminderNew-Info.plist */,
+				18CB515D15EBAF41009A8741 /* InfoPlist.strings */,
+				18CB516015EBAF41009A8741 /* main.m */,
+				18CB516215EBAF41009A8741 /* BDReminderNew-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		18CB517815EBAF41009A8741 /* BDReminderNewTests */ = {
+			isa = PBXGroup;
+			children = (
+				18CB517E15EBAF41009A8741 /* BDReminderNewTests.h */,
+				18CB517F15EBAF41009A8741 /* BDReminderNewTests.m */,
+				18CB517915EBAF41009A8741 /* Supporting Files */,
+			);
+			path = BDReminderNewTests;
+			sourceTree = "<group>";
+		};
+		18CB517915EBAF41009A8741 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				18CB517A15EBAF41009A8741 /* BDReminderNewTests-Info.plist */,
+				18CB517B15EBAF41009A8741 /* InfoPlist.strings */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		18CB518915EBAF6B009A8741 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				18CB518A15EBAF94009A8741 /* Model.xcdatamodel */,
+				18CB518B15EBAF94009A8741 /* FacebookAccount.h */,
+				18CB518C15EBAF94009A8741 /* FacebookAccount.m */,
+				18CB518D15EBAF94009A8741 /* RenrenAccount.h */,
+				18CB518E15EBAF94009A8741 /* RenrenAccount.m */,
+				18CB518F15EBAF94009A8741 /* Account.h */,
+				18CB519015EBAF94009A8741 /* Account.m */,
+				18CB519115EBAF94009A8741 /* AggregatedContact.h */,
+				18CB519215EBAF94009A8741 /* AggregatedContact.m */,
+				18CB519315EBAF94009A8741 /* Contact.h */,
+				18CB519415EBAF94009A8741 /* Contact.m */,
+				18CB519515EBAF94009A8741 /* AccountProtocol.h */,
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		18CB514F15EBAF41009A8741 /* BDReminderNew */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 18CB518315EBAF42009A8741 /* Build configuration list for PBXNativeTarget "BDReminderNew" */;
+			buildPhases = (
+				18CB514C15EBAF41009A8741 /* Sources */,
+				18CB514D15EBAF41009A8741 /* Frameworks */,
+				18CB514E15EBAF41009A8741 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = BDReminderNew;
+			productName = BDReminderNew;
+			productReference = 18CB515015EBAF41009A8741 /* BDReminderNew.app */;
+			productType = "com.apple.product-type.application";
+		};
+		18CB517015EBAF41009A8741 /* BDReminderNewTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 18CB518615EBAF42009A8741 /* Build configuration list for PBXNativeTarget "BDReminderNewTests" */;
+			buildPhases = (
+				18CB516C15EBAF41009A8741 /* Sources */,
+				18CB516D15EBAF41009A8741 /* Frameworks */,
+				18CB516E15EBAF41009A8741 /* Resources */,
+				18CB516F15EBAF41009A8741 /* ShellScript */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				18CB517715EBAF41009A8741 /* PBXTargetDependency */,
+			);
+			name = BDReminderNewTests;
+			productName = BDReminderNewTests;
+			productReference = 18CB517115EBAF41009A8741 /* BDReminderNewTests.octest */;
+			productType = "com.apple.product-type.bundle";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		18CB514715EBAF41009A8741 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0440;
+				ORGANIZATIONNAME = qinsoon;
+			};
+			buildConfigurationList = 18CB514A15EBAF41009A8741 /* Build configuration list for PBXProject "BDReminderNew" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 18CB514515EBAF41009A8741;
+			productRefGroup = 18CB515115EBAF41009A8741 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				18CB514F15EBAF41009A8741 /* BDReminderNew */,
+				18CB517015EBAF41009A8741 /* BDReminderNewTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		18CB514E15EBAF41009A8741 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				18CB515F15EBAF41009A8741 /* InfoPlist.strings in Resources */,
+				18CB516815EBAF41009A8741 /* MainStoryboard.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		18CB516E15EBAF41009A8741 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				18CB517D15EBAF41009A8741 /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		18CB516F15EBAF41009A8741 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Run the unit tests in this test bundle.\n\"${SYSTEM_DEVELOPER_DIR}/Tools/RunUnitTests\"\n";
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		18CB514C15EBAF41009A8741 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				18CB516115EBAF41009A8741 /* main.m in Sources */,
+				18CB516515EBAF41009A8741 /* AppDelegate.m in Sources */,
+				18CB516B15EBAF41009A8741 /* ViewController.m in Sources */,
+				18CB519615EBAF94009A8741 /* Model.xcdatamodel in Sources */,
+				18CB519715EBAF94009A8741 /* FacebookAccount.m in Sources */,
+				18CB519815EBAF94009A8741 /* RenrenAccount.m in Sources */,
+				18CB519915EBAF94009A8741 /* Account.m in Sources */,
+				18CB519A15EBAF94009A8741 /* AggregatedContact.m in Sources */,
+				18CB519B15EBAF94009A8741 /* Contact.m in Sources */,
+				94E9AF8115EBBE2300940CF7 /* ContactsViewController.m in Sources */,
+				94408C4F15F528C200653E77 /* ContactCell.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		18CB516C15EBAF41009A8741 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				18CB518015EBAF41009A8741 /* BDReminderNewTests.m in Sources */,
+				94E9AF8215EBBE2300940CF7 /* ContactsViewController.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		18CB517715EBAF41009A8741 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 18CB514F15EBAF41009A8741 /* BDReminderNew */;
+			targetProxy = 18CB517615EBAF41009A8741 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		18CB515D15EBAF41009A8741 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				18CB515E15EBAF41009A8741 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		18CB516615EBAF41009A8741 /* MainStoryboard.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				18CB516715EBAF41009A8741 /* en */,
+			);
+			name = MainStoryboard.storyboard;
+			sourceTree = "<group>";
+		};
+		18CB517B15EBAF41009A8741 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				18CB517C15EBAF41009A8741 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		18CB518115EBAF42009A8741 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		18CB518215EBAF42009A8741 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
+				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		18CB518415EBAF42009A8741 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "BDReminderNew/BDReminderNew-Prefix.pch";
+				INFOPLIST_FILE = "BDReminderNew/BDReminderNew-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		18CB518515EBAF42009A8741 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "BDReminderNew/BDReminderNew-Prefix.pch";
+				INFOPLIST_FILE = "BDReminderNew/BDReminderNew-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+		18CB518715EBAF42009A8741 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/BDReminderNew.app/BDReminderNew";
+				FRAMEWORK_SEARCH_PATHS = (
+					"\"$(SDKROOT)/Developer/Library/Frameworks\"",
+					"\"$(DEVELOPER_LIBRARY_DIR)/Frameworks\"",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "BDReminderNew/BDReminderNew-Prefix.pch";
+				INFOPLIST_FILE = "BDReminderNewTests/BDReminderNewTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = octest;
+			};
+			name = Debug;
+		};
+		18CB518815EBAF42009A8741 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/BDReminderNew.app/BDReminderNew";
+				FRAMEWORK_SEARCH_PATHS = (
+					"\"$(SDKROOT)/Developer/Library/Frameworks\"",
+					"\"$(DEVELOPER_LIBRARY_DIR)/Frameworks\"",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "BDReminderNew/BDReminderNew-Prefix.pch";
+				INFOPLIST_FILE = "BDReminderNewTests/BDReminderNewTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = octest;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		18CB514A15EBAF41009A8741 /* Build configuration list for PBXProject "BDReminderNew" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				18CB518115EBAF42009A8741 /* Debug */,
+				18CB518215EBAF42009A8741 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		18CB518315EBAF42009A8741 /* Build configuration list for PBXNativeTarget "BDReminderNew" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				18CB518415EBAF42009A8741 /* Debug */,
+				18CB518515EBAF42009A8741 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		18CB518615EBAF42009A8741 /* Build configuration list for PBXNativeTarget "BDReminderNewTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				18CB518715EBAF42009A8741 /* Debug */,
+				18CB518815EBAF42009A8741 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 18CB514715EBAF41009A8741 /* Project object */;
+}
