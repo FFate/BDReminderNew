@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1806BD2715F8E82A005EEE12 /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 1806BD2415F8E82A005EEE12 /* Model.xcdatamodeld */; };
 		18CB515515EBAF41009A8741 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 18CB515415EBAF41009A8741 /* UIKit.framework */; };
 		18CB515715EBAF41009A8741 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 18CB515615EBAF41009A8741 /* Foundation.framework */; };
 		18CB515915EBAF41009A8741 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 18CB515815EBAF41009A8741 /* CoreGraphics.framework */; };
@@ -20,7 +21,6 @@
 		18CB517515EBAF41009A8741 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 18CB515615EBAF41009A8741 /* Foundation.framework */; };
 		18CB517D15EBAF41009A8741 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 18CB517B15EBAF41009A8741 /* InfoPlist.strings */; };
 		18CB518015EBAF41009A8741 /* BDReminderNewTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 18CB517F15EBAF41009A8741 /* BDReminderNewTests.m */; };
-		18CB519615EBAF94009A8741 /* Model.xcdatamodel in Sources */ = {isa = PBXBuildFile; fileRef = 18CB518A15EBAF94009A8741 /* Model.xcdatamodel */; };
 		18CB519715EBAF94009A8741 /* FacebookAccount.m in Sources */ = {isa = PBXBuildFile; fileRef = 18CB518C15EBAF94009A8741 /* FacebookAccount.m */; };
 		18CB519815EBAF94009A8741 /* RenrenAccount.m in Sources */ = {isa = PBXBuildFile; fileRef = 18CB518E15EBAF94009A8741 /* RenrenAccount.m */; };
 		18CB519915EBAF94009A8741 /* Account.m in Sources */ = {isa = PBXBuildFile; fileRef = 18CB519015EBAF94009A8741 /* Account.m */; };
@@ -43,6 +43,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		1806BD2515F8E82A005EEE12 /* Model 2.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "Model 2.xcdatamodel"; sourceTree = "<group>"; };
+		1806BD2615F8E82A005EEE12 /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
 		18CB515015EBAF41009A8741 /* BDReminderNew.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BDReminderNew.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		18CB515415EBAF41009A8741 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		18CB515615EBAF41009A8741 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -62,7 +64,6 @@
 		18CB517C15EBAF41009A8741 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		18CB517E15EBAF41009A8741 /* BDReminderNewTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BDReminderNewTests.h; sourceTree = "<group>"; };
 		18CB517F15EBAF41009A8741 /* BDReminderNewTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BDReminderNewTests.m; sourceTree = "<group>"; };
-		18CB518A15EBAF94009A8741 /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
 		18CB518B15EBAF94009A8741 /* FacebookAccount.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FacebookAccount.h; sourceTree = "<group>"; };
 		18CB518C15EBAF94009A8741 /* FacebookAccount.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FacebookAccount.m; sourceTree = "<group>"; };
 		18CB518D15EBAF94009A8741 /* RenrenAccount.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RenrenAccount.h; sourceTree = "<group>"; };
@@ -188,7 +189,7 @@
 		18CB518915EBAF6B009A8741 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				18CB518A15EBAF94009A8741 /* Model.xcdatamodel */,
+				1806BD2415F8E82A005EEE12 /* Model.xcdatamodeld */,
 				18CB518B15EBAF94009A8741 /* FacebookAccount.h */,
 				18CB518C15EBAF94009A8741 /* FacebookAccount.m */,
 				18CB518D15EBAF94009A8741 /* RenrenAccount.h */,
@@ -314,7 +315,6 @@
 				18CB516115EBAF41009A8741 /* main.m in Sources */,
 				18CB516515EBAF41009A8741 /* AppDelegate.m in Sources */,
 				18CB516B15EBAF41009A8741 /* ViewController.m in Sources */,
-				18CB519615EBAF94009A8741 /* Model.xcdatamodel in Sources */,
 				18CB519715EBAF94009A8741 /* FacebookAccount.m in Sources */,
 				18CB519815EBAF94009A8741 /* RenrenAccount.m in Sources */,
 				18CB519915EBAF94009A8741 /* Account.m in Sources */,
@@ -322,6 +322,7 @@
 				18CB519B15EBAF94009A8741 /* Contact.m in Sources */,
 				94E9AF8115EBBE2300940CF7 /* ContactsViewController.m in Sources */,
 				94408C4F15F528C200653E77 /* ContactCell.m in Sources */,
+				1806BD2715F8E82A005EEE12 /* Model.xcdatamodeld in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -508,6 +509,20 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		1806BD2415F8E82A005EEE12 /* Model.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				1806BD2515F8E82A005EEE12 /* Model 2.xcdatamodel */,
+				1806BD2615F8E82A005EEE12 /* Model.xcdatamodel */,
+			);
+			currentVersion = 1806BD2515F8E82A005EEE12 /* Model 2.xcdatamodel */;
+			path = Model.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 18CB514715EBAF41009A8741 /* Project object */;
 }

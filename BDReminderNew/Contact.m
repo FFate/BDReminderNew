@@ -9,19 +9,18 @@
 #import "Contact.h"
 #import "Account.h"
 #import "AggregatedContact.h"
-
+#import "AppDelegate.h"
 
 @implementation Contact
 
-@synthesize name;
-@synthesize birthday;
-@synthesize aggregatedContact;
-@synthesize account;
-
+@dynamic name;
+@dynamic birthday;
+@dynamic aggregatedContact;
+@dynamic account;
 
 -(Contact*) initWithName: (NSString*) name birthday: (NSDate*) birthday{
-    self = [super init];
-//    self = (Contact *) [NSEntityDescription insertNewObjectForEntityForName:@"Contact" inManagedObjectContext:managedObjectContext];
+    AppDelegate *appDelegate = (AppDelegate *) [[UIApplication sharedApplication] delegate];
+    self = (Contact *) [NSEntityDescription insertNewObjectForEntityForName:@"Contact" inManagedObjectContext:appDelegate.managedObjectContext];
     
     if (self) {
         self.name = name;
