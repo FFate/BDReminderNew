@@ -9,9 +9,12 @@
 #import "AppDelegate.h"
 #import "Contact.h"
 #import "ContactsViewController.h"
+#import "Account.h"
+#import "AccountsViewController.h"
 
 @implementation AppDelegate {
     NSMutableArray *contacts;
+    NSMutableArray *accounts;
 }
 
 - (NSManagedObjectModel *) managedObjectModel {
@@ -100,7 +103,11 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-    BOOL createContactsOnLoad = NO;
+    accounts = [NSMutableArray arrayWithCapacity:10];
+    Account *account = [[Account alloc] init];
+    
+    
+    BOOL createContactsOnLoad = YES;
     
     if (createContactsOnLoad) {
         // create contacts when application is loaded

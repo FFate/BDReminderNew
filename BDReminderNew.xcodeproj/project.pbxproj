@@ -28,6 +28,7 @@
 		18CB519B15EBAF94009A8741 /* Contact.m in Sources */ = {isa = PBXBuildFile; fileRef = 18CB519415EBAF94009A8741 /* Contact.m */; };
 		18CB519D15EBAFC2009A8741 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 18CB519C15EBAFC2009A8741 /* CoreData.framework */; };
 		94408C4F15F528C200653E77 /* ContactCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 94408C4E15F528C200653E77 /* ContactCell.m */; };
+		94C18D2C1605F7EF00ADF52F /* AccountsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 94C18D2B1605F7EF00ADF52F /* AccountsViewController.m */; };
 		94E9AF8115EBBE2300940CF7 /* ContactsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 94E9AF8015EBBE2300940CF7 /* ContactsViewController.m */; };
 		94E9AF8215EBBE2300940CF7 /* ContactsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 94E9AF8015EBBE2300940CF7 /* ContactsViewController.m */; };
 /* End PBXBuildFile section */
@@ -78,6 +79,8 @@
 		18CB519C15EBAFC2009A8741 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		94408C4D15F528C200653E77 /* ContactCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ContactCell.h; sourceTree = "<group>"; };
 		94408C4E15F528C200653E77 /* ContactCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ContactCell.m; sourceTree = "<group>"; };
+		94C18D2A1605F7EF00ADF52F /* AccountsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AccountsViewController.h; sourceTree = "<group>"; };
+		94C18D2B1605F7EF00ADF52F /* AccountsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AccountsViewController.m; sourceTree = "<group>"; };
 		94E9AF7F15EBBE2300940CF7 /* ContactsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ContactsViewController.h; sourceTree = "<group>"; };
 		94E9AF8015EBBE2300940CF7 /* ContactsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ContactsViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -145,6 +148,8 @@
 				18CB516315EBAF41009A8741 /* AppDelegate.h */,
 				18CB516415EBAF41009A8741 /* AppDelegate.m */,
 				18CB516615EBAF41009A8741 /* MainStoryboard.storyboard */,
+				94C18D2A1605F7EF00ADF52F /* AccountsViewController.h */,
+				94C18D2B1605F7EF00ADF52F /* AccountsViewController.m */,
 				94408C4D15F528C200653E77 /* ContactCell.h */,
 				94408C4E15F528C200653E77 /* ContactCell.m */,
 				18CB516915EBAF41009A8741 /* ViewController.h */,
@@ -323,6 +328,7 @@
 				94E9AF8115EBBE2300940CF7 /* ContactsViewController.m in Sources */,
 				94408C4F15F528C200653E77 /* ContactCell.m in Sources */,
 				1806BD2715F8E82A005EEE12 /* Model.xcdatamodeld in Sources */,
+				94C18D2C1605F7EF00ADF52F /* AccountsViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
