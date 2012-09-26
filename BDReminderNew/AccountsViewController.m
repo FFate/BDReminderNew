@@ -7,12 +7,33 @@
 //
 
 #import "AccountsViewController.h"
+#import "Account.h"
+#import "RenrenAccount.h"
+#import "FacebookAccount.h"
 
 @interface AccountsViewController ()
 
 @end
 
 @implementation AccountsViewController
+
+- (NSString *)accountName:(Account *) account{
+    if([account isKindOfClass:[RenrenAccount class]]){
+        return @"Renren";
+    }else if([account isKindOfClass:[FacebookAccount class]]){
+        return @"Facebook";
+    }
+    //add other account
+}
+
+- (UIImage *)iconOfAccount:(Account *) account{
+    if([account isKindOfClass:[RenrenAccount class]]){
+        return [UIImage imageNamed:@"RenrenIcon.png"];
+    }else if([account isKindOfClass:[FacebookAccount class]]){
+        return [UIImage imageNamed:@"Facebook.png"];
+    }
+    //add other account
+}
 
 - (id)initWithStyle:(UITableViewStyle)style
 {
@@ -52,22 +73,28 @@
 {
 #warning Potentially incomplete method implementation.
     // Return the number of sections.
-    return 0;
+    return 1;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
 #warning Incomplete method implementation.
     // Return the number of rows in the section.
-    return 0;
+    return [self.accounts count];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    static NSString *CellIdentifier = @"Cell";
+    static NSString *CellIdentifier = @"AccountCell";
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     
-    // Configure the cell...
+    Account *account = [self.accounts objectAtIndex:indexPath.row];
+    
+    UILabel *accountNameLabel = (UILabel *)[cell viewWithTag:100];
+    accountNameLabel.text = [self accountName:account];
+    
+    UIImageView * accountIcon = (UIImageView *)[cell viewWithTag:101];
+    accountIcon.image = [self iconOfAccount:account];
     
     return cell;
 }

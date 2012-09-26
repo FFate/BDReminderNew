@@ -11,6 +11,8 @@
 #import "ContactsViewController.h"
 #import "Account.h"
 #import "AccountsViewController.h"
+#import "RenrenAccount.h"
+#import "FacebookAccount.h"
 
 @implementation AppDelegate {
     NSMutableArray *contacts;
@@ -104,7 +106,12 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     accounts = [NSMutableArray arrayWithCapacity:10];
-    Account *account = [[Account alloc] init];
+    
+    RenrenAccount *renrenAccount = [[RenrenAccount alloc] init];
+    [accounts addObject:renrenAccount];
+    
+    FacebookAccount *facebookAccount = [[FacebookAccount alloc] init];
+    [accounts addObject:facebookAccount];
     
     
     BOOL createContactsOnLoad = YES;
@@ -155,6 +162,8 @@
     ContactsViewController *contactsViewController =
     [[navigationController viewControllers] objectAtIndex:0];
     contactsViewController.contacts = contacts;
+    //AccountsViewController *accountViewController =
+    //[[navigationController viewControllers] objectAtIndex:1];
     return YES;
 }
 							
