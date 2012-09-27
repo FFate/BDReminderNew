@@ -17,6 +17,9 @@
     if(self)
     {
         self.accountTag = 1;
+        if ([[Renren sharedRenren] isSessionValid]) {
+            self.accountStatus = ACCOUNT_VALID;
+        } else self.accountStatus = ACCOUNT_NOT_SET;
     }
     
     return self;

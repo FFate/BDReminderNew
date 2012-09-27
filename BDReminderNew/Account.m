@@ -21,8 +21,6 @@
     AppDelegate *appDelegate = (AppDelegate *) [[UIApplication sharedApplication] delegate];
     self = (Account *) [NSEntityDescription insertNewObjectForEntityForName:@"Account" inManagedObjectContext:appDelegate.managedObjectContext];
     
-    self.accountStatus = ACCOUNT_NOT_SET;
-    //self.accountTag = 0;
     return self;
 }
 

@@ -7,6 +7,7 @@
 //
 
 #import "AccountDetailsViewController.h"
+#import "RenrenAccount.h"
 
 @interface AccountDetailsViewController ()
 
@@ -16,6 +17,7 @@
 @synthesize accountTypeTextField;
 @synthesize loginButton;
 @synthesize accountIndex;
+@synthesize userNameLabel;
 
 //---------------------------BUTTON CLICK EVENT
 
@@ -44,6 +46,15 @@
     }
 }
 
+- (IBAction)updateUserInfo:(id)sender {
+    Account* myAccount = (Account *)[[AppDelegate delegate].accountsList objectAtIndex:accountIndex];
+    int accountTag = myAccount.accountTag;
+    
+    if (accountTag == RENREN_ACCOUNT) {
+        [self requestRenrenAccountInfo];
+    }
+}
+
 //------------------RENREN
 - (void) renrenDidLogin:(Renren *)renren {
     // this account is logged in
@@ -51,6 +62,9 @@
     account.accountStatus = ACCOUNT_VALID;
     [self updateAccountTypeAndInfoText:account];
     [self.loginButton setTitle:@"Log out" forState:UIControlStateNormal];
+    
+    // fetch new info
+    [self requestRenrenAccountInfo];
 }
 
 - (void) renrenDidLogout:(Renren *)renren {
@@ -73,7 +87,35 @@
     [alert show];
 }
 
+- (void) requestRenrenAccountInfo{
+    // sending request
+    ROUserInfoRequestParam* params = [[ROUserInfoRequestParam alloc] init];
+    [[Renren sharedRenren] getUsersInfo:params andDelegate:self];
+}
 
+- (void)renren: (Renren*)renren requestDidReturnResponse:(ROResponse *)response {
+    NSLog(@"requestDidReturn");
+    NSArray* returnArray = (NSArray*) response.rootObject;
+    ROUserResponseItem* user = (ROUserResponseItem*)[returnArray objectAtIndex:0];
+    
+//    RenrenAccount* account = (RenrenAccount*)[[AppDelegate delegate].accountsList objectAtIndex:accountIndex];
+    
+    NSString* name = [[NSString alloc] initWithString:user.name];
+    NSLog(@"Returned name is: %@", name);
+    Account* myAccount = (Account *)[[AppDelegate delegate].accountsList objectAtIndex:accountIndex];
+    myAccount.userName = name;
+    self.userNameLabel.text = name;
+}
+
+- (void)renren:(Renren *)renren requestFailWithError:(ROError*)error
+{
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Request Fail"
+                                                    message:@"Something Wrong"
+                                                   delegate:nil
+                                          cancelButtonTitle:@"OK"
+                                          otherButtonTitles:nil];
+    [alert show];
+}
 
 - (void) updateAccountTypeAndInfoText: (Account*)account {
     NSMutableString* accountTypeText = [[NSMutableString alloc] init];
@@ -83,6 +125,10 @@
     [accountTypeText appendString:@")"];
     
     self.accountTypeTextField.text = accountTypeText;
+}
+
+- (void) updateAccountInfo: (Account*)account {
+    self.userNameLabel.text = account.userName;
 }
 
 - (id)initWithStyle:(UITableViewStyle)style
@@ -109,6 +155,7 @@
 {
     [self setAccountTypeTextField:nil];
     [self setLoginButton:nil];
+    [self setUserNameLabel:nil];
     [super viewDidUnload];
     // Release any retained subviews of the main view.
     // e.g. self.myOutlet = nil;

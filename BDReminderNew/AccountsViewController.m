@@ -169,6 +169,7 @@
     
     // set account type and status
     [accountDetailsViewController updateAccountTypeAndInfoText:account];
+    [accountDetailsViewController updateAccountInfo:account];
     
     // set login button
     NSString* loginText;

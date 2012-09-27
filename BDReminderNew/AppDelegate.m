@@ -121,9 +121,9 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-    accounts = [self accountsList];
+    //accounts = [self accountsList];
     
-    BOOL createContactsOnLoad = YES;
+    BOOL createContactsOnLoad = NO;
     
     if (createContactsOnLoad) {
         // create contacts when application is loaded
@@ -144,7 +144,7 @@
         
         [contacts addObject:contact];
     } else {
-        // fetch from persistence store
+        // fetch Contact from persistence store
         NSFetchRequest *request = [[NSFetchRequest alloc] init];
         NSEntityDescription *entity = [NSEntityDescription entityForName:@"Contact" inManagedObjectContext:[self managedObjectContext]];
         if (entity == nil) {
@@ -162,6 +162,29 @@
         }        
         
         if (contacts == nil) {
+            NSLog(@"Failed to fetch contacts from persistent store");
+            abort();
+        }
+        
+        // fetch accounts from persistence store
+        // fetch Contact from persistence store
+        request = [[NSFetchRequest alloc] init];
+        entity = [NSEntityDescription entityForName:@"Account" inManagedObjectContext:[self managedObjectContext]];
+        if (entity == nil) {
+            NSLog(@"Account entity is nil, something wrong!");
+            abort();
+        }
+        [request setEntity:entity];
+        
+        error = nil;
+        accounts = [[[self managedObjectContext] executeFetchRequest:request error:&error] mutableCopy];
+        
+        if (error != nil ) {
+            NSLog(@"Unresolved error %@, %@", error, [error userInfo]);
+            abort();
+        }
+        
+        if (accounts == nil) {
             NSLog(@"Failed to fetch contacts from persistent store");
             abort();
         }
