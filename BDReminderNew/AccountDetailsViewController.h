@@ -8,12 +8,16 @@
 
 #import <UIKit/UIKit.h>
 #import "Account.h"
+#import "AccountsViewController.h"
 
 @interface AccountDetailsViewController : UITableViewController <RenrenDelegate>
 
 @property (weak, nonatomic) IBOutlet UITextField *accountTypeTextField;
 @property (retain, nonatomic) IBOutlet UIButton *loginButton;
-@property (nonatomic) int accountTag;
+@property (nonatomic) int accountIndex;
+
 - (IBAction)userLogin:(id)sender;
+
+- (void) updateAccountTypeAndInfoText: (Account*) account;
 
 @end

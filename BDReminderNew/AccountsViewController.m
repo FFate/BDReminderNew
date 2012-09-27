@@ -165,16 +165,10 @@
     //-------set information for account details view
     
     // set account tag
-    accountDetailsViewController.accountTag = account.accountTag;
+    accountDetailsViewController.accountIndex = indexPath.row;
     
     // set account type and status
-    NSMutableString* accountTypeText = [[NSMutableString alloc] init];
-    [accountTypeText appendString:[AccountsViewController accountNameByTag:account.accountTag]];
-    [accountTypeText appendString:@" ("];
-    [accountTypeText appendString:[AccountsViewController accountStatusText:account.accountStatus]];
-    [accountTypeText appendString:@")"];
-    
-    accountDetailsViewController.accountTypeTextField.text = accountTypeText;
+    [accountDetailsViewController updateAccountTypeAndInfoText:account];
     
     // set login button
     NSString* loginText;

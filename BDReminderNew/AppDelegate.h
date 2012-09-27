@@ -24,4 +24,6 @@
 
 - (NSMutableArray*) accountsList;
 
++ (AppDelegate*) delegate;
+
 @end

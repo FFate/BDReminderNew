@@ -15,12 +15,15 @@
 @implementation AccountDetailsViewController
 @synthesize accountTypeTextField;
 @synthesize loginButton;
-@synthesize accountTag;
+@synthesize accountIndex;
 
 //---------------------------BUTTON CLICK EVENT
 
 - (IBAction) userLogin: (id)sender {
     NSLog(@"Button clicked");
+    Account* myAccount = (Account *)[[AppDelegate delegate].accountsList objectAtIndex:accountIndex];
+    int accountTag = myAccount.accountTag;
+    
     if (accountTag == RENREN_ACCOUNT) {
         if (![[Renren sharedRenren] isSessionValid]) {
             // no valid session, log in then
@@ -39,6 +42,47 @@
                                               otherButtonTitles:nil];
         [alert show];
     }
+}
+
+//------------------RENREN
+- (void) renrenDidLogin:(Renren *)renren {
+    // this account is logged in
+    Account* account = (Account*)[[AppDelegate delegate].accountsList objectAtIndex:accountIndex];
+    account.accountStatus = ACCOUNT_VALID;
+    [self updateAccountTypeAndInfoText:account];
+    [self.loginButton setTitle:@"Log out" forState:UIControlStateNormal];
+}
+
+- (void) renrenDidLogout:(Renren *)renren {
+    // this account is logged out
+    Account* account = (Account*)[[AppDelegate delegate].accountsList objectAtIndex:accountIndex];
+    account.accountStatus = ACCOUNT_NOT_SET;
+    [self updateAccountTypeAndInfoText:account];
+    [self.loginButton setTitle:@"Log in" forState:UIControlStateNormal];
+}
+
+- (void) renren:(Renren *)renren loginFailWithError:(ROError *)error {
+    Account* account = (Account*)[[AppDelegate delegate].accountsList objectAtIndex:accountIndex];
+    account.accountStatus = ACCOUNT_AUTHENTICATION_FAILED;
+    [self updateAccountTypeAndInfoText:account];
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Failed Login Attempt"
+                                                    message:@"Authentication to Renren failed. "
+                                                   delegate:nil
+                                          cancelButtonTitle:@"OK"
+                                          otherButtonTitles:nil];
+    [alert show];
+}
+
+
+
+- (void) updateAccountTypeAndInfoText: (Account*)account {
+    NSMutableString* accountTypeText = [[NSMutableString alloc] init];
+    [accountTypeText appendString:[AccountsViewController accountNameByTag:account.accountTag]];
+    [accountTypeText appendString:@" ("];
+    [accountTypeText appendString:[AccountsViewController accountStatusText:account.accountStatus]];
+    [accountTypeText appendString:@")"];
+    
+    self.accountTypeTextField.text = accountTypeText;
 }
 
 - (id)initWithStyle:(UITableViewStyle)style

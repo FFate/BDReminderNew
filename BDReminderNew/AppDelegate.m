@@ -19,6 +19,10 @@
     NSMutableArray *accounts;
 }
 
++ (AppDelegate*) delegate {
+    return (AppDelegate *) [[UIApplication sharedApplication] delegate];
+}
+
 - (NSManagedObjectModel *) managedObjectModel {
     if (managedObjectModel_ != nil) {
         return managedObjectModel_;
