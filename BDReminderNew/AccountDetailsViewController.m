@@ -1,41 +1,19 @@
 //
-//  AccountsViewController.m
+//  AccountDetailsViewController.m
 //  BDReminderNew
 //
-//  Created by Wang Tian on 12-9-16.
-//  Copyright (c) 2012年 qinsoon. All rights reserved.
+//  Created by qinsoon on 27/09/12.
+//  Copyright (c) 2012 qinsoon. All rights reserved.
 //
 
-#import "AccountsViewController.h"
-#import "Account.h"
-#import "RenrenAccount.h"
-#import "FacebookAccount.h"
-#import "AccountCell.h"
 #import "AccountDetailsViewController.h"
 
-@interface AccountsViewController ()
+@interface AccountDetailsViewController ()
 
 @end
 
-@implementation AccountsViewController
-
-+ (NSString *)accountNameByTag:(int) accountTag{
-    switch (accountTag){
-        case 1: return @"Renren";
-        case 2: return @"Facebook";
-        //add other account
-    }
-    return nil;
-}
-
-+ (UIImage *)iconOfAccountByTag:(int) accountTag{
-    switch (accountTag) {
-        case 1: return [UIImage imageNamed:@"Renren-icon.png"];
-        case 2: return [UIImage imageNamed:@"Facebook-icon.png"];
-        //add other account
-    }
-    return nil;
-}
+@implementation AccountDetailsViewController
+@synthesize accountTypeTextField;
 
 - (id)initWithStyle:(UITableViewStyle)style
 {
@@ -49,11 +27,8 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    NSLog(@"AccountDetailsView loaded");
     
-    AppDelegate *appDelegate = (AppDelegate *) [[UIApplication sharedApplication] delegate];
-    self.accounts = [appDelegate accountsList];
-    
-
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
  
@@ -63,6 +38,8 @@
 
 - (void)viewDidUnload
 {
+    [self setAccountTypeTextField:nil];
+    [self setAccountTypeTextField:nil];
     [super viewDidUnload];
     // Release any retained subviews of the main view.
     // e.g. self.myOutlet = nil;
@@ -79,26 +56,22 @@
 {
 #warning Potentially incomplete method implementation.
     // Return the number of sections.
-    return 1;
+    return 0;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
 #warning Incomplete method implementation.
     // Return the number of rows in the section.
-    return [self.accounts count];
+    return 0;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    static NSString *CellIdentifier = @"AccountCell";
-    AccountCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+    static NSString *CellIdentifier = @"Cell";
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     
-    Account *account = [self.accounts objectAtIndex:indexPath.row];
-    
-    cell.accountNameLabel.text = [AccountsViewController accountNameByTag:account.accountTag];
-    cell.accountIcon.image = [AccountsViewController iconOfAccountByTag:account.accountTag];
-    cell.accountTag = account.accountTag;
+    // Configure the cell...
     
     return cell;
 }
@@ -146,13 +119,13 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    AccountDetailsViewController *accountDetailsViewController = (AccountDetailsViewController*) self.navigationController.visibleViewController;
-    AccountCell* accountCell = (AccountCell*) [self.tableView cellForRowAtIndexPath:indexPath];
-
-    // set information for account details view
-    accountDetailsViewController.accountTypeTextField.text = [AccountsViewController accountNameByTag:accountCell.accountTag];
-    
-    NSLog(@"didSelectRowAtIndex");
+    // Navigation logic may go here. Create and push another view controller.
+    /*
+     <#DetailViewController#> *detailViewController = [[<#DetailViewController#> alloc] initWithNibName:@"<#Nib name#>" bundle:nil];
+     // ...
+     // Pass the selected object to the new view controller.
+     [self.navigationController pushViewController:detailViewController animated:YES];
+     */
 }
 
 @end
