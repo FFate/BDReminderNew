@@ -121,8 +121,6 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-    //accounts = [self accountsList];
-    
     BOOL createContactsOnLoad = NO;
     
     if (createContactsOnLoad) {
@@ -184,9 +182,9 @@
             abort();
         }
         
-        if (accounts == nil) {
-            NSLog(@"Failed to fetch contacts from persistent store");
-            abort();
+        if (accounts == nil || [accounts count] == 0) {
+            NSLog(@"Failed to fetch accounts from persistent store");
+            accounts = [self accountsList];
         }
     }
         
