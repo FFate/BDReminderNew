@@ -10,13 +10,22 @@
 #import <CoreData/CoreData.h>
 #import "AccountProtocol.h"
 
+typedef enum {
+    ACCOUNT_OUT_OF_DATE,
+    ACCOUNT_AUTHENTICATION_FAILED,
+    
+    ACCOUNT_VALID,
+    
+    ACCOUNT_NOT_SET
+} AccountStatus;
+
 @class Contact;
 
 @interface Account : NSManagedObject <AccountProtocol>
 
-@property (nonatomic, retain) NSString * password;
 @property (nonatomic, retain) NSString * userName;
 @property (nonatomic, retain) NSSet *contact;
+@property AccountStatus accountStatus;
 
 @end
 

@@ -103,16 +103,21 @@
     }
 }
 
-- (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
-{
-    accounts = [NSMutableArray arrayWithCapacity:10];
+- (NSMutableArray*) accountsList {
+    NSMutableArray* accountsList = [NSMutableArray arrayWithCapacity:10];
     
     RenrenAccount *renrenAccount = [[RenrenAccount alloc] init];
-    [accounts addObject:renrenAccount];
+    [accountsList  addObject:renrenAccount];
     
     FacebookAccount *facebookAccount = [[FacebookAccount alloc] init];
-    [accounts addObject:facebookAccount];
+    [accountsList addObject:facebookAccount];
     
+    return accountsList;
+}
+
+- (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
+{
+    accounts = [self accountsList];
     
     BOOL createContactsOnLoad = YES;
     

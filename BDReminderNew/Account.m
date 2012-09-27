@@ -12,27 +12,15 @@
 
 @implementation Account
 
-@dynamic password;
 @dynamic userName;
 @dynamic contact;
-
-
--(Account*) initWithUserName: (NSString*) userName password: (NSString*) password{
-    AppDelegate *appDelegate = (AppDelegate *) [[UIApplication sharedApplication] delegate];
-    self = (Account *) [NSEntityDescription insertNewObjectForEntityForName:@"Account" inManagedObjectContext:appDelegate.managedObjectContext];
-    
-    if (self) {
-        self.userName = userName;
-        self.password = password;
-    }
-    
-    return self;
-}
+@synthesize accountStatus;
 
 -(Account *) init{
-    
     AppDelegate *appDelegate = (AppDelegate *) [[UIApplication sharedApplication] delegate];
     self = (Account *) [NSEntityDescription insertNewObjectForEntityForName:@"Account" inManagedObjectContext:appDelegate.managedObjectContext];
+    
+    self.accountStatus = ACCOUNT_NOT_SET;
 
     return self;
 }

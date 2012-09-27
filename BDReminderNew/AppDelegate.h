@@ -22,4 +22,6 @@
 - (NSURL *)applicationDocumentsDirectory;
 - (void)saveContext;
 
+- (NSMutableArray*) accountsList;
+
 @end

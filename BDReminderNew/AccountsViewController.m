@@ -47,6 +47,9 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+    AppDelegate *appDelegate = (AppDelegate *) [[UIApplication sharedApplication] delegate];
+    self.accounts = [appDelegate accountsList];
 
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
