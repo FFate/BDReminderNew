@@ -40,13 +40,13 @@
 + (NSString*)accountStatusText:(int)accountStatus {
     switch (accountStatus) {
         case ACCOUNT_VALID:
-            return @"Logged";
+            return @"Logged in";
         case ACCOUNT_OUT_OF_DATE:
             return @"Session out of date";
         case ACCOUNT_AUTHENTICATION_FAILED:
             return @"Authentication failed";
         case ACCOUNT_NOT_SET:
-            return @"Please log in";
+            return @"Not set yet";
         default:
             return nil;
     }
@@ -92,14 +92,12 @@
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-#warning Potentially incomplete method implementation.
     // Return the number of sections.
     return 1;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-#warning Incomplete method implementation.
     // Return the number of rows in the section.
     return [self.accounts count];
 }
@@ -162,9 +160,28 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     AccountDetailsViewController *accountDetailsViewController = (AccountDetailsViewController*) self.navigationController.visibleViewController;
+    Account* account = (Account*)[self.accounts objectAtIndex:indexPath.row];
     
-    // set information for account details view
-    accountDetailsViewController.accountTypeTextField.text = [AccountsViewController accountNameByTag:[(Account*)[self.accounts objectAtIndex:indexPath.row] accountTag]];
+    //-------set information for account details view
+    
+    // set account tag
+    accountDetailsViewController.accountTag = account.accountTag;
+    
+    // set account type and status
+    NSMutableString* accountTypeText = [[NSMutableString alloc] init];
+    [accountTypeText appendString:[AccountsViewController accountNameByTag:account.accountTag]];
+    [accountTypeText appendString:@" ("];
+    [accountTypeText appendString:[AccountsViewController accountStatusText:account.accountStatus]];
+    [accountTypeText appendString:@")"];
+    
+    accountDetailsViewController.accountTypeTextField.text = accountTypeText;
+    
+    // set login button
+    NSString* loginText;
+    if (account.accountStatus == ACCOUNT_VALID) {
+        loginText = @"Log out";
+    } else loginText = @"Log in";
+    [accountDetailsViewController.loginButton setTitle:loginText forState:UIControlStateNormal];
 }
 
 @end

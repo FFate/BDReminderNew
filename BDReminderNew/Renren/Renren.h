@@ -19,8 +19,8 @@
  * of your own application registeried on http://app.renren.com/developers
  * before any using of API methods.
  */
-#define kAPP_ID     @"YOUR APP ID"
-#define kAPI_Key    @"YOUR API KEY"
+#define kAPP_ID     @"213320"
+#define kAPI_Key    @"6925c1de84b94cb69de11c5ee4639998"
 
 
 @protocol RenrenDelegate;

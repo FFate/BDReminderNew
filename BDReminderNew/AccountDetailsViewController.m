@@ -14,6 +14,32 @@
 
 @implementation AccountDetailsViewController
 @synthesize accountTypeTextField;
+@synthesize loginButton;
+@synthesize accountTag;
+
+//---------------------------BUTTON CLICK EVENT
+
+- (IBAction) userLogin: (id)sender {
+    NSLog(@"Button clicked");
+    if (accountTag == RENREN_ACCOUNT) {
+        if (![[Renren sharedRenren] isSessionValid]) {
+            // no valid session, log in then
+            [[Renren sharedRenren] authorizationWithPermisson:nil andDelegate:self];
+        } else {
+            [[Renren sharedRenren] logout:self];
+        }
+    }
+    
+    else {
+        // unrecognised account tag
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Unrecognised Account Type"
+                                                        message:@"Something wrong happened!"
+                                                       delegate:nil
+                                              cancelButtonTitle:@"OK"
+                                              otherButtonTitles:nil];
+        [alert show];
+    }
+}
 
 - (id)initWithStyle:(UITableViewStyle)style
 {
@@ -38,6 +64,7 @@
 - (void)viewDidUnload
 {
     [self setAccountTypeTextField:nil];
+    [self setLoginButton:nil];
     [super viewDidUnload];
     // Release any retained subviews of the main view.
     // e.g. self.myOutlet = nil;
@@ -52,14 +79,12 @@
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-#warning Potentially incomplete method implementation.
     // Return the number of sections.
     return 2;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-#warning Incomplete method implementation.
     // Return the number of rows in the section.
     if (section == 0) {
         return 1;

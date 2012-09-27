@@ -10,6 +10,9 @@
 #import <CoreData/CoreData.h>
 #import "AccountProtocol.h"
 
+#define RENREN_ACCOUNT 1
+#define FACEBOOK_ACCOUNT 2
+
 typedef enum {
     ACCOUNT_OUT_OF_DATE,
     ACCOUNT_AUTHENTICATION_FAILED,
