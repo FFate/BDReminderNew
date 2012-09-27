@@ -167,8 +167,7 @@
     ContactsViewController *contactsViewController =
     [[navigationController viewControllers] objectAtIndex:0];
     contactsViewController.contacts = contacts;
-    //AccountsViewController *accountViewController =
-    //[[navigationController viewControllers] objectAtIndex:1];
+    
     return YES;
 }
 							

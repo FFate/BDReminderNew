@@ -11,5 +11,14 @@
 
 @implementation FacebookAccount
 
-
+-(FacebookAccount *) init{
+    self =  [super init];
+    
+    if(self)
+    {
+        self.accountTag = 2;
+    }
+    
+    return self;
+}
 @end

@@ -11,5 +11,15 @@
 
 @implementation RenrenAccount
 
+-(RenrenAccount *) init{
+    self =  [super init];
+    
+    if(self)
+    {
+        self.accountTag = 1;
+    }
+    
+    return self;
+}
 
 @end

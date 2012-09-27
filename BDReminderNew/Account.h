@@ -25,6 +25,8 @@ typedef enum {
 
 @property (nonatomic, retain) NSString * userName;
 @property (nonatomic, retain) NSSet *contact;
+@property (nonatomic, assign) int accountTag;
+
 @property AccountStatus accountStatus;
 
 @end

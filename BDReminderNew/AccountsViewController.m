@@ -17,22 +17,22 @@
 
 @implementation AccountsViewController
 
-- (NSString *)accountName:(Account *) account{
-    if([account isKindOfClass:[RenrenAccount class]]){
-        return @"Renren";
-    }else if([account isKindOfClass:[FacebookAccount class]]){
-        return @"Facebook";
+- (NSString *)accountName:(int) accountTag{
+    switch (accountTag){
+        case 1: return @"Renren";
+        case 2: return @"Facebook";
+        //add other account
     }
-    //add other account
+    return nil;
 }
 
-- (UIImage *)iconOfAccount:(Account *) account{
-    if([account isKindOfClass:[RenrenAccount class]]){
-        return [UIImage imageNamed:@"RenrenIcon.png"];
-    }else if([account isKindOfClass:[FacebookAccount class]]){
-        return [UIImage imageNamed:@"Facebook.png"];
+- (UIImage *)iconOfAccount:(int) accountTag{
+    switch (accountTag) {
+        case 1: return [UIImage imageNamed:@"Renren-icon.png"];
+        case 2: return [UIImage imageNamed:@"Facebook－icon.png"];
+        //add other account
     }
-    //add other account
+    return nil;
 }
 
 - (id)initWithStyle:(UITableViewStyle)style
@@ -50,6 +50,7 @@
     
     AppDelegate *appDelegate = (AppDelegate *) [[UIApplication sharedApplication] delegate];
     self.accounts = [appDelegate accountsList];
+    
 
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
@@ -94,10 +95,24 @@
     Account *account = [self.accounts objectAtIndex:indexPath.row];
     
     UILabel *accountNameLabel = (UILabel *)[cell viewWithTag:100];
-    accountNameLabel.text = [self accountName:account];
+    //accountNameLabel.text = [self accountName:account.accountTag];
+    
+    if(account.accountTag ==1){
+        accountNameLabel.text = @"Renren";
+    }else if(account.accountTag == 2){
+         accountNameLabel.text = @"Facebook";
+    }
+
+    
     
     UIImageView * accountIcon = (UIImageView *)[cell viewWithTag:101];
-    accountIcon.image = [self iconOfAccount:account];
+    //accountIcon.image = [self iconOfAccount:account.accountTag];
+    
+    if(account.accountTag ==1){
+        accountIcon.image = [UIImage imageNamed:@"Renren-icon.png"];
+    }else if(account.accountTag == 2){
+        accountIcon.image = [UIImage imageNamed:@"Facebook-icon.png"];
+    }
     
     return cell;
 }

@@ -98,10 +98,12 @@
 		18F74B0E1613E8D80019970B /* ROPublishPhotoDialogModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 18F74AC71613E8D80019970B /* ROPublishPhotoDialogModel.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		18F74B0F1613E8D80019970B /* ROPublishPhotoInternal.m in Sources */ = {isa = PBXBuildFile; fileRef = 18F74AC91613E8D80019970B /* ROPublishPhotoInternal.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		18F74B111613E9050019970B /* libsqlite3.0.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 18F74B101613E9050019970B /* libsqlite3.0.dylib */; };
+		941DC2AE1614399900BC48AB /* Facebook-icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 941DC2AD1614399900BC48AB /* Facebook-icon.png */; };
 		94408C4F15F528C200653E77 /* ContactCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 94408C4E15F528C200653E77 /* ContactCell.m */; };
 		94C18D2C1605F7EF00ADF52F /* AccountsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 94C18D2B1605F7EF00ADF52F /* AccountsViewController.m */; };
 		94E9AF8115EBBE2300940CF7 /* ContactsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 94E9AF8015EBBE2300940CF7 /* ContactsViewController.m */; };
 		94E9AF8215EBBE2300940CF7 /* ContactsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 94E9AF8015EBBE2300940CF7 /* ContactsViewController.m */; };
+		94F40E671614391B00C2A23C /* Renren-icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 94F40E661614391B00C2A23C /* Renren-icon.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -271,12 +273,14 @@
 		18F74AC81613E8D80019970B /* ROPublishPhotoInternal.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ROPublishPhotoInternal.h; sourceTree = "<group>"; };
 		18F74AC91613E8D80019970B /* ROPublishPhotoInternal.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ROPublishPhotoInternal.m; sourceTree = "<group>"; };
 		18F74B101613E9050019970B /* libsqlite3.0.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.0.dylib; path = usr/lib/libsqlite3.0.dylib; sourceTree = SDKROOT; };
+		941DC2AD1614399900BC48AB /* Facebook-icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Facebook-icon.png"; sourceTree = "<group>"; };
 		94408C4D15F528C200653E77 /* ContactCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ContactCell.h; sourceTree = "<group>"; };
 		94408C4E15F528C200653E77 /* ContactCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ContactCell.m; sourceTree = "<group>"; };
 		94C18D2A1605F7EF00ADF52F /* AccountsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AccountsViewController.h; sourceTree = "<group>"; };
 		94C18D2B1605F7EF00ADF52F /* AccountsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AccountsViewController.m; sourceTree = "<group>"; };
 		94E9AF7F15EBBE2300940CF7 /* ContactsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ContactsViewController.h; sourceTree = "<group>"; };
 		94E9AF8015EBBE2300940CF7 /* ContactsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ContactsViewController.m; sourceTree = "<group>"; };
+		94F40E661614391B00C2A23C /* Renren-icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Renren-icon.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -308,6 +312,7 @@
 		18CB514515EBAF41009A8741 = {
 			isa = PBXGroup;
 			children = (
+				94F40E651614391B00C2A23C /* image */,
 				18CB515A15EBAF41009A8741 /* BDReminderNew */,
 				18CB517815EBAF41009A8741 /* BDReminderNewTests */,
 				18CB515315EBAF41009A8741 /* Frameworks */,
@@ -672,6 +677,16 @@
 			name = Renren;
 			sourceTree = "<group>";
 		};
+		94F40E651614391B00C2A23C /* image */ = {
+			isa = PBXGroup;
+			children = (
+				941DC2AD1614399900BC48AB /* Facebook-icon.png */,
+				94F40E661614391B00C2A23C /* Renren-icon.png */,
+			);
+			name = image;
+			path = BDReminderNew/image;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -766,6 +781,8 @@
 				18F74AED1613E8D80019970B /* small-button-normal.png in Resources */,
 				18F74AEE1613E8D80019970B /* small-button-normal@2x.png in Resources */,
 				18F74B081613E8D80019970B /* ROCheckOrderCell.xib in Resources */,
+				94F40E671614391B00C2A23C /* Renren-icon.png in Resources */,
+				941DC2AE1614399900BC48AB /* Facebook-icon.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
