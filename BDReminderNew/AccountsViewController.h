@@ -14,5 +14,6 @@
 
 + (NSString *)accountNameByTag:(int) accountTag;
 + (UIImage *)iconOfAccountByTag:(int) accountTag;
++ (NSString *)accountStatusText:(int) accountStatus;
 
 @end

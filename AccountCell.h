@@ -12,6 +12,6 @@
 
 @property (nonatomic, strong) IBOutlet UILabel *accountNameLabel;
 @property (nonatomic, strong) IBOutlet UIImageView *accountIcon;
-@property (nonatomic) int accountTag;
+@property (nonatomic, strong) IBOutlet UILabel *accountStatusLabel;
 
 @end

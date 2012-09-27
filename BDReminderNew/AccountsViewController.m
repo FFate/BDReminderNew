@@ -37,6 +37,21 @@
     return nil;
 }
 
++ (NSString*)accountStatusText:(int)accountStatus {
+    switch (accountStatus) {
+        case ACCOUNT_VALID:
+            return @"Logged";
+        case ACCOUNT_OUT_OF_DATE:
+            return @"Session out of date";
+        case ACCOUNT_AUTHENTICATION_FAILED:
+            return @"Authentication failed";
+        case ACCOUNT_NOT_SET:
+            return @"Please log in";
+        default:
+            return nil;
+    }
+}
+
 - (id)initWithStyle:(UITableViewStyle)style
 {
     self = [super initWithStyle:style];
@@ -98,7 +113,7 @@
     
     cell.accountNameLabel.text = [AccountsViewController accountNameByTag:account.accountTag];
     cell.accountIcon.image = [AccountsViewController iconOfAccountByTag:account.accountTag];
-    cell.accountTag = account.accountTag;
+    cell.accountStatusLabel.text = [AccountsViewController accountStatusText:account.accountStatus];
     
     return cell;
 }
@@ -147,12 +162,9 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     AccountDetailsViewController *accountDetailsViewController = (AccountDetailsViewController*) self.navigationController.visibleViewController;
-    AccountCell* accountCell = (AccountCell*) [self.tableView cellForRowAtIndexPath:indexPath];
-
-    // set information for account details view
-    accountDetailsViewController.accountTypeTextField.text = [AccountsViewController accountNameByTag:accountCell.accountTag];
     
-    NSLog(@"didSelectRowAtIndex");
+    // set information for account details view
+    accountDetailsViewController.accountTypeTextField.text = [AccountsViewController accountNameByTag:[(Account*)[self.accounts objectAtIndex:indexPath.row] accountTag]];
 }
 
 @end

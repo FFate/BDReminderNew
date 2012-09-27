@@ -68,9 +68,6 @@
                                     <segue destination="BPV-mK-B3W" kind="push" id="yIx-d0-Nug"/>
                                 </connections>
                             </button>
-                            <connections>
-                                <segue destination="BPV-mK-B3W" kind="modal" id="wp0-af-ZNo"/>
-                            </connections>
                         </barButtonItem>
                     </navigationItem>
                 </tableViewController>
@@ -98,7 +95,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bpj-9I-h1D" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <tableViewController id="BPV-mK-B3W" customClass="AccountsViewController" sceneMemberID="viewController">
                     <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="53" sectionHeaderHeight="22" sectionFooterHeight="22" id="WaT-SA-9DD">
-                        <rect key="frame" x="0.0" y="20" width="320" height="460"/>
+                        <rect key="frame" x="0.0" y="64" width="320" height="416"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
@@ -110,7 +107,7 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" tag="100" contentMode="left" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" id="CHx-Zi-5Bx">
-                                            <rect key="frame" x="61" y="16" width="198" height="21"/>
+                                            <rect key="frame" x="61" y="4" width="120" height="21"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <fontDescription key="fontDescription" type="boldSystem" pointSize="26"/>
                                             <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
@@ -120,12 +117,20 @@
                                             <rect key="frame" x="7" y="4" width="46" height="46"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         </imageView>
+                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" id="U0t-00-HvA">
+                                            <rect key="frame" x="61" y="29" width="226" height="21"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        </label>
                                     </subviews>
                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 </view>
                                 <connections>
                                     <outlet property="accountIcon" destination="KgW-Dj-vid" id="Ygq-NK-LZc"/>
                                     <outlet property="accountNameLabel" destination="CHx-Zi-5Bx" id="dGp-Wi-q7E"/>
+                                    <outlet property="accountStatusLabel" destination="U0t-00-HvA" id="Ix0-uN-HOT"/>
                                     <segue destination="R1p-wl-WWt" kind="push" identifier="" id="IPR-Wr-ZSx"/>
                                 </connections>
                             </tableViewCell>
@@ -146,7 +151,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3Go-KL-sr0" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <tableViewController id="R1p-wl-WWt" customClass="AccountDetailsViewController" sceneMemberID="viewController">
                     <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="grouped" separatorStyle="singleLineEtched" rowHeight="44" sectionHeaderHeight="10" sectionFooterHeight="10" id="jfT-YD-8db">
-                        <rect key="frame" x="0.0" y="20" width="320" height="460"/>
+                        <rect key="frame" x="0.0" y="64" width="320" height="416"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                         <sections>
@@ -223,6 +228,7 @@
             <relationships>
                 <relationship kind="outlet" name="accountIcon" candidateClass="UIImageView"/>
                 <relationship kind="outlet" name="accountNameLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="accountStatusLabel" candidateClass="UILabel"/>
             </relationships>
         </class>
         <class className="AccountDetailsViewController" superclassName="UITableViewController">
@@ -251,7 +257,4 @@
         <simulatedOrientationMetrics key="orientation"/>
         <simulatedScreenMetrics key="destination"/>
     </simulatedMetricsContainer>
-    <inferredMetricsTieBreakers>
-        <segue reference="wp0-af-ZNo"/>
-    </inferredMetricsTieBreakers>
 </document>
