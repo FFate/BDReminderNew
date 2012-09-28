@@ -14,107 +14,17 @@
 @end
 
 @implementation AccountDetailsViewController
-@synthesize accountTypeTextField;
 @synthesize loginButton;
 @synthesize accountIndex;
 @synthesize userNameLabel;
-
-//---------------------------BUTTON CLICK EVENT
+@synthesize accountTypeLabel;
 
 - (IBAction) userLogin: (id)sender {
-    NSLog(@"Button clicked");
-    Account* myAccount = (Account *)[[AppDelegate delegate].accountsList objectAtIndex:accountIndex];
-    int accountTag = myAccount.accountTag;
-    
-    if (accountTag == RENREN_ACCOUNT) {
-        if (![[Renren sharedRenren] isSessionValid]) {
-            // no valid session, log in then
-            [[Renren sharedRenren] authorizationWithPermisson:nil andDelegate:self];
-        } else {
-            [[Renren sharedRenren] logout:self];
-        }
-    }
-    
-    else {
-        // unrecognised account tag
-        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Unrecognised Account Type"
-                                                        message:@"Something wrong happened!"
-                                                       delegate:nil
-                                              cancelButtonTitle:@"OK"
-                                              otherButtonTitles:nil];
-        [alert show];
-    }
+    mustOverride();
 }
 
 - (IBAction)updateUserInfo:(id)sender {
-    Account* myAccount = (Account *)[[AppDelegate delegate].accountsList objectAtIndex:accountIndex];
-    int accountTag = myAccount.accountTag;
-    
-    if (accountTag == RENREN_ACCOUNT) {
-        [self requestRenrenAccountInfo];
-    }
-}
-
-//------------------RENREN
-- (void) renrenDidLogin:(Renren *)renren {
-    // this account is logged in
-    Account* account = (Account*)[[AppDelegate delegate].accountsList objectAtIndex:accountIndex];
-    account.accountStatus = ACCOUNT_VALID;
-    [self updateAccountTypeAndInfoText:account];
-    [self.loginButton setTitle:@"Log out" forState:UIControlStateNormal];
-    
-    // fetch new info
-    [self requestRenrenAccountInfo];
-}
-
-- (void) renrenDidLogout:(Renren *)renren {
-    // this account is logged out
-    Account* account = (Account*)[[AppDelegate delegate].accountsList objectAtIndex:accountIndex];
-    account.accountStatus = ACCOUNT_NOT_SET;
-    [self updateAccountTypeAndInfoText:account];
-    [self.loginButton setTitle:@"Log in" forState:UIControlStateNormal];
-}
-
-- (void) renren:(Renren *)renren loginFailWithError:(ROError *)error {
-    Account* account = (Account*)[[AppDelegate delegate].accountsList objectAtIndex:accountIndex];
-    account.accountStatus = ACCOUNT_AUTHENTICATION_FAILED;
-    [self updateAccountTypeAndInfoText:account];
-    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Failed Login Attempt"
-                                                    message:@"Authentication to Renren failed. "
-                                                   delegate:nil
-                                          cancelButtonTitle:@"OK"
-                                          otherButtonTitles:nil];
-    [alert show];
-}
-
-- (void) requestRenrenAccountInfo{
-    // sending request
-    ROUserInfoRequestParam* params = [[ROUserInfoRequestParam alloc] init];
-    [[Renren sharedRenren] getUsersInfo:params andDelegate:self];
-}
-
-- (void)renren: (Renren*)renren requestDidReturnResponse:(ROResponse *)response {
-    NSLog(@"requestDidReturn");
-    NSArray* returnArray = (NSArray*) response.rootObject;
-    ROUserResponseItem* user = (ROUserResponseItem*)[returnArray objectAtIndex:0];
-    
-//    RenrenAccount* account = (RenrenAccount*)[[AppDelegate delegate].accountsList objectAtIndex:accountIndex];
-    
-    NSString* name = [[NSString alloc] initWithString:user.name];
-    NSLog(@"Returned name is: %@", name);
-    Account* myAccount = (Account *)[[AppDelegate delegate].accountsList objectAtIndex:accountIndex];
-    myAccount.userName = name;
-    self.userNameLabel.text = name;
-}
-
-- (void)renren:(Renren *)renren requestFailWithError:(ROError*)error
-{
-    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Request Fail"
-                                                    message:@"Something Wrong"
-                                                   delegate:nil
-                                          cancelButtonTitle:@"OK"
-                                          otherButtonTitles:nil];
-    [alert show];
+    mustOverride();
 }
 
 - (void) updateAccountTypeAndInfoText: (Account*)account {
@@ -124,11 +34,15 @@
     [accountTypeText appendString:[AccountsViewController accountStatusText:account.accountStatus]];
     [accountTypeText appendString:@")"];
     
-    self.accountTypeTextField.text = accountTypeText;
+    self.accountTypeLabel.text = accountTypeText;
 }
 
 - (void) updateAccountInfo: (Account*)account {
     self.userNameLabel.text = account.userName;
+}
+
+- (void) updateAccountStatus: (Account*) account {
+    [self updateAccountTypeAndInfoText:account];
 }
 
 - (id)initWithStyle:(UITableViewStyle)style
@@ -153,9 +67,9 @@
 
 - (void)viewDidUnload
 {
-    [self setAccountTypeTextField:nil];
     [self setLoginButton:nil];
     [self setUserNameLabel:nil];
+    [self setAccountTypeLabel:nil];
     [super viewDidUnload];
     // Release any retained subviews of the main view.
     // e.g. self.myOutlet = nil;
@@ -171,7 +85,7 @@
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
     // Return the number of sections.
-    return 2;
+    return 1;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
@@ -179,8 +93,6 @@
     // Return the number of rows in the section.
     if (section == 0) {
         return 1;
-    } else if (section == 1) {
-        return 3;
     }
     return 0;
 }

@@ -11,6 +11,8 @@
 		18850605161453510031398D /* AccountDetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 18850604161453510031398D /* AccountDetailsViewController.m */; };
 		188A20B51615DA8A0053641A /* AccountCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 188A20B41615DA890053641A /* AccountCell.m */; };
 		188A20B91615E0B80053641A /* RenrenAccountDetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 188A20B81615E0B80053641A /* RenrenAccountDetailsViewController.m */; };
+		188A20C11615F4910053641A /* MyRenrenLoginDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 188A20C01615F4910053641A /* MyRenrenLoginDelegate.m */; };
+		188A20C41615FA260053641A /* MyRenrenGetUserInfoDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 188A20C31615FA260053641A /* MyRenrenGetUserInfoDelegate.m */; };
 		18CB515515EBAF41009A8741 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 18CB515415EBAF41009A8741 /* UIKit.framework */; };
 		18CB515715EBAF41009A8741 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 18CB515615EBAF41009A8741 /* Foundation.framework */; };
 		18CB515915EBAF41009A8741 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 18CB515815EBAF41009A8741 /* CoreGraphics.framework */; };
@@ -105,7 +107,6 @@
 		94408C4F15F528C200653E77 /* ContactCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 94408C4E15F528C200653E77 /* ContactCell.m */; };
 		94C18D2C1605F7EF00ADF52F /* AccountsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 94C18D2B1605F7EF00ADF52F /* AccountsViewController.m */; };
 		94E9AF8115EBBE2300940CF7 /* ContactsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 94E9AF8015EBBE2300940CF7 /* ContactsViewController.m */; };
-		94E9AF8215EBBE2300940CF7 /* ContactsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 94E9AF8015EBBE2300940CF7 /* ContactsViewController.m */; };
 		94F40E671614391B00C2A23C /* Renren-icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 94F40E661614391B00C2A23C /* Renren-icon.png */; };
 /* End PBXBuildFile section */
 
@@ -128,6 +129,10 @@
 		188A20B41615DA890053641A /* AccountCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AccountCell.m; sourceTree = "<group>"; };
 		188A20B71615E0B80053641A /* RenrenAccountDetailsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RenrenAccountDetailsViewController.h; sourceTree = "<group>"; };
 		188A20B81615E0B80053641A /* RenrenAccountDetailsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RenrenAccountDetailsViewController.m; sourceTree = "<group>"; };
+		188A20BF1615F4910053641A /* MyRenrenLoginDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyRenrenLoginDelegate.h; sourceTree = "<group>"; };
+		188A20C01615F4910053641A /* MyRenrenLoginDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyRenrenLoginDelegate.m; sourceTree = "<group>"; };
+		188A20C21615FA260053641A /* MyRenrenGetUserInfoDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyRenrenGetUserInfoDelegate.h; sourceTree = "<group>"; };
+		188A20C31615FA260053641A /* MyRenrenGetUserInfoDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyRenrenGetUserInfoDelegate.m; sourceTree = "<group>"; };
 		18CB515015EBAF41009A8741 /* BDReminderNew.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BDReminderNew.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		18CB515415EBAF41009A8741 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		18CB515615EBAF41009A8741 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -321,6 +326,11 @@
 		188A20B61615DA9D0053641A /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				188A20B31615DA890053641A /* AccountCell.h */,
+				188A20B41615DA890053641A /* AccountCell.m */,
+				94408C4D15F528C200653E77 /* ContactCell.h */,
+				94408C4E15F528C200653E77 /* ContactCell.m */,
+				188A20C51615FA360053641A /* Delegates */,
 				18850603161453510031398D /* AccountDetailsViewController.h */,
 				18850604161453510031398D /* AccountDetailsViewController.m */,
 				94C18D2A1605F7EF00ADF52F /* AccountsViewController.h */,
@@ -333,6 +343,25 @@
 				188A20B81615E0B80053641A /* RenrenAccountDetailsViewController.m */,
 			);
 			name = Controllers;
+			sourceTree = "<group>";
+		};
+		188A20C51615FA360053641A /* Delegates */ = {
+			isa = PBXGroup;
+			children = (
+				188A20C61615FA3F0053641A /* Renren */,
+			);
+			name = Delegates;
+			sourceTree = "<group>";
+		};
+		188A20C61615FA3F0053641A /* Renren */ = {
+			isa = PBXGroup;
+			children = (
+				188A20BF1615F4910053641A /* MyRenrenLoginDelegate.h */,
+				188A20C01615F4910053641A /* MyRenrenLoginDelegate.m */,
+				188A20C21615FA260053641A /* MyRenrenGetUserInfoDelegate.h */,
+				188A20C31615FA260053641A /* MyRenrenGetUserInfoDelegate.m */,
+			);
+			name = Renren;
 			sourceTree = "<group>";
 		};
 		18CB514515EBAF41009A8741 = {
@@ -377,10 +406,6 @@
 				18CB516315EBAF41009A8741 /* AppDelegate.h */,
 				18CB516415EBAF41009A8741 /* AppDelegate.m */,
 				18CB516615EBAF41009A8741 /* MainStoryboard.storyboard */,
-				188A20B31615DA890053641A /* AccountCell.h */,
-				188A20B41615DA890053641A /* AccountCell.m */,
-				94408C4D15F528C200653E77 /* ContactCell.h */,
-				94408C4E15F528C200653E77 /* ContactCell.m */,
 				18CB515B15EBAF41009A8741 /* Supporting Files */,
 			);
 			path = BDReminderNew;
@@ -904,6 +929,8 @@
 				18850605161453510031398D /* AccountDetailsViewController.m in Sources */,
 				188A20B51615DA8A0053641A /* AccountCell.m in Sources */,
 				188A20B91615E0B80053641A /* RenrenAccountDetailsViewController.m in Sources */,
+				188A20C11615F4910053641A /* MyRenrenLoginDelegate.m in Sources */,
+				188A20C41615FA260053641A /* MyRenrenGetUserInfoDelegate.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -912,7 +939,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				18CB518015EBAF41009A8741 /* BDReminderNewTests.m in Sources */,
-				94E9AF8215EBBE2300940CF7 /* ContactsViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

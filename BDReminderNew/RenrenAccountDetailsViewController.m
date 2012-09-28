@@ -13,15 +13,61 @@
 @end
 
 @implementation RenrenAccountDetailsViewController
+@synthesize accountStatusLabel;
+@synthesize loginDelegate;
+@synthesize userInfoDelegate;
 
 - (id)initWithStyle:(UITableViewStyle)style
 {
     self = [super initWithStyle:style];
     if (self) {
-        // Custom initialization
+        
     }
     return self;
 }
+
+// this initMethod will get called by
+// [UIStoryboard instantiateViewControllerWithIdentifier]
+- (id)initWithCoder:(NSCoder *)aDecoder {
+    self = [super initWithCoder:aDecoder];
+    [self initDelegatesChecklist];
+    return self;
+}
+
+- (void) initDelegatesChecklist {
+    loginDelegate = [[MyRenrenLoginDelegate alloc]initWithViewController:self];
+    userInfoDelegate = [[MyRenrenGetUserInfoDelegate alloc]initWithViewController:self];
+}
+
+// override
+- (void) updateAccountStatus: (Account*) account {
+    self.accountStatusLabel.text = [AccountsViewController accountStatusText:account.accountStatus];
+}
+
+// override
+- (IBAction) userLogin: (id)sender {
+    if (![[Renren sharedRenren] isSessionValid]) {
+        // no valid session, log in then
+        [[Renren sharedRenren] authorizationWithPermisson:nil andDelegate:loginDelegate];
+    } else {
+        [[Renren sharedRenren] logout:loginDelegate];
+    }
+}
+
+// override
+- (IBAction)updateUserInfo:(id)sender {
+    [self requestRenrenAccountInfo];
+}
+
+- (void) requestRenrenAccountInfo{
+    // sending request
+    ROUserInfoRequestParam* params = [[ROUserInfoRequestParam alloc] init];
+    [[Renren sharedRenren] getUsersInfo:params andDelegate:userInfoDelegate];
+}
+
+/*************************************
+ * DELEGATE                          *
+ *************************************/
 
 - (void)viewDidLoad
 {
@@ -36,6 +82,7 @@
 
 - (void)viewDidUnload
 {
+    [self setAccountStatusLabel:nil];
     [super viewDidUnload];
     // Release any retained subviews of the main view.
     // e.g. self.myOutlet = nil;

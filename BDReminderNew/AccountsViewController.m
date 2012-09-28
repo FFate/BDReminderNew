@@ -164,24 +164,34 @@
     Account* account = (Account*)[self.accounts objectAtIndex:indexPath.row];
     
     UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"MainStoryboard" bundle:nil];
-    RenrenAccountDetailsViewController *accountDetailsViewController = (RenrenAccountDetailsViewController *)[storyboard instantiateViewControllerWithIdentifier:@"RenrenAccountDetailsViewControllerIdentifier"];
-    [self.navigationController pushViewController:accountDetailsViewController animated:YES];
     
-    //-------set information for account details view
-    
-    // set account tag
-    accountDetailsViewController.accountIndex = indexPath.row;
-    
-    // set account type and status
-    [accountDetailsViewController updateAccountTypeAndInfoText:account];
-    [accountDetailsViewController updateAccountInfo:account];
-    
-    // set login button
-    NSString* loginText;
-    if (account.accountStatus == ACCOUNT_VALID) {
-        loginText = @"Log out";
-    } else loginText = @"Log in";
-    [accountDetailsViewController.loginButton setTitle:loginText forState:UIControlStateNormal];
+    if (account.accountTag == RENREN_ACCOUNT) {
+        RenrenAccountDetailsViewController *accountDetailsViewController = (RenrenAccountDetailsViewController *)[storyboard instantiateViewControllerWithIdentifier:@"RenrenAccountDetailsViewControllerIdentifier"];
+        [self.navigationController pushViewController:accountDetailsViewController animated:YES];
+        
+        //-------set information for account details view
+        
+        // set account tag
+        accountDetailsViewController.accountIndex = indexPath.row;
+        
+        // set account type and status
+        [accountDetailsViewController updateAccountStatus:account];
+        [accountDetailsViewController updateAccountInfo:account];
+        
+        // set login button
+        NSString* loginText;
+        if (account.accountStatus == ACCOUNT_VALID) {
+            loginText = @"Log out";
+        } else loginText = @"Log in";
+        [accountDetailsViewController.loginButton setTitle:loginText forState:UIControlStateNormal];
+    } else {
+        // generic accountDetailsView
+        AccountDetailsViewController* accountDetailsViewController =
+        (AccountDetailsViewController*)[storyboard instantiateViewControllerWithIdentifier:@"AccountDetailsViewControllerIdentifier"];
+        [self.navigationController pushViewController:accountDetailsViewController animated:YES];
+        
+        [accountDetailsViewController updateAccountTypeAndInfoText:account];
+    }
 }
 
 @end
