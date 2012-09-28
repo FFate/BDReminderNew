@@ -9,7 +9,7 @@
 /* Begin PBXBuildFile section */
 		1806BD2715F8E82A005EEE12 /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 1806BD2415F8E82A005EEE12 /* Model.xcdatamodeld */; };
 		18850605161453510031398D /* AccountDetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 18850604161453510031398D /* AccountDetailsViewController.m */; };
-		1885060916145AA90031398D /* AccountCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1885060816145AA90031398D /* AccountCell.m */; };
+		188A20B51615DA8A0053641A /* AccountCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 188A20B41615DA890053641A /* AccountCell.m */; };
 		18CB515515EBAF41009A8741 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 18CB515415EBAF41009A8741 /* UIKit.framework */; };
 		18CB515715EBAF41009A8741 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 18CB515615EBAF41009A8741 /* Foundation.framework */; };
 		18CB515915EBAF41009A8741 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 18CB515815EBAF41009A8741 /* CoreGraphics.framework */; };
@@ -123,8 +123,8 @@
 		1806BD2615F8E82A005EEE12 /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
 		18850603161453510031398D /* AccountDetailsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AccountDetailsViewController.h; sourceTree = "<group>"; };
 		18850604161453510031398D /* AccountDetailsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AccountDetailsViewController.m; sourceTree = "<group>"; };
-		1885060716145AA90031398D /* AccountCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AccountCell.h; path = ../AccountCell.h; sourceTree = "<group>"; };
-		1885060816145AA90031398D /* AccountCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AccountCell.m; path = ../AccountCell.m; sourceTree = "<group>"; };
+		188A20B31615DA890053641A /* AccountCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AccountCell.h; sourceTree = "<group>"; };
+		188A20B41615DA890053641A /* AccountCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AccountCell.m; sourceTree = "<group>"; };
 		18CB515015EBAF41009A8741 /* BDReminderNew.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BDReminderNew.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		18CB515415EBAF41009A8741 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		18CB515615EBAF41009A8741 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -315,6 +315,21 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		188A20B61615DA9D0053641A /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				18850603161453510031398D /* AccountDetailsViewController.h */,
+				18850604161453510031398D /* AccountDetailsViewController.m */,
+				94C18D2A1605F7EF00ADF52F /* AccountsViewController.h */,
+				94C18D2B1605F7EF00ADF52F /* AccountsViewController.m */,
+				18CB516915EBAF41009A8741 /* ViewController.h */,
+				18CB516A15EBAF41009A8741 /* ViewController.m */,
+				94E9AF7F15EBBE2300940CF7 /* ContactsViewController.h */,
+				94E9AF8015EBBE2300940CF7 /* ContactsViewController.m */,
+			);
+			name = Controllers;
+			sourceTree = "<group>";
+		};
 		18CB514515EBAF41009A8741 = {
 			isa = PBXGroup;
 			children = (
@@ -351,23 +366,16 @@
 		18CB515A15EBAF41009A8741 /* BDReminderNew */ = {
 			isa = PBXGroup;
 			children = (
+				188A20B61615DA9D0053641A /* Controllers */,
 				18F74B121613EFF10019970B /* SNS */,
 				18CB518915EBAF6B009A8741 /* Model */,
 				18CB516315EBAF41009A8741 /* AppDelegate.h */,
 				18CB516415EBAF41009A8741 /* AppDelegate.m */,
 				18CB516615EBAF41009A8741 /* MainStoryboard.storyboard */,
-				18850603161453510031398D /* AccountDetailsViewController.h */,
-				18850604161453510031398D /* AccountDetailsViewController.m */,
-				1885060716145AA90031398D /* AccountCell.h */,
-				1885060816145AA90031398D /* AccountCell.m */,
-				94C18D2A1605F7EF00ADF52F /* AccountsViewController.h */,
-				94C18D2B1605F7EF00ADF52F /* AccountsViewController.m */,
+				188A20B31615DA890053641A /* AccountCell.h */,
+				188A20B41615DA890053641A /* AccountCell.m */,
 				94408C4D15F528C200653E77 /* ContactCell.h */,
 				94408C4E15F528C200653E77 /* ContactCell.m */,
-				18CB516915EBAF41009A8741 /* ViewController.h */,
-				18CB516A15EBAF41009A8741 /* ViewController.m */,
-				94E9AF7F15EBBE2300940CF7 /* ContactsViewController.h */,
-				94E9AF8015EBBE2300940CF7 /* ContactsViewController.m */,
 				18CB515B15EBAF41009A8741 /* Supporting Files */,
 			);
 			path = BDReminderNew;
@@ -889,7 +897,7 @@
 				18F74B0E1613E8D80019970B /* ROPublishPhotoDialogModel.m in Sources */,
 				18F74B0F1613E8D80019970B /* ROPublishPhotoInternal.m in Sources */,
 				18850605161453510031398D /* AccountDetailsViewController.m in Sources */,
-				1885060916145AA90031398D /* AccountCell.m in Sources */,
+				188A20B51615DA8A0053641A /* AccountCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
