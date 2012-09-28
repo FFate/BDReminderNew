@@ -65,10 +65,6 @@
     [[Renren sharedRenren] getUsersInfo:params andDelegate:userInfoDelegate];
 }
 
-/*************************************
- * DELEGATE                          *
- *************************************/
-
 - (void)viewDidLoad
 {
     [super viewDidLoad];
