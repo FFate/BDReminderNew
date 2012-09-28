@@ -10,6 +10,7 @@
 		1806BD2715F8E82A005EEE12 /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 1806BD2415F8E82A005EEE12 /* Model.xcdatamodeld */; };
 		18850605161453510031398D /* AccountDetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 18850604161453510031398D /* AccountDetailsViewController.m */; };
 		188A20B51615DA8A0053641A /* AccountCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 188A20B41615DA890053641A /* AccountCell.m */; };
+		188A20B91615E0B80053641A /* RenrenAccountDetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 188A20B81615E0B80053641A /* RenrenAccountDetailsViewController.m */; };
 		18CB515515EBAF41009A8741 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 18CB515415EBAF41009A8741 /* UIKit.framework */; };
 		18CB515715EBAF41009A8741 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 18CB515615EBAF41009A8741 /* Foundation.framework */; };
 		18CB515915EBAF41009A8741 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 18CB515815EBAF41009A8741 /* CoreGraphics.framework */; };
@@ -125,6 +126,8 @@
 		18850604161453510031398D /* AccountDetailsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AccountDetailsViewController.m; sourceTree = "<group>"; };
 		188A20B31615DA890053641A /* AccountCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AccountCell.h; sourceTree = "<group>"; };
 		188A20B41615DA890053641A /* AccountCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AccountCell.m; sourceTree = "<group>"; };
+		188A20B71615E0B80053641A /* RenrenAccountDetailsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RenrenAccountDetailsViewController.h; sourceTree = "<group>"; };
+		188A20B81615E0B80053641A /* RenrenAccountDetailsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RenrenAccountDetailsViewController.m; sourceTree = "<group>"; };
 		18CB515015EBAF41009A8741 /* BDReminderNew.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BDReminderNew.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		18CB515415EBAF41009A8741 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		18CB515615EBAF41009A8741 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -326,6 +329,8 @@
 				18CB516A15EBAF41009A8741 /* ViewController.m */,
 				94E9AF7F15EBBE2300940CF7 /* ContactsViewController.h */,
 				94E9AF8015EBBE2300940CF7 /* ContactsViewController.m */,
+				188A20B71615E0B80053641A /* RenrenAccountDetailsViewController.h */,
+				188A20B81615E0B80053641A /* RenrenAccountDetailsViewController.m */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -898,6 +903,7 @@
 				18F74B0F1613E8D80019970B /* ROPublishPhotoInternal.m in Sources */,
 				18850605161453510031398D /* AccountDetailsViewController.m in Sources */,
 				188A20B51615DA8A0053641A /* AccountCell.m in Sources */,
+				188A20B91615E0B80053641A /* RenrenAccountDetailsViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

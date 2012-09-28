@@ -12,6 +12,7 @@
 #import "FacebookAccount.h"
 #import "AccountCell.h"
 #import "AccountDetailsViewController.h"
+#import "RenrenAccountDetailsViewController.h"
 
 @interface AccountsViewController ()
 
@@ -160,12 +161,11 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     //AccountDetailsViewController *accountDetailsViewController = (AccountDetailsViewController*) self.navigationController.visibleViewController;
+    Account* account = (Account*)[self.accounts objectAtIndex:indexPath.row];
     
     UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"MainStoryboard" bundle:nil];
-    AccountDetailsViewController *accountDetailsViewController = (AccountDetailsViewController *)[storyboard instantiateViewControllerWithIdentifier:@"AccountDetailsViewControllerIdentifier"];
+    RenrenAccountDetailsViewController *accountDetailsViewController = (RenrenAccountDetailsViewController *)[storyboard instantiateViewControllerWithIdentifier:@"RenrenAccountDetailsViewControllerIdentifier"];
     [self.navigationController pushViewController:accountDetailsViewController animated:YES];
-    
-    Account* account = (Account*)[self.accounts objectAtIndex:indexPath.row];
     
     //-------set information for account details view
     
