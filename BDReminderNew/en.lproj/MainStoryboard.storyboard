@@ -131,7 +131,6 @@
                                     <outlet property="accountIcon" destination="KgW-Dj-vid" id="Ygq-NK-LZc"/>
                                     <outlet property="accountNameLabel" destination="CHx-Zi-5Bx" id="dGp-Wi-q7E"/>
                                     <outlet property="accountStatusLabel" destination="U0t-00-HvA" id="Ix0-uN-HOT"/>
-                                    <segue destination="R1p-wl-WWt" kind="push" identifier="" id="IPR-Wr-ZSx"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -149,9 +148,9 @@
         <scene sceneID="oT6-Ef-QRc">
             <objects>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3Go-KL-sr0" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <tableViewController id="R1p-wl-WWt" customClass="AccountDetailsViewController" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="AccountDetailsViewControllerIdentifier" id="R1p-wl-WWt" customClass="AccountDetailsViewController" sceneMemberID="viewController">
                     <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="grouped" separatorStyle="singleLineEtched" rowHeight="44" sectionHeaderHeight="10" sectionFooterHeight="10" id="jfT-YD-8db">
-                        <rect key="frame" x="0.0" y="64" width="320" height="416"/>
+                        <rect key="frame" x="0.0" y="20" width="320" height="460"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                         <button key="tableHeaderView" opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="4lB-OQ-hfE" userLabel="LoginButton">
@@ -291,6 +290,9 @@
         </class>
         <class className="AccountsViewController" superclassName="UITableViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/AccountsViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="pushAccountDetailsViewController:"/>
+            </relationships>
         </class>
         <class className="ContactCell" superclassName="UITableViewCell">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/ContactCell.h"/>

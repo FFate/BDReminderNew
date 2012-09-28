@@ -159,7 +159,12 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    AccountDetailsViewController *accountDetailsViewController = (AccountDetailsViewController*) self.navigationController.visibleViewController;
+    //AccountDetailsViewController *accountDetailsViewController = (AccountDetailsViewController*) self.navigationController.visibleViewController;
+    
+    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"MainStoryboard" bundle:nil];
+    AccountDetailsViewController *accountDetailsViewController = (AccountDetailsViewController *)[storyboard instantiateViewControllerWithIdentifier:@"AccountDetailsViewControllerIdentifier"];
+    [self.navigationController pushViewController:accountDetailsViewController animated:YES];
+    
     Account* account = (Account*)[self.accounts objectAtIndex:indexPath.row];
     
     //-------set information for account details view
