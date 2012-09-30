@@ -19,14 +19,12 @@
 }
 
 - (void)renren: (Renren*)renren requestDidReturnResponse:(ROResponse *)response {
-    NSLog(@"requestDidReturn");
     NSArray* returnArray = (NSArray*) response.rootObject;
     ROUserResponseItem* user = (ROUserResponseItem*)[returnArray objectAtIndex:0];
     
     //    RenrenAccount* account = (RenrenAccount*)[[AppDelegate delegate].accountsList objectAtIndex:accountIndex];
     
     NSString* name = [[NSString alloc] initWithString:user.name];
-    NSLog(@"Returned name is: %@", name);
     Account* myAccount = (Account *)[[AppDelegate delegate].accountsList objectAtIndex:viewController.accountIndex];
     myAccount.userName = name;
     viewController.userNameLabel.text = name;

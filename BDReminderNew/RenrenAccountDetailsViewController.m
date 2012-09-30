@@ -16,6 +16,7 @@
 @synthesize accountStatusLabel;
 @synthesize loginDelegate;
 @synthesize userInfoDelegate;
+@synthesize getFriendsDelegate;
 
 - (id)initWithStyle:(UITableViewStyle)style
 {
@@ -34,9 +35,11 @@
     return self;
 }
 
+// any new Delegates should be added here
 - (void) initDelegatesChecklist {
     loginDelegate = [[MyRenrenLoginDelegate alloc]initWithViewController:self];
     userInfoDelegate = [[MyRenrenGetUserInfoDelegate alloc]initWithViewController:self];
+    getFriendsDelegate = [[MyRenrenGetFriendsDelegate alloc] initWithViewController:self];
 }
 
 // override
@@ -56,7 +59,16 @@
 
 // override
 - (IBAction)updateUserInfo:(id)sender {
-    [self requestRenrenAccountInfo];
+    //[self requestRenrenAccountInfo];
+    [self requestFriendsInfo];
+}
+
+- (void) requestFriendsInfo {
+    ROGetFriendsInfoRequestParam* params = [[ROGetFriendsInfoRequestParam alloc] init];
+    params.page = @"1";
+    params.count = @"500";
+    //params.fields = @"name,brithday";
+    [[Renren sharedRenren] getFriendsInfo:params andDelegate:getFriendsDelegate];
 }
 
 - (void) requestRenrenAccountInfo{

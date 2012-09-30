@@ -10,9 +10,11 @@
 #import "AccountDetailsViewController.h"
 #import "MyRenrenLoginDelegate.h"
 #import "MyRenrenGetUserInfoDelegate.h"
+#import "MyRenrenGetFriendsDelegate.h"
 
 @class MyRenrenLoginDelegate;
 @class MyRenrenGetUserInfoDelegate;
+@class MyRenrenGetFriendsDelegate;
 
 @interface RenrenAccountDetailsViewController : AccountDetailsViewController
 
@@ -20,5 +22,6 @@
 
 @property (nonatomic, retain) MyRenrenLoginDelegate* loginDelegate;
 @property (nonatomic, retain) MyRenrenGetUserInfoDelegate* userInfoDelegate;
+@property (nonatomic, retain) MyRenrenGetFriendsDelegate* getFriendsDelegate;
 
 @end
