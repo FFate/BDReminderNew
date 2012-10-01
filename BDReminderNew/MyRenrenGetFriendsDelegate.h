@@ -14,6 +14,7 @@
 @interface MyRenrenGetFriendsDelegate : NSObject <RenrenDelegate>
 
 @property (nonatomic, retain) RenrenAccountDetailsViewController* viewController;
+@property (nonatomic, retain) id getBirthdayDelegate;
 
 - (id) initWithViewController: (RenrenAccountDetailsViewController*) aViewController;
 

@@ -32,6 +32,8 @@
 		18CB519A15EBAF94009A8741 /* AggregatedContact.m in Sources */ = {isa = PBXBuildFile; fileRef = 18CB519215EBAF94009A8741 /* AggregatedContact.m */; };
 		18CB519B15EBAF94009A8741 /* Contact.m in Sources */ = {isa = PBXBuildFile; fileRef = 18CB519415EBAF94009A8741 /* Contact.m */; };
 		18CB519D15EBAFC2009A8741 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 18CB519C15EBAFC2009A8741 /* CoreData.framework */; };
+		18E7525D161859E9009811BE /* MyRenrenGetFriendsDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 18E7525C161859E9009811BE /* MyRenrenGetFriendsDelegate.m */; };
+		18E7526116189116009811BE /* MyRenrenGetBirthdaysFromUidsDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 18E7526016189115009811BE /* MyRenrenGetBirthdaysFromUidsDelegate.m */; };
 		18F74ACA1613E8D80019970B /* FMDatabase.m in Sources */ = {isa = PBXBuildFile; fileRef = 18F74A421613E8D80019970B /* FMDatabase.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		18F74ACB1613E8D80019970B /* FMDatabaseAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 18F74A441613E8D80019970B /* FMDatabaseAdditions.m */; };
 		18F74ACC1613E8D80019970B /* FMResultSet.m in Sources */ = {isa = PBXBuildFile; fileRef = 18F74A461613E8D80019970B /* FMResultSet.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
@@ -164,6 +166,10 @@
 		18CB519415EBAF94009A8741 /* Contact.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Contact.m; sourceTree = "<group>"; };
 		18CB519515EBAF94009A8741 /* AccountProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AccountProtocol.h; sourceTree = "<group>"; };
 		18CB519C15EBAFC2009A8741 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		18E7525B161859E9009811BE /* MyRenrenGetFriendsDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyRenrenGetFriendsDelegate.h; sourceTree = "<group>"; };
+		18E7525C161859E9009811BE /* MyRenrenGetFriendsDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyRenrenGetFriendsDelegate.m; sourceTree = "<group>"; };
+		18E7525F16189115009811BE /* MyRenrenGetBirthdaysFromUidsDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyRenrenGetBirthdaysFromUidsDelegate.h; sourceTree = "<group>"; };
+		18E7526016189115009811BE /* MyRenrenGetBirthdaysFromUidsDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyRenrenGetBirthdaysFromUidsDelegate.m; sourceTree = "<group>"; };
 		18F74A411613E8D80019970B /* FMDatabase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMDatabase.h; sourceTree = "<group>"; };
 		18F74A421613E8D80019970B /* FMDatabase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMDatabase.m; sourceTree = "<group>"; };
 		18F74A431613E8D80019970B /* FMDatabaseAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMDatabaseAdditions.h; sourceTree = "<group>"; };
@@ -360,6 +366,10 @@
 				188A20C01615F4910053641A /* MyRenrenLoginDelegate.m */,
 				188A20C21615FA260053641A /* MyRenrenGetUserInfoDelegate.h */,
 				188A20C31615FA260053641A /* MyRenrenGetUserInfoDelegate.m */,
+				18E7525B161859E9009811BE /* MyRenrenGetFriendsDelegate.h */,
+				18E7525C161859E9009811BE /* MyRenrenGetFriendsDelegate.m */,
+				18E7525F16189115009811BE /* MyRenrenGetBirthdaysFromUidsDelegate.h */,
+				18E7526016189115009811BE /* MyRenrenGetBirthdaysFromUidsDelegate.m */,
 			);
 			name = Renren;
 			sourceTree = "<group>";
@@ -931,6 +941,8 @@
 				188A20B91615E0B80053641A /* RenrenAccountDetailsViewController.m in Sources */,
 				188A20C11615F4910053641A /* MyRenrenLoginDelegate.m in Sources */,
 				188A20C41615FA260053641A /* MyRenrenGetUserInfoDelegate.m in Sources */,
+				18E7525D161859E9009811BE /* MyRenrenGetFriendsDelegate.m in Sources */,
+				18E7526116189116009811BE /* MyRenrenGetBirthdaysFromUidsDelegate.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

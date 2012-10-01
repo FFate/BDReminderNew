@@ -7,14 +7,17 @@
 //
 
 #import "MyRenrenGetFriendsDelegate.h"
+#import "MyRenrenGetBirthdaysFromUidsDelegate.h"
 
 @implementation MyRenrenGetFriendsDelegate
 
 @synthesize viewController;
+@synthesize getBirthdayDelegate;
 
 - (id) initWithViewController:(RenrenAccountDetailsViewController *)aViewController {
     self = [super init];
     self.viewController = aViewController;
+    self.getBirthdayDelegate = [[MyRenrenGetBirthdaysFromUidsDelegate alloc] initWithFriendsList:nil];
     return self;
 }
 
@@ -22,13 +25,18 @@
     NSLog(@"GetContactsDelegate DidReturnResponse.");
     NSArray* returnArray = (NSArray*) response.rootObject;
     
-    NSLog(@"size: %d", [returnArray count]);
-    for (ROFriendResponseItem *friend in returnArray) {
-        NSLog(@"Friend: %@, id: %@\n", friend.name, friend.userId);
-        
-        // get birthday
-        
+    NSMutableString* uids = [[NSMutableString alloc] init];
+    for (NSString* friendId in returnArray) {
+        NSLog(@"Friend id: %@\n", friendId);
+        [uids appendFormat:@"%@,", friendId];
     }
+    
+    NSLog(@"UID list: %@", uids);
+    
+    ROUserInfoRequestParam* params = [[ROUserInfoRequestParam alloc] init];
+    params.userIDs = uids;
+    params.fields = @"name, birthday";
+    [[Renren sharedRenren] getUsersInfo:params andDelegate:getBirthdayDelegate];
 }
 
 - (void)renren:(Renren *)renren requestFailWithError:(ROError*)error

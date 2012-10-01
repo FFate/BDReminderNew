@@ -64,11 +64,12 @@
 }
 
 - (void) requestFriendsInfo {
-    ROGetFriendsInfoRequestParam* params = [[ROGetFriendsInfoRequestParam alloc] init];
+    // only get friends uids
+    ROGetFriendsRequestParam* params = [[ROGetFriendsRequestParam alloc] init];
     params.page = @"1";
     params.count = @"500";
     //params.fields = @"name,brithday";
-    [[Renren sharedRenren] getFriendsInfo:params andDelegate:getFriendsDelegate];
+    [[Renren sharedRenren] getFriends:params andDelegate:getFriendsDelegate];
 }
 
 - (void) requestRenrenAccountInfo{

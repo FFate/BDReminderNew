@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-@interface MyRenrenGetBirthdayDelegate : NSObject <RenrenDelegate>
+@interface MyRenrenGetBirthdaysFromUidsDelegate : NSObject <RenrenDelegate>
 
 @property (nonatomic, retain) NSMutableArray* friends;
 
