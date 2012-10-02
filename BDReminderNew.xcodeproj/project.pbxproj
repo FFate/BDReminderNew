@@ -106,7 +106,13 @@
 		18F74B0F1613E8D80019970B /* ROPublishPhotoInternal.m in Sources */ = {isa = PBXBuildFile; fileRef = 18F74AC91613E8D80019970B /* ROPublishPhotoInternal.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		18F74B111613E9050019970B /* libsqlite3.0.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 18F74B101613E9050019970B /* libsqlite3.0.dylib */; };
 		941DC2AE1614399900BC48AB /* Facebook-icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 941DC2AD1614399900BC48AB /* Facebook-icon.png */; };
+		943C7054161B2BFB00F1D987 /* FacebookAccountDetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 943C7053161B2BFB00F1D987 /* FacebookAccountDetailsViewController.m */; };
 		94408C4F15F528C200653E77 /* ContactCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 94408C4E15F528C200653E77 /* ContactCell.m */; };
+		9478959B1619E4FF00E26947 /* FacebookSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9478959A1619E4FF00E26947 /* FacebookSDK.framework */; };
+		9478959E1619E50D00E26947 /* FacebookSDKResources.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 9478959D1619E50D00E26947 /* FacebookSDKResources.bundle */; };
+		947895AD1619EC2000E26947 /* FBUserSettingsViewResources.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 947895AC1619EC2000E26947 /* FBUserSettingsViewResources.bundle */; };
+		947895AF1619EC9D00E26947 /* Accounts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 947895AE1619EC9D00E26947 /* Accounts.framework */; };
+		947895D2161AEA0400E26947 /* MyFacebookLoginDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 947895D1161AEA0400E26947 /* MyFacebookLoginDelegate.m */; };
 		94C18D2C1605F7EF00ADF52F /* AccountsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 94C18D2B1605F7EF00ADF52F /* AccountsViewController.m */; };
 		94E9AF8115EBBE2300940CF7 /* ContactsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 94E9AF8015EBBE2300940CF7 /* ContactsViewController.m */; };
 		94F40E671614391B00C2A23C /* Renren-icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 94F40E661614391B00C2A23C /* Renren-icon.png */; };
@@ -294,8 +300,16 @@
 		18F74AC91613E8D80019970B /* ROPublishPhotoInternal.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ROPublishPhotoInternal.m; sourceTree = "<group>"; };
 		18F74B101613E9050019970B /* libsqlite3.0.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.0.dylib; path = usr/lib/libsqlite3.0.dylib; sourceTree = SDKROOT; };
 		941DC2AD1614399900BC48AB /* Facebook-icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Facebook-icon.png"; sourceTree = "<group>"; };
+		943C7052161B2BFB00F1D987 /* FacebookAccountDetailsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FacebookAccountDetailsViewController.h; sourceTree = "<group>"; };
+		943C7053161B2BFB00F1D987 /* FacebookAccountDetailsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FacebookAccountDetailsViewController.m; sourceTree = "<group>"; };
 		94408C4D15F528C200653E77 /* ContactCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ContactCell.h; sourceTree = "<group>"; };
 		94408C4E15F528C200653E77 /* ContactCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ContactCell.m; sourceTree = "<group>"; };
+		9478959A1619E4FF00E26947 /* FacebookSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FacebookSDK.framework; path = ../Documents/FacebookSDK/FacebookSDK.framework; sourceTree = "<group>"; };
+		9478959D1619E50D00E26947 /* FacebookSDKResources.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = FacebookSDKResources.bundle; path = ../Documents/FacebookSDK/FacebookSDK.framework/Versions/A/Resources/FacebookSDKResources.bundle; sourceTree = "<group>"; };
+		947895AC1619EC2000E26947 /* FBUserSettingsViewResources.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = FBUserSettingsViewResources.bundle; path = ../Documents/FacebookSDK/FacebookSDK.framework/Versions/A/Resources/FBUserSettingsViewResources.bundle; sourceTree = "<group>"; };
+		947895AE1619EC9D00E26947 /* Accounts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accounts.framework; path = System/Library/Frameworks/Accounts.framework; sourceTree = SDKROOT; };
+		947895D0161AEA0400E26947 /* MyFacebookLoginDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyFacebookLoginDelegate.h; sourceTree = "<group>"; };
+		947895D1161AEA0400E26947 /* MyFacebookLoginDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyFacebookLoginDelegate.m; sourceTree = "<group>"; };
 		94C18D2A1605F7EF00ADF52F /* AccountsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AccountsViewController.h; sourceTree = "<group>"; };
 		94C18D2B1605F7EF00ADF52F /* AccountsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AccountsViewController.m; sourceTree = "<group>"; };
 		94E9AF7F15EBBE2300940CF7 /* ContactsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ContactsViewController.h; sourceTree = "<group>"; };
@@ -308,11 +322,13 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				947895AF1619EC9D00E26947 /* Accounts.framework in Frameworks */,
 				18F74B111613E9050019970B /* libsqlite3.0.dylib in Frameworks */,
 				18CB519D15EBAFC2009A8741 /* CoreData.framework in Frameworks */,
 				18CB515515EBAF41009A8741 /* UIKit.framework in Frameworks */,
 				18CB515715EBAF41009A8741 /* Foundation.framework in Frameworks */,
 				18CB515915EBAF41009A8741 /* CoreGraphics.framework in Frameworks */,
+				9478959B1619E4FF00E26947 /* FacebookSDK.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -332,6 +348,8 @@
 		188A20B61615DA9D0053641A /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				943C7052161B2BFB00F1D987 /* FacebookAccountDetailsViewController.h */,
+				943C7053161B2BFB00F1D987 /* FacebookAccountDetailsViewController.m */,
 				188A20B31615DA890053641A /* AccountCell.h */,
 				188A20B41615DA890053641A /* AccountCell.m */,
 				94408C4D15F528C200653E77 /* ContactCell.h */,
@@ -355,6 +373,7 @@
 			isa = PBXGroup;
 			children = (
 				188A20C61615FA3F0053641A /* Renren */,
+				947895CB161AE5DE00E26947 /* Facebook */,
 			);
 			name = Delegates;
 			sourceTree = "<group>";
@@ -368,8 +387,8 @@
 				188A20C31615FA260053641A /* MyRenrenGetUserInfoDelegate.m */,
 				18E7525B161859E9009811BE /* MyRenrenGetFriendsDelegate.h */,
 				18E7525C161859E9009811BE /* MyRenrenGetFriendsDelegate.m */,
-				18E7525F16189115009811BE /* MyRenrenGetBirthdaysFromUidsDelegate.h */,
 				18E7526016189115009811BE /* MyRenrenGetBirthdaysFromUidsDelegate.m */,
+				18E7525F16189115009811BE /* MyRenrenGetBirthdaysFromUidsDelegate.h */,
 			);
 			name = Renren;
 			sourceTree = "<group>";
@@ -397,6 +416,10 @@
 		18CB515315EBAF41009A8741 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				947895AE1619EC9D00E26947 /* Accounts.framework */,
+				947895AC1619EC2000E26947 /* FBUserSettingsViewResources.bundle */,
+				9478959D1619E50D00E26947 /* FacebookSDKResources.bundle */,
+				9478959A1619E4FF00E26947 /* FacebookSDK.framework */,
 				18F74B101613E9050019970B /* libsqlite3.0.dylib */,
 				18CB519C15EBAFC2009A8741 /* CoreData.framework */,
 				18CB515415EBAF41009A8741 /* UIKit.framework */,
@@ -735,6 +758,15 @@
 			name = Renren;
 			sourceTree = "<group>";
 		};
+		947895CB161AE5DE00E26947 /* Facebook */ = {
+			isa = PBXGroup;
+			children = (
+				947895D0161AEA0400E26947 /* MyFacebookLoginDelegate.h */,
+				947895D1161AEA0400E26947 /* MyFacebookLoginDelegate.m */,
+			);
+			name = Facebook;
+			sourceTree = "<group>";
+		};
 		94F40E651614391B00C2A23C /* image */ = {
 			isa = PBXGroup;
 			children = (
@@ -841,6 +873,8 @@
 				18F74B081613E8D80019970B /* ROCheckOrderCell.xib in Resources */,
 				94F40E671614391B00C2A23C /* Renren-icon.png in Resources */,
 				941DC2AE1614399900BC48AB /* Facebook-icon.png in Resources */,
+				9478959E1619E50D00E26947 /* FacebookSDKResources.bundle in Resources */,
+				947895AD1619EC2000E26947 /* FBUserSettingsViewResources.bundle in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -943,6 +977,8 @@
 				188A20C41615FA260053641A /* MyRenrenGetUserInfoDelegate.m in Sources */,
 				18E7525D161859E9009811BE /* MyRenrenGetFriendsDelegate.m in Sources */,
 				18E7526116189116009811BE /* MyRenrenGetBirthdaysFromUidsDelegate.m in Sources */,
+				947895D2161AEA0400E26947 /* MyFacebookLoginDelegate.m in Sources */,
+				943C7054161B2BFB00F1D987 /* FacebookAccountDetailsViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1044,9 +1080,14 @@
 		18CB518415EBAF42009A8741 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/../Documents/FacebookSDK\"",
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "BDReminderNew/BDReminderNew-Prefix.pch";
 				INFOPLIST_FILE = "BDReminderNew/BDReminderNew-Info.plist";
+				OTHER_LDFLAGS = "-lsqlite3.0";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
@@ -1055,9 +1096,14 @@
 		18CB518515EBAF42009A8741 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/../Documents/FacebookSDK\"",
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "BDReminderNew/BDReminderNew-Prefix.pch";
 				INFOPLIST_FILE = "BDReminderNew/BDReminderNew-Info.plist";
+				OTHER_LDFLAGS = "-lsqlite3.0";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};

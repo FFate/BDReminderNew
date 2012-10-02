@@ -13,6 +13,7 @@
 #import "AccountCell.h"
 #import "AccountDetailsViewController.h"
 #import "RenrenAccountDetailsViewController.h"
+#import "FacebookAccountDetailsViewController.h"
 
 @interface AccountsViewController ()
 
@@ -184,7 +185,21 @@
             loginText = @"Log out";
         } else loginText = @"Log in";
         [accountDetailsViewController.loginButton setTitle:loginText forState:UIControlStateNormal];
-    } else {
+    }else if(account.accountTag == FACEBOOK_ACCOUNT){
+        FacebookAccountDetailsViewController *accountDetailsViewController =
+        (FacebookAccountDetailsViewController*)[storyboard instantiateViewControllerWithIdentifier:@"FacebookAccountDetailsViewControllerIdentifier"];
+        [self.navigationController pushViewController:accountDetailsViewController animated:YES];
+        
+        accountDetailsViewController.accountIndex = indexPath.row;
+        
+        NSString* loginText;
+        if (account.accountStatus == ACCOUNT_VALID) {
+            loginText = @"Log out";
+        } else loginText = @"Log in";
+        [accountDetailsViewController.loginButton setTitle:loginText forState:UIControlStateNormal];
+
+
+    }else {
         // generic accountDetailsView
         AccountDetailsViewController* accountDetailsViewController =
         (AccountDetailsViewController*)[storyboard instantiateViewControllerWithIdentifier:@"AccountDetailsViewControllerIdentifier"];
