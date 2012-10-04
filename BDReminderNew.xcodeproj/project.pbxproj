@@ -387,8 +387,8 @@
 				188A20C31615FA260053641A /* MyRenrenGetUserInfoDelegate.m */,
 				18E7525B161859E9009811BE /* MyRenrenGetFriendsDelegate.h */,
 				18E7525C161859E9009811BE /* MyRenrenGetFriendsDelegate.m */,
-				18E7526016189115009811BE /* MyRenrenGetBirthdaysFromUidsDelegate.m */,
 				18E7525F16189115009811BE /* MyRenrenGetBirthdaysFromUidsDelegate.h */,
+				18E7526016189115009811BE /* MyRenrenGetBirthdaysFromUidsDelegate.m */,
 			);
 			name = Renren;
 			sourceTree = "<group>";

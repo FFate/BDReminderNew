@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 
 @interface ContactsViewController : UITableViewController{
-    NSMutableArray *contactsArray;
+    //NSMutableArray *contactsArray;
 }
 
 @property (nonatomic, strong) NSMutableArray *contacts;

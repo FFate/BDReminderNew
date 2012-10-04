@@ -185,6 +185,8 @@
             loginText = @"Log out";
         } else loginText = @"Log in";
         [accountDetailsViewController.loginButton setTitle:loginText forState:UIControlStateNormal];
+        
+        accountDetailsViewController.account = account;
     }else if(account.accountTag == FACEBOOK_ACCOUNT){
         FacebookAccountDetailsViewController *accountDetailsViewController =
         (FacebookAccountDetailsViewController*)[storyboard instantiateViewControllerWithIdentifier:@"FacebookAccountDetailsViewControllerIdentifier"];
@@ -197,8 +199,8 @@
             loginText = @"Log out";
         } else loginText = @"Log in";
         [accountDetailsViewController.loginButton setTitle:loginText forState:UIControlStateNormal];
-
-
+        
+        accountDetailsViewController.account = account;
     }else {
         // generic accountDetailsView
         AccountDetailsViewController* accountDetailsViewController =

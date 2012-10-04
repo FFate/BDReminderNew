@@ -15,6 +15,8 @@
     NSPersistentStoreCoordinator *persistentStoreCoordinator_;
 }
 
+@property (nonatomic, retain) NSMutableArray* contacts;
+
 @property (strong, nonatomic) UIWindow *window;
 
 @property (nonatomic, retain, readonly) NSManagedObjectContext *managedObjectContext;

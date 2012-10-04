@@ -17,12 +17,11 @@
 - (id) initWithViewController:(RenrenAccountDetailsViewController *)aViewController {
     self = [super init];
     self.viewController = aViewController;
-    self.getBirthdayDelegate = [[MyRenrenGetBirthdaysFromUidsDelegate alloc] initWithFriendsList:nil];
+    self.getBirthdayDelegate = [[MyRenrenGetBirthdaysFromUidsDelegate alloc] initWithAccount:viewController.account];
     return self;
 }
 
 - (void)renren: (Renren*)renren requestDidReturnResponse:(ROResponse *)response {
-    NSLog(@"GetContactsDelegate DidReturnResponse.");
     NSArray* returnArray = (NSArray*) response.rootObject;
     
     NSMutableString* uids = [[NSMutableString alloc] init];
@@ -30,8 +29,6 @@
         NSLog(@"Friend id: %@\n", friendId);
         [uids appendFormat:@"%@,", friendId];
     }
-    
-    NSLog(@"UID list: %@", uids);
     
     ROUserInfoRequestParam* params = [[ROUserInfoRequestParam alloc] init];
     params.userIDs = uids;

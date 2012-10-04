@@ -20,4 +20,9 @@
 
 -(Contact*) initWithName: (NSString*) name birthday: (NSDate*) birthday;
 
+// birthday as yyyy-MM-dd
+-(Contact*) initWithName:(NSString *)name birthdayString:(NSString *)birthday account: (Account*) account;
+
+-(NSString*) getBirthdayString;
+
 @end

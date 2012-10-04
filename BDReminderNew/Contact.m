@@ -30,4 +30,30 @@
     return self;
 }
 
+#define DATE_FORMAT @"yyyy-MM-dd"
+
+-(Contact*) initWithName:(NSString *)name birthdayString:(NSString *)birthday account:(Account *)account {
+    self = (Contact *) [NSEntityDescription insertNewObjectForEntityForName:@"Contact" inManagedObjectContext:[AppDelegate delegate].managedObjectContext];
+    
+    if (self) {
+        self.name = name;
+        self.account = account;
+        
+        // convert birthday string to NSDate
+        NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+        // this is imporant - we set our input date format to match our input string
+        // if format doesn't match you'll get nil from your string, so be careful
+        [dateFormatter setDateFormat:DATE_FORMAT];
+        self.birthday = [dateFormatter dateFromString:birthday];
+    }
+    
+    return self;
+}
+
+-(NSString*) getBirthdayString {
+    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+    [dateFormatter setDateFormat:DATE_FORMAT];
+    return [dateFormatter stringFromDate:self.birthday];
+}
+
 @end

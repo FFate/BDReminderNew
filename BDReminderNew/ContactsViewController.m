@@ -10,6 +10,8 @@
 #import "Contact.h"
 #import "ContactCell.h"
 
+#define ENABLE_DELETE_CONTACT YES
+
 @interface ContactsViewController ()
 
 @end
@@ -28,31 +30,6 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    
-    //初始化一个“获取请求”到我们的实体“contact"
-    //NSFetchRequest *request = [[NSFetchRequest alloc] init];
-    //NSEntityDescription *entity = [NSEntityDescription entityForName:@"contact" inManagedObjectContext:managedObjectContext];
-    //[request setEntity:entity];
-    
-    //执行“获取”操作，得到一个“可变数组”的拷贝
-    
-    //NSError *error = nil;
-    //NSMutableArray *mutableFetchResults = [[managedObjectContext executeFetchRequest:request error:&error] mutableCopy];
-    
-    //if(mutableFetchResults == nil){
-        //如果结果为空，在这作错误响应
-    //}
-    
-    //将得到的本地数组赋值到本类的全局数组，然后清理无用的对象
-    //[self setContacts:mutableFetchResults];
-    //[mutableFetchResults release];
-    //[request release];
-    
-    // Uncomment the following line to preserve selection between presentations.
-    // self.clearsSelectionOnViewWillAppear = NO;
-
-    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
 }
 
 - (void)viewDidUnload
@@ -91,40 +68,44 @@
     Contact *contact = [self.contacts objectAtIndex:indexPath.row];
     cell.nameLabel.text = contact.name;
     //Convert birthday from NSDate to NSString
-    NSDateFormatter *dateFOrmat = [[NSDateFormatter alloc] init];
+    //NSDateFormatter *dateFOrmat = [[NSDateFormatter alloc] init];
     
-    [dateFOrmat setDateFormat:@"yyyy-MM-dd"];
+    //[dateFOrmat setDateFormat:@"yyyy-MM-dd"];
     
-    NSString *birthdayStr = [dateFOrmat stringFromDate:contact.birthday];
+    //NSString *birthdayStr = [dateFOrmat stringFromDate:contact.birthday];
     
-    cell.birthdayLabel.text = birthdayStr;
+    cell.birthdayLabel.text = [contact getBirthdayString];
     // Configure the cell...
     
     return cell;
 }
 
-/*
 // Override to support conditional editing of the table view.
 - (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
 {
     // Return NO if you do not want the specified item to be editable.
-    return YES;
+    return ENABLE_DELETE_CONTACT;
 }
-*/
 
-/*
 // Override to support editing the table view.
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
 {
     if (editingStyle == UITableViewCellEditingStyleDelete) {
+        Contact* delete = [self.contacts objectAtIndex:indexPath.row];
+        
+        // Delete from the array
+        [self.contacts removeObject:delete];
+        
+        // Delete from persistent store
+        [[AppDelegate delegate].managedObjectContext deleteObject:delete];
+        
         // Delete the row from the data source
         [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
     }   
-    else if (editingStyle == UITableViewCellEditingStyleInsert) {
+    /*else if (editingStyle == UITableViewCellEditingStyleInsert) {
         // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-    }   
+    } */
 }
-*/
 
 /*
 // Override to support rearranging the table view.

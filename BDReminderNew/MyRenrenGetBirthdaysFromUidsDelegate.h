@@ -7,11 +7,12 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "Account.h"
 
 @interface MyRenrenGetBirthdaysFromUidsDelegate : NSObject <RenrenDelegate>
 
-@property (nonatomic, retain) NSMutableArray* friends;
+@property (nonatomic, retain) Account* account;
 
-- (id) initWithFriendsList: (NSMutableArray*) aFriendsList;
+- (id) initWithAccount: (Account*) account;
 
 @end

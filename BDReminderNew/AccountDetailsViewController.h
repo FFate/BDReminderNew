@@ -14,6 +14,7 @@
 
 @property (retain, nonatomic) IBOutlet UIButton *loginButton;
 @property (nonatomic) int accountIndex;
+@property (nonatomic, retain) Account* account;
 @property (weak, nonatomic) IBOutlet UILabel *userNameLabel;
 @property (weak, nonatomic) IBOutlet UILabel *accountTypeLabel;
 

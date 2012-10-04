@@ -7,25 +7,34 @@
 //
 
 #import "MyRenrenGetBirthdaysFromUidsDelegate.h"
+#import "Contact.h"
+#import "ContactsViewController.h"
 
 @implementation MyRenrenGetBirthdaysFromUidsDelegate
 
-@synthesize friends;
-
-- (id) initWithFriendsList: (NSMutableArray*) aFriendsList {
-    self = [super init];
-    self.friends = aFriendsList;
+-(id)initWithAccount: (Account*) account {
+    self = [[MyRenrenGetBirthdaysFromUidsDelegate alloc] init];
+    
+    self.account = account;
+    
     return self;
 }
 
 - (void)renren: (Renren*)renren requestDidReturnResponse:(ROResponse *)response {
-    NSLog(@"GetBirthdaysFromUidsDelegate DidReturnResponse.");
     NSArray* returnArray = (NSArray*) response.rootObject;
     
-    NSLog(@"size: %d", [returnArray count]);
     for (ROResponseItem* friend in returnArray) {
         NSLog(@"Friend name: %@, BD:%@", [friend valueForItemKey:@"name"], [friend valueForItemKey:@"birthday"]);
+        Contact* contact = [[Contact alloc] initWithName:[friend valueForItemKey:@"name"] birthdayString:[friend valueForItemKey:@"birthday"] account:self.account];
+        
+        // add into global array
+        [[AppDelegate delegate].contacts addObject:contact];
     }
+    
+    // force ContactsViewController reloadData
+    UINavigationController *nav = (UINavigationController*) [[UIApplication sharedApplication] keyWindow].rootViewController;
+    ContactsViewController* contactsViewController = [[nav viewControllers] objectAtIndex:0];
+    [contactsViewController.tableView reloadData];
 }
 
 @end

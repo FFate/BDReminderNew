@@ -23,7 +23,6 @@
 }
 
 - (void) renrenDidLogin:(Renren *)renren {
-    NSLog(@"MyRenrenLoginDelegate:renrenDidLogin");
     // this account is logged in
     Account* account = (Account*)[[AppDelegate delegate].accountsList objectAtIndex:viewController.accountIndex];
     account.accountStatus = ACCOUNT_VALID;

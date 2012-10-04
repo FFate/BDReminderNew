@@ -18,6 +18,7 @@
 @synthesize accountIndex;
 @synthesize userNameLabel;
 @synthesize accountTypeLabel;
+@synthesize account;
 
 - (IBAction) userLogin: (id)sender {
     mustOverride();
