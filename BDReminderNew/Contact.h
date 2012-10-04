@@ -15,13 +15,15 @@
 
 @property (nonatomic, retain) NSString * name;
 @property (nonatomic, retain) NSDate * birthday;
-@property (nonatomic, retain) AggregatedContact *aggregatedContact;
+@property (nonatomic, retain) UIImage * head;
 @property (nonatomic, retain) Account *account;
+
+@property (nonatomic, retain) AggregatedContact *aggregatedContact;
 
 -(Contact*) initWithName: (NSString*) name birthday: (NSDate*) birthday;
 
 // birthday as yyyy-MM-dd
--(Contact*) initWithName:(NSString *)name birthdayString:(NSString *)birthday account: (Account*) account;
+-(Contact*) initWithName:(NSString *)name birthdayString:(NSString *)birthday headUrl: (NSString*) headUrl account: (Account*) account;
 
 -(NSString*) getBirthdayString;
 

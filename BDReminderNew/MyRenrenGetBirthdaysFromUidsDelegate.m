@@ -24,8 +24,12 @@
     NSArray* returnArray = (NSArray*) response.rootObject;
     
     for (ROResponseItem* friend in returnArray) {
-        NSLog(@"Friend name: %@, BD:%@", [friend valueForItemKey:@"name"], [friend valueForItemKey:@"birthday"]);
-        Contact* contact = [[Contact alloc] initWithName:[friend valueForItemKey:@"name"] birthdayString:[friend valueForItemKey:@"birthday"] account:self.account];
+        NSLog(@"Friend name: %@, BD:%@, head:%@", [friend valueForItemKey:@"name"], [friend valueForItemKey:@"birthday"], [friend valueForItemKey:@"tinyurl"]);
+        Contact* contact = [[Contact alloc]
+                            initWithName:[friend valueForItemKey:@"name"]
+                            birthdayString:[friend valueForItemKey:@"birthday"]
+                            headUrl:[friend valueForItemKey:@"tinyurl"]
+                            account:self.account];
         
         // add into global array
         [[AppDelegate delegate].contacts addObject:contact];

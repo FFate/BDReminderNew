@@ -17,6 +17,7 @@
 @dynamic birthday;
 @dynamic aggregatedContact;
 @dynamic account;
+@dynamic head;
 
 -(Contact*) initWithName: (NSString*) name birthday: (NSDate*) birthday{
     AppDelegate *appDelegate = (AppDelegate *) [[UIApplication sharedApplication] delegate];
@@ -32,7 +33,10 @@
 
 #define DATE_FORMAT @"yyyy-MM-dd"
 
--(Contact*) initWithName:(NSString *)name birthdayString:(NSString *)birthday account:(Account *)account {
+-(Contact*) initWithName:(NSString *)name
+          birthdayString:(NSString *)birthday
+                 headUrl:(NSString *)headUrl
+                 account:(Account *)account {
     self = (Contact *) [NSEntityDescription insertNewObjectForEntityForName:@"Contact" inManagedObjectContext:[AppDelegate delegate].managedObjectContext];
     
     if (self) {
@@ -45,6 +49,9 @@
         // if format doesn't match you'll get nil from your string, so be careful
         [dateFormatter setDateFormat:DATE_FORMAT];
         self.birthday = [dateFormatter dateFromString:birthday];
+        
+        // get head
+        self.head = [UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:headUrl]]];
     }
     
     return self;

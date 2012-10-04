@@ -54,7 +54,7 @@
         return persistentStoreCoordinator_;
     }
     
-    NSURL *storeURL = [[self applicationDocumentsDirectory] URLByAppendingPathComponent:@"appData.sqlite"];
+    NSURL *storeURL = [[self applicationDocumentsDirectory] URLByAppendingPathComponent:@"appData1004.sqlite"];
     NSLog(@"db: %@", [storeURL absoluteURL]);
     NSError *error = nil;
     persistentStoreCoordinator_ = [[NSPersistentStoreCoordinator alloc] initWithManagedObjectModel:[self managedObjectModel]];
@@ -123,6 +123,26 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     BOOL createContactsOnLoad = NO;
+    BOOL RESET_PERSISTENT_STORE = NO;
+    
+    if (RESET_PERSISTENT_STORE) {
+        NSError * error;
+        // retrieve the store URL
+        NSURL * storeURL = [[self.managedObjectContext persistentStoreCoordinator] URLForPersistentStore:[[[self.managedObjectContext persistentStoreCoordinator] persistentStores] lastObject]];
+        // lock the current context
+        [self.managedObjectContext lock];
+        [self.managedObjectContext reset];//to drop pending changes
+        //delete the store from the current managedObjectContext
+        if ([[self.managedObjectContext persistentStoreCoordinator] removePersistentStore:[[[self.managedObjectContext persistentStoreCoordinator] persistentStores] lastObject] error:&error])
+        {
+            // remove the file containing the data
+            [[NSFileManager defaultManager] removeItemAtURL:storeURL error:&error];
+            //recreate the store like in the  appDelegate method
+            [[self.managedObjectContext persistentStoreCoordinator] addPersistentStoreWithType:NSSQLiteStoreType configuration:nil URL:storeURL options:nil error:&error];//recreates the persistent store
+        }
+        [self.managedObjectContext unlock];
+        //that's it !
+    }
     
     if (createContactsOnLoad) {
         // create contacts when application is loaded

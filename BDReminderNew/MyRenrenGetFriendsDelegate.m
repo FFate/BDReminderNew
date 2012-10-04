@@ -26,13 +26,12 @@
     
     NSMutableString* uids = [[NSMutableString alloc] init];
     for (NSString* friendId in returnArray) {
-        NSLog(@"Friend id: %@\n", friendId);
         [uids appendFormat:@"%@,", friendId];
     }
     
     ROUserInfoRequestParam* params = [[ROUserInfoRequestParam alloc] init];
     params.userIDs = uids;
-    params.fields = @"name, birthday";
+    params.fields = @"name, birthday, tinyurl";
     [[Renren sharedRenren] getUsersInfo:params andDelegate:getBirthdayDelegate];
 }
 

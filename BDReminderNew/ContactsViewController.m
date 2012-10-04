@@ -67,14 +67,8 @@
     
     Contact *contact = [self.contacts objectAtIndex:indexPath.row];
     cell.nameLabel.text = contact.name;
-    //Convert birthday from NSDate to NSString
-    //NSDateFormatter *dateFOrmat = [[NSDateFormatter alloc] init];
-    
-    //[dateFOrmat setDateFormat:@"yyyy-MM-dd"];
-    
-    //NSString *birthdayStr = [dateFOrmat stringFromDate:contact.birthday];
-    
     cell.birthdayLabel.text = [contact getBirthdayString];
+    cell.personalImage.image = contact.head;
     // Configure the cell...
     
     return cell;
