@@ -12,8 +12,8 @@
 
 @property (nonatomic, strong) NSMutableArray *accounts;
 
-+ (NSString *)accountNameByTag:(int) accountTag;
-+ (UIImage *)iconOfAccountByTag:(int) accountTag;
-+ (NSString *)accountStatusText:(int) accountStatus;
+//+ (NSString *)accountNameByTag:(int) accountTag;
+//+ (UIImage *)iconOfAccountByTag:(int) accountTag;
+//+ (NSString *)accountStatusText:(int) accountStatus;
 
 @end

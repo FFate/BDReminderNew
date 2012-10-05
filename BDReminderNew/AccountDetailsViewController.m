@@ -30,9 +30,9 @@
 
 - (void) updateAccountTypeAndInfoText: (Account*)account {
     NSMutableString* accountTypeText = [[NSMutableString alloc] init];
-    [accountTypeText appendString:[AccountsViewController accountNameByTag:account.accountTag]];
+    [accountTypeText appendString:[account accountSiteName]];
     [accountTypeText appendString:@" ("];
-    [accountTypeText appendString:[AccountsViewController accountStatusText:account.accountStatus]];
+    [accountTypeText appendString:[account accountStatusText]];
     [accountTypeText appendString:@")"];
     
     self.accountTypeLabel.text = accountTypeText;

@@ -11,12 +11,15 @@
 
 @class Contact;
 
-@interface AggregatedContact : NSManagedObject
+@interface LinkedContact : NSManagedObject
+
+@property (nonatomic, retain) NSString * name;
+@property (nonatomic, retain) NSDate * birthday;
 
 @property (nonatomic, retain) NSSet *contact;
 @end
 
-@interface AggregatedContact (CoreDataGeneratedAccessors)
+@interface LinkedContact (CoreDataGeneratedAccessors)
 
 - (void)addContactObject:(Contact *)value;
 - (void)removeContactObject:(Contact *)value;

@@ -12,17 +12,29 @@
 @implementation RenrenAccount
 
 -(RenrenAccount *) init{
-    self =  [super init];
+    self = (RenrenAccount *) [NSEntityDescription insertNewObjectForEntityForName:@"RenrenAccount" inManagedObjectContext:[AppDelegate delegate].managedObjectContext];
     
     if(self)
     {
-        self.accountTag = 1;
-        if ([[Renren sharedRenren] isSessionValid]) {
-            self.accountStatus = ACCOUNT_VALID;
-        } else self.accountStatus = ACCOUNT_NOT_SET;
+
     }
     
     return self;
+}
+
+// override
+- (NSString*) accountSiteName {
+    return @"Renren";
+}
+
+// override
+- (UIImage*) accountIcon {
+    return [UIImage imageNamed:@"Renren-icon.png"];
+}
+
+// override
+- (BOOL) isSessionValid {
+    return [[Renren sharedRenren] isSessionValid];
 }
 
 @end

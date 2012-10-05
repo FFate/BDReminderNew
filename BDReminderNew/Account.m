@@ -14,20 +14,32 @@
 
 @dynamic userName;
 @dynamic contact;
-@synthesize accountTag;
-@synthesize accountStatus;
+@dynamic emailHash;
 
 -(Account *) init{
-    AppDelegate *appDelegate = (AppDelegate *) [[UIApplication sharedApplication] delegate];
-    self = (Account *) [NSEntityDescription insertNewObjectForEntityForName:@"Account" inManagedObjectContext:appDelegate.managedObjectContext];
-    
+    mustOverride();
     return self;
 }
 
-static NSSet * accountList;
-
-- (void) loginAndGetContacts {
+- (BOOL) isSessionValid {
     mustOverride();
+    return YES;
+}
+
+- (NSString*) accountStatusText {
+    if ([self isSessionValid]) {
+        return @"Logged In";
+    } else return @"Invalid Session";
+}
+
+static NSMutableArray* accountList;
+
++ (NSMutableArray*) accountList {
+    return accountList;
+}
+
++ (void) setAccountList:(NSMutableArray *)AnotherAccountList {
+    accountList = AnotherAccountList;
 }
 
 @end

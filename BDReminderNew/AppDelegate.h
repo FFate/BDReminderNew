@@ -9,13 +9,17 @@
 #import <UIKit/UIKit.h>
 #import <FacebookSDK/FacebookSDK.h>
 
+#define mustOverride() @throw [NSException exceptionWithName:NSInvalidArgumentException reason:[NSString stringWithFormat:@"%s must be overridden in a subclass/category", __PRETTY_FUNCTION__] userInfo:nil]
+
+#define methodNotImplemented() mustOverride()
+
+#define methodNotImplementedSoftWarning() NSLog(@"%s must be implemented, otherwise it may function inproperly", __PRETTY_FUNCTION__)
+
 @interface AppDelegate : UIResponder <UIApplicationDelegate> {
     NSManagedObjectContext *managedObjectContext_;
     NSManagedObjectModel *managedObjectModel_;
     NSPersistentStoreCoordinator *persistentStoreCoordinator_;
 }
-
-@property (nonatomic, retain) NSMutableArray* contacts;
 
 @property (strong, nonatomic) UIWindow *window;
 
@@ -25,7 +29,7 @@
 - (NSURL *)applicationDocumentsDirectory;
 - (void)saveContext;
 
-- (NSMutableArray*) accountsList;
+//- (NSMutableArray*) accountsList;
 
 + (AppDelegate*) delegate;
 

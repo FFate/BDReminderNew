@@ -25,7 +25,7 @@
     //    RenrenAccount* account = (RenrenAccount*)[[AppDelegate delegate].accountsList objectAtIndex:accountIndex];
     
     NSString* name = [[NSString alloc] initWithString:user.name];
-    Account* myAccount = (Account *)[[AppDelegate delegate].accountsList objectAtIndex:viewController.accountIndex];
+    Account* myAccount = (Account *)[[Account accountList] objectAtIndex:viewController.accountIndex];
     myAccount.userName = name;
     viewController.userNameLabel.text = name;
 }

@@ -33,8 +33,8 @@ NSString *const SCSessionStateChangedNotification = @"com.qinsoon.BDReminder:SCS
     switch (state){
 
         case FBSessionStateOpen:{
-            Account* account = (Account*)[[AppDelegate delegate].accountsList objectAtIndex:_viewController.accountIndex];
-            account.accountStatus = ACCOUNT_VALID;
+            Account* account = (Account*)[[Account accountList] objectAtIndex:_viewController.accountIndex];
+            //account.accountStatus = ACCOUNT_VALID;
             
             // FBSample logic
             // Pre-fetch and cache the friends for the friend picker as soon as possible to improve

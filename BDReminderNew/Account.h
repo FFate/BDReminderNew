@@ -10,27 +10,21 @@
 #import <CoreData/CoreData.h>
 #import "AccountProtocol.h"
 
-#define RENREN_ACCOUNT 1
-#define FACEBOOK_ACCOUNT 2
-
-typedef enum {
-    ACCOUNT_OUT_OF_DATE,
-    ACCOUNT_AUTHENTICATION_FAILED,
-    
-    ACCOUNT_VALID,
-    
-    ACCOUNT_NOT_SET
-} AccountStatus;
-
 @class Contact;
 
-@interface Account : NSManagedObject <AccountProtocol>
+@interface Account : NSManagedObject
 
 @property (nonatomic, retain) NSString * userName;
+@property (nonatomic, retain) NSString * emailHash;
 @property (nonatomic, retain) NSSet *contact;
-@property (nonatomic, assign) int accountTag;
 
-@property AccountStatus accountStatus;
++ (NSMutableArray*) accountList;
++ (void) setAccountList: (NSMutableArray* )AnotherAccountList;
+
+- (NSString*) accountSiteName;
+- (UIImage*) accountIcon;
+- (BOOL) isSessionValid;
+- (NSString*) accountStatusText;
 
 @end
 

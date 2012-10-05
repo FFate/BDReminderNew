@@ -21,39 +21,6 @@
 
 @implementation AccountsViewController
 
-+ (NSString *)accountNameByTag:(int) accountTag{
-    switch (accountTag){
-        case 1: return @"Renren";
-        case 2: return @"Facebook";
-        //add other account
-    }
-    return nil;
-}
-
-+ (UIImage *)iconOfAccountByTag:(int) accountTag{
-    switch (accountTag) {
-        case 1: return [UIImage imageNamed:@"Renren-icon.png"];
-        case 2: return [UIImage imageNamed:@"Facebook-icon.png"];
-        //add other account
-    }
-    return nil;
-}
-
-+ (NSString*)accountStatusText:(int)accountStatus {
-    switch (accountStatus) {
-        case ACCOUNT_VALID:
-            return @"Logged in";
-        case ACCOUNT_OUT_OF_DATE:
-            return @"Session out of date";
-        case ACCOUNT_AUTHENTICATION_FAILED:
-            return @"Authentication failed";
-        case ACCOUNT_NOT_SET:
-            return @"Not set yet";
-        default:
-            return nil;
-    }
-}
-
 - (id)initWithStyle:(UITableViewStyle)style
 {
     self = [super initWithStyle:style];
@@ -67,9 +34,7 @@
 {
     [super viewDidLoad];
     
-    AppDelegate *appDelegate = (AppDelegate *) [[UIApplication sharedApplication] delegate];
-    self.accounts = [appDelegate accountsList];
-    
+    self.accounts = [Account accountList];
 
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
@@ -111,9 +76,9 @@
     
     Account *account = [self.accounts objectAtIndex:indexPath.row];
     
-    cell.accountNameLabel.text = [AccountsViewController accountNameByTag:account.accountTag];
-    cell.accountIcon.image = [AccountsViewController iconOfAccountByTag:account.accountTag];
-    cell.accountStatusLabel.text = [AccountsViewController accountStatusText:account.accountStatus];
+    cell.accountNameLabel.text = [account accountSiteName];
+    cell.accountIcon.image = [account accountIcon];
+    cell.accountStatusLabel.text = [account accountStatusText];
     
     return cell;
 }
@@ -166,7 +131,7 @@
     
     UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"MainStoryboard" bundle:nil];
     
-    if (account.accountTag == RENREN_ACCOUNT) {
+    if ([account class ] == [RenrenAccount class]) {
         RenrenAccountDetailsViewController *accountDetailsViewController = (RenrenAccountDetailsViewController *)[storyboard instantiateViewControllerWithIdentifier:@"RenrenAccountDetailsViewControllerIdentifier"];
         [self.navigationController pushViewController:accountDetailsViewController animated:YES];
         
@@ -181,13 +146,13 @@
         
         // set login button
         NSString* loginText;
-        if (account.accountStatus == ACCOUNT_VALID) {
+        if ([account isSessionValid]) {
             loginText = @"Log out";
         } else loginText = @"Log in";
         [accountDetailsViewController.loginButton setTitle:loginText forState:UIControlStateNormal];
         
         accountDetailsViewController.account = account;
-    }else if(account.accountTag == FACEBOOK_ACCOUNT){
+    }else if([account class] == [FacebookAccount class]){
         FacebookAccountDetailsViewController *accountDetailsViewController =
         (FacebookAccountDetailsViewController*)[storyboard instantiateViewControllerWithIdentifier:@"FacebookAccountDetailsViewControllerIdentifier"];
         [self.navigationController pushViewController:accountDetailsViewController animated:YES];
@@ -195,7 +160,7 @@
         accountDetailsViewController.accountIndex = indexPath.row;
         
         NSString* loginText;
-        if (account.accountStatus == ACCOUNT_VALID) {
+        if ([account isSessionValid]) {
             loginText = @"Log out";
         } else loginText = @"Log in";
         [accountDetailsViewController.loginButton setTitle:loginText forState:UIControlStateNormal];

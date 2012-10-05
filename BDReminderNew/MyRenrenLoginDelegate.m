@@ -24,23 +24,20 @@
 
 - (void) renrenDidLogin:(Renren *)renren {
     // this account is logged in
-    Account* account = (Account*)[[AppDelegate delegate].accountsList objectAtIndex:viewController.accountIndex];
-    account.accountStatus = ACCOUNT_VALID;
+    Account* account = (Account*)[[Account accountList] objectAtIndex:viewController.accountIndex];
     [viewController updateAccountStatus:account];
     [viewController.loginButton setTitle:@"Log out" forState:UIControlStateNormal];
 }
 
 - (void) renrenDidLogout:(Renren *)renren {
     // this account is logged out
-    Account* account = (Account*)[[AppDelegate delegate].accountsList objectAtIndex:viewController.accountIndex];
-    account.accountStatus = ACCOUNT_NOT_SET;
+    Account* account = (Account*)[[Account accountList] objectAtIndex:viewController.accountIndex];
     [viewController updateAccountStatus:account];
     [viewController.loginButton setTitle:@"Log in" forState:UIControlStateNormal];
 }
 
 - (void) renren:(Renren *)renren loginFailWithError:(ROError *)error {
-    Account* account = (Account*)[[AppDelegate delegate].accountsList objectAtIndex:viewController.accountIndex];
-    account.accountStatus = ACCOUNT_AUTHENTICATION_FAILED;
+    Account* account = (Account*)[[Account accountList] objectAtIndex:viewController.accountIndex];
     [viewController updateAccountTypeAndInfoText:account];
     UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Failed Login Attempt"
                                                     message:@"Authentication to Renren failed. "

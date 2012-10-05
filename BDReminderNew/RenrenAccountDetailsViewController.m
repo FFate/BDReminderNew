@@ -44,7 +44,7 @@
 
 // override
 - (void) updateAccountStatus: (Account*) account {
-    self.accountStatusLabel.text = [AccountsViewController accountStatusText:account.accountStatus];
+    self.accountStatusLabel.text = [account accountStatusText];
 }
 
 // override

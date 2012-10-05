@@ -9,7 +9,7 @@
 #import <Foundation/Foundation.h>
 #import <CoreData/CoreData.h>
 
-@class Account, AggregatedContact;
+@class Account, LinkedContact;
 
 @interface Contact : NSManagedObject
 
@@ -18,7 +18,7 @@
 @property (nonatomic, retain) UIImage * head;
 @property (nonatomic, retain) Account *account;
 
-@property (nonatomic, retain) AggregatedContact *aggregatedContact;
+@property (nonatomic, retain) LinkedContact *aggregatedContact;
 
 -(Contact*) initWithName: (NSString*) name birthday: (NSDate*) birthday;
 
@@ -26,5 +26,8 @@
 -(Contact*) initWithName:(NSString *)name birthdayString:(NSString *)birthday headUrl: (NSString*) headUrl account: (Account*) account;
 
 -(NSString*) getBirthdayString;
+
++ (NSMutableArray*) contactList;
++ (void) setContactList: (NSMutableArray*) anotherContactList;
 
 @end

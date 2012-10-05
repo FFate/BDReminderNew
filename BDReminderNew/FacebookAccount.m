@@ -12,13 +12,27 @@
 @implementation FacebookAccount
 
 -(FacebookAccount *) init{
-    self =  [super init];
+    self = (FacebookAccount *) [NSEntityDescription insertNewObjectForEntityForName:@"FacebookAccount" inManagedObjectContext:[AppDelegate delegate].managedObjectContext];
     
     if(self)
     {
-        self.accountTag = 2;
+        //self.accountTag = 2;
     }
     
     return self;
 }
+
+- (NSString*) accountSiteName {
+    return @"Facebook";
+}
+
+- (UIImage*) accountIcon {
+    return [UIImage imageNamed:@"Facebook-icon.png"];
+}
+
+- (BOOL) isSessionValid {
+    methodNotImplementedSoftWarning();
+    return NO;
+}
+
 @end

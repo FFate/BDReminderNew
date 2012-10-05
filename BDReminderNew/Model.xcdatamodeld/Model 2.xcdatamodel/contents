@@ -1,27 +1,29 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <model name="" userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="1487" systemVersion="11E53" minimumToolsVersion="Xcode 4.1" macOSVersion="Automatic" iOSVersion="Automatic">
     <entity name="Account" representedClassName="Account" isAbstract="YES" syncable="YES">
-        <attribute name="password" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="emailHash" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="userName" optional="YES" attributeType="String" syncable="YES"/>
         <relationship name="contact" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Contact" inverseName="account" inverseEntity="Contact" syncable="YES"/>
-    </entity>
-    <entity name="AggregatedContact" representedClassName="AggregatedContact" syncable="YES">
-        <relationship name="contact" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Contact" inverseName="aggregatedContact" inverseEntity="Contact" syncable="YES"/>
     </entity>
     <entity name="Contact" representedClassName="Contact" syncable="YES">
         <attribute name="birthday" optional="YES" attributeType="Date" syncable="YES"/>
         <attribute name="head" optional="YES" attributeType="Transformable" valueTransformerName="UIImageTransformer" syncable="YES"/>
         <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
         <relationship name="account" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="Account" inverseName="contact" inverseEntity="Account" syncable="YES"/>
-        <relationship name="aggregatedContact" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="AggregatedContact" inverseName="contact" inverseEntity="AggregatedContact" syncable="YES"/>
+        <relationship name="aggregatedContact" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="LinkedContact" inverseName="contact" inverseEntity="LinkedContact" syncable="YES"/>
     </entity>
     <entity name="FacebookAccount" representedClassName="FacebookAccount" parentEntity="Account" syncable="YES"/>
+    <entity name="LinkedContact" representedClassName="LinkedContact" syncable="YES">
+        <attribute name="birthday" optional="YES" attributeType="Date" syncable="YES"/>
+        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="contact" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Contact" inverseName="aggregatedContact" inverseEntity="Contact" syncable="YES"/>
+    </entity>
     <entity name="RenrenAccount" representedClassName="RenrenAccount" parentEntity="Account" syncable="YES"/>
     <elements>
-        <element name="Account" positionX="0" positionY="0" width="0" height="0"/>
-        <element name="AggregatedContact" positionX="0" positionY="0" width="0" height="0"/>
-        <element name="Contact" positionX="0" positionY="0" width="0" height="0"/>
-        <element name="FacebookAccount" positionX="0" positionY="0" width="0" height="0"/>
-        <element name="RenrenAccount" positionX="0" positionY="0" width="0" height="0"/>
+        <element name="Account" positionX="0" positionY="0" width="128" height="90"/>
+        <element name="Contact" positionX="0" positionY="0" width="128" height="120"/>
+        <element name="FacebookAccount" positionX="0" positionY="0" width="128" height="45"/>
+        <element name="LinkedContact" positionX="0" positionY="0" width="128" height="90"/>
+        <element name="RenrenAccount" positionX="0" positionY="0" width="128" height="45"/>
     </elements>
 </model>

@@ -6,14 +6,14 @@
 //  Copyright (c) 2012 __MyCompanyName__. All rights reserved.
 //
 
-#import "AggregatedContact.h"
+#import "LinkedContact.h"
 #import "Contact.h"
 
 
-@implementation AggregatedContact
+@implementation LinkedContact
 
 @dynamic contact;
 
-static NSSet * aggregatedContactList;
+static NSSet * linkedContactList;
 
 @end

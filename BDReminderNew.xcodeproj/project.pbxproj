@@ -30,7 +30,7 @@
 		18CB519715EBAF94009A8741 /* FacebookAccount.m in Sources */ = {isa = PBXBuildFile; fileRef = 18CB518C15EBAF94009A8741 /* FacebookAccount.m */; };
 		18CB519815EBAF94009A8741 /* RenrenAccount.m in Sources */ = {isa = PBXBuildFile; fileRef = 18CB518E15EBAF94009A8741 /* RenrenAccount.m */; };
 		18CB519915EBAF94009A8741 /* Account.m in Sources */ = {isa = PBXBuildFile; fileRef = 18CB519015EBAF94009A8741 /* Account.m */; };
-		18CB519A15EBAF94009A8741 /* AggregatedContact.m in Sources */ = {isa = PBXBuildFile; fileRef = 18CB519215EBAF94009A8741 /* AggregatedContact.m */; };
+		18CB519A15EBAF94009A8741 /* LinkedContact.m in Sources */ = {isa = PBXBuildFile; fileRef = 18CB519215EBAF94009A8741 /* LinkedContact.m */; };
 		18CB519B15EBAF94009A8741 /* Contact.m in Sources */ = {isa = PBXBuildFile; fileRef = 18CB519415EBAF94009A8741 /* Contact.m */; };
 		18CB519D15EBAFC2009A8741 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 18CB519C15EBAFC2009A8741 /* CoreData.framework */; };
 		18E7525D161859E9009811BE /* MyRenrenGetFriendsDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 18E7525C161859E9009811BE /* MyRenrenGetFriendsDelegate.m */; };
@@ -169,8 +169,8 @@
 		18CB518E15EBAF94009A8741 /* RenrenAccount.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RenrenAccount.m; sourceTree = "<group>"; };
 		18CB518F15EBAF94009A8741 /* Account.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Account.h; sourceTree = "<group>"; };
 		18CB519015EBAF94009A8741 /* Account.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Account.m; sourceTree = "<group>"; };
-		18CB519115EBAF94009A8741 /* AggregatedContact.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AggregatedContact.h; sourceTree = "<group>"; };
-		18CB519215EBAF94009A8741 /* AggregatedContact.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AggregatedContact.m; sourceTree = "<group>"; };
+		18CB519115EBAF94009A8741 /* LinkedContact.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LinkedContact.h; sourceTree = "<group>"; };
+		18CB519215EBAF94009A8741 /* LinkedContact.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LinkedContact.m; sourceTree = "<group>"; };
 		18CB519315EBAF94009A8741 /* Contact.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Contact.h; sourceTree = "<group>"; };
 		18CB519415EBAF94009A8741 /* Contact.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Contact.m; sourceTree = "<group>"; };
 		18CB519515EBAF94009A8741 /* AccountProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AccountProtocol.h; sourceTree = "<group>"; };
@@ -487,8 +487,8 @@
 				18CB518E15EBAF94009A8741 /* RenrenAccount.m */,
 				18CB518F15EBAF94009A8741 /* Account.h */,
 				18CB519015EBAF94009A8741 /* Account.m */,
-				18CB519115EBAF94009A8741 /* AggregatedContact.h */,
-				18CB519215EBAF94009A8741 /* AggregatedContact.m */,
+				18CB519115EBAF94009A8741 /* LinkedContact.h */,
+				18CB519215EBAF94009A8741 /* LinkedContact.m */,
 				18CB519315EBAF94009A8741 /* Contact.h */,
 				18CB519415EBAF94009A8741 /* Contact.m */,
 				18CB519515EBAF94009A8741 /* AccountProtocol.h */,
@@ -920,7 +920,7 @@
 				18CB519715EBAF94009A8741 /* FacebookAccount.m in Sources */,
 				18CB519815EBAF94009A8741 /* RenrenAccount.m in Sources */,
 				18CB519915EBAF94009A8741 /* Account.m in Sources */,
-				18CB519A15EBAF94009A8741 /* AggregatedContact.m in Sources */,
+				18CB519A15EBAF94009A8741 /* LinkedContact.m in Sources */,
 				18CB519B15EBAF94009A8741 /* Contact.m in Sources */,
 				94E9AF8115EBBE2300940CF7 /* ContactsViewController.m in Sources */,
 				94408C4F15F528C200653E77 /* ContactCell.m in Sources */,

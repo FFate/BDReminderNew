@@ -8,8 +8,6 @@
 
 #import <Foundation/Foundation.h>
 
-#define mustOverride() 
-
 @protocol AccountProtocol <NSObject>
 
 @required

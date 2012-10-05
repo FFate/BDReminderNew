@@ -8,7 +8,7 @@
 
 #import "Contact.h"
 #import "Account.h"
-#import "AggregatedContact.h"
+#import "LinkedContact.h"
 #import "AppDelegate.h"
 
 @implementation Contact
@@ -61,6 +61,16 @@
     NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
     [dateFormatter setDateFormat:DATE_FORMAT];
     return [dateFormatter stringFromDate:self.birthday];
+}
+
+static NSMutableArray* contactList;
+
++ (NSMutableArray*) contactList {
+    return contactList;
+}
+
++ (void) setContactList:(NSMutableArray *)anotherContactList {
+    contactList = anotherContactList;
 }
 
 @end
