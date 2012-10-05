@@ -23,6 +23,8 @@
 - (void)renren: (Renren*)renren requestDidReturnResponse:(ROResponse *)response {
     NSArray* returnArray = (NSArray*) response.rootObject;
     
+    NSMutableArray* newContacts = [[NSMutableArray alloc] initWithCapacity:[returnArray count]];
+    
     for (ROResponseItem* friend in returnArray) {
         NSLog(@"Friend name: %@, BD:%@, head:%@", [friend valueForItemKey:@"name"], [friend valueForItemKey:@"birthday"], [friend valueForItemKey:@"tinyurl"]);
         Contact* contact = [[Contact alloc]
@@ -31,14 +33,13 @@
                             headUrl:[friend valueForItemKey:@"tinyurl"]
                             account:self.account];
         
-        // add into global array
-        [[AppDelegate delegate].contacts addObject:contact];
+        // add into array
+        [newContacts addObject:contact];
     }
     
-    // force ContactsViewController reloadData
     UINavigationController *nav = (UINavigationController*) [[UIApplication sharedApplication] keyWindow].rootViewController;
     ContactsViewController* contactsViewController = [[nav viewControllers] objectAtIndex:0];
-    [contactsViewController.tableView reloadData];
+    [contactsViewController mergeContactsAndUpdateView:newContacts];
 }
 
 @end

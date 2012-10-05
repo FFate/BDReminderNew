@@ -14,4 +14,6 @@
 
 @property (nonatomic, strong) NSMutableArray *contacts;
 
+- (void) mergeContactsAndUpdateView: (NSMutableArray*) newContacts;
+
 @end
