@@ -14,6 +14,7 @@
 #import "AccountDetailsViewController.h"
 #import "RenrenAccountDetailsViewController.h"
 #import "FacebookAccountDetailsViewController.h"
+#import "DejalActivityView.h"
 
 @interface AccountsViewController ()
 

@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		180265B4161DDE03004C135F /* UIImageTransformer.m in Sources */ = {isa = PBXBuildFile; fileRef = 180265B3161DDE03004C135F /* UIImageTransformer.m */; };
 		1806BD2715F8E82A005EEE12 /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 1806BD2415F8E82A005EEE12 /* Model.xcdatamodeld */; };
+		18472838161FB9500023097E /* DejalActivityView.m in Sources */ = {isa = PBXBuildFile; fileRef = 18472837161FB9500023097E /* DejalActivityView.m */; };
 		18850605161453510031398D /* AccountDetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 18850604161453510031398D /* AccountDetailsViewController.m */; };
 		188A20B51615DA8A0053641A /* AccountCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 188A20B41615DA890053641A /* AccountCell.m */; };
 		188A20B91615E0B80053641A /* RenrenAccountDetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 188A20B81615E0B80053641A /* RenrenAccountDetailsViewController.m */; };
@@ -134,6 +135,8 @@
 		180265B3161DDE03004C135F /* UIImageTransformer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UIImageTransformer.m; sourceTree = "<group>"; };
 		1806BD2515F8E82A005EEE12 /* Model 2.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "Model 2.xcdatamodel"; sourceTree = "<group>"; };
 		1806BD2615F8E82A005EEE12 /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
+		18472836161FB9500023097E /* DejalActivityView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DejalActivityView.h; sourceTree = "<group>"; };
+		18472837161FB9500023097E /* DejalActivityView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DejalActivityView.m; sourceTree = "<group>"; };
 		18850603161453510031398D /* AccountDetailsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AccountDetailsViewController.h; sourceTree = "<group>"; };
 		18850604161453510031398D /* AccountDetailsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AccountDetailsViewController.m; sourceTree = "<group>"; };
 		188A20B31615DA890053641A /* AccountCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AccountCell.h; sourceTree = "<group>"; };
@@ -348,6 +351,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		18472831161FB5DD0023097E /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				18472836161FB9500023097E /* DejalActivityView.h */,
+				18472837161FB9500023097E /* DejalActivityView.m */,
+			);
+			name = Views;
+			sourceTree = "<group>";
+		};
 		188A20B61615DA9D0053641A /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
@@ -436,6 +448,7 @@
 		18CB515A15EBAF41009A8741 /* BDReminderNew */ = {
 			isa = PBXGroup;
 			children = (
+				18472831161FB5DD0023097E /* Views */,
 				188A20B61615DA9D0053641A /* Controllers */,
 				18F74B121613EFF10019970B /* SNS */,
 				18CB518915EBAF6B009A8741 /* Model */,
@@ -985,6 +998,7 @@
 				947895D2161AEA0400E26947 /* MyFacebookLoginDelegate.m in Sources */,
 				943C7054161B2BFB00F1D987 /* FacebookAccountDetailsViewController.m in Sources */,
 				180265B4161DDE03004C135F /* UIImageTransformer.m in Sources */,
+				18472838161FB9500023097E /* DejalActivityView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

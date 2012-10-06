@@ -9,6 +9,7 @@
 #import "ContactsViewController.h"
 #import "Contact.h"
 #import "ContactCell.h"
+#import "DejalActivityView.h"
 
 #define ENABLE_DELETE_CONTACT YES
 
@@ -30,6 +31,10 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+    DejalBezelActivityView* loadingView = (DejalBezelActivityView*)[DejalBezelActivityView activityViewForView:self.view withLabel:@"Loading Contacts... (test use)"];
+    
+    [loadingView performSelector:@selector(animateRemove) withObject:nil afterDelay:1];
 }
 
 - (void)viewDidUnload

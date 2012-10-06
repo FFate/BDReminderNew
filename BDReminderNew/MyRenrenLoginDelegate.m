@@ -7,6 +7,7 @@
 //
 
 #import "MyRenrenLoginDelegate.h"
+#import "DejalActivityView.h"
 
 @interface MyRenrenLoginDelegate()
 
