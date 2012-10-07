@@ -29,9 +29,14 @@
     NSMutableArray* newContacts = [[NSMutableArray alloc] initWithCapacity:[returnArray count]];
     
     for (ROResponseItem* friend in returnArray) {
-        NSLog(@"Friend name: %@, BD:%@, head:%@", [friend valueForItemKey:@"name"], [friend valueForItemKey:@"birthday"], [friend valueForItemKey:@"tinyurl"]);
+        NSLog(@"Friend id: %@, name: %@, BD:%@, head:%@",
+              [friend valueForItemKey:@"uid"],
+              [friend valueForItemKey:@"name"],
+              [friend valueForItemKey:@"birthday"],
+              [friend valueForItemKey:@"tinyurl"]);
         Contact* contact = [[Contact alloc]
-                            initWithName:[friend valueForItemKey:@"name"]
+                            initWithUid: [friend valueForItemKey:@"uid"]
+                            name:[friend valueForItemKey:@"name"]
                             birthdayString:[friend valueForItemKey:@"birthday"]
                             headUrl:[friend valueForItemKey:@"tinyurl"]
                             account:self.account];

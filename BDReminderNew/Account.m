@@ -42,4 +42,18 @@ static NSMutableArray* accountList;
     accountList = AnotherAccountList;
 }
 
+- (BOOL) myIsEqual:(id)object {
+    if (object == self)
+        return YES;
+    else if (object) {
+        Account* another = (Account*) object;
+        
+        // same kind of account with same id
+        return ([another class] == [self class]
+                && [another.identifier isEqual:self.identifier]);
+    }
+    
+    return NO;
+}
+
 @end

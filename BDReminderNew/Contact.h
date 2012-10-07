@@ -13,6 +13,7 @@
 
 @interface Contact : NSManagedObject
 
+@property (nonatomic, retain) NSString * uid;
 @property (nonatomic, retain) NSString * name;
 @property (nonatomic, retain) NSDate * birthday;
 @property (nonatomic, retain) UIImage * head;
@@ -23,9 +24,11 @@
 -(Contact*) initWithName: (NSString*) name birthday: (NSDate*) birthday;
 
 // birthday as yyyy-MM-dd
--(Contact*) initWithName:(NSString *)name birthdayString:(NSString *)birthday headUrl: (NSString*) headUrl account: (Account*) account;
+-(Contact*) initWithUid: (NSString*) uid name:(NSString *)name birthdayString:(NSString *)birthday headUrl: (NSString*) headUrl account: (Account*) account;
 
 -(NSString*) getBirthdayString;
+
+- (BOOL) myIsEqual:(id)object;
 
 + (NSMutableArray*) contactList;
 + (void) setContactList: (NSMutableArray*) anotherContactList;

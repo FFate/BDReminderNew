@@ -18,6 +18,7 @@
 @dynamic aggregatedContact;
 @dynamic account;
 @dynamic head;
+@dynamic uid;
 
 -(Contact*) initWithName: (NSString*) name birthday: (NSDate*) birthday{
     AppDelegate *appDelegate = (AppDelegate *) [[UIApplication sharedApplication] delegate];
@@ -33,13 +34,15 @@
 
 #define DATE_FORMAT @"yyyy-MM-dd"
 
--(Contact*) initWithName:(NSString *)name
+-(Contact*) initWithUid: (NSString*) uid
+                   name:(NSString *)name
           birthdayString:(NSString *)birthday
                  headUrl:(NSString *)headUrl
                  account:(Account *)account {
     self = (Contact *) [NSEntityDescription insertNewObjectForEntityForName:@"Contact" inManagedObjectContext:[AppDelegate delegate].managedObjectContext];
     
     if (self) {
+        self.uid = uid;
         self.name = name;
         self.account = account;
         
@@ -61,6 +64,16 @@
     NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
     [dateFormatter setDateFormat:DATE_FORMAT];
     return [dateFormatter stringFromDate:self.birthday];
+}
+
+- (BOOL) myIsEqual:(id)object {
+    if (self == object) {
+        return YES;
+    } else if (object) {
+        Contact* another = (Contact*) object;
+        return ([another.uid isEqual:self.uid] &&([another.account class] == [self.account class]));
+    }
+    return NO;
 }
 
 static NSMutableArray* contactList;

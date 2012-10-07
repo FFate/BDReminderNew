@@ -9,6 +9,7 @@
         <attribute name="birthday" optional="YES" attributeType="Date" syncable="YES"/>
         <attribute name="head" optional="YES" attributeType="Transformable" valueTransformerName="UIImageTransformer" syncable="YES"/>
         <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="uid" optional="YES" attributeType="String" syncable="YES"/>
         <relationship name="account" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="Account" inverseName="contact" inverseEntity="Account" syncable="YES"/>
         <relationship name="aggregatedContact" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="LinkedContact" inverseName="contact" inverseEntity="LinkedContact" syncable="YES"/>
     </entity>
@@ -21,7 +22,7 @@
     <entity name="RenrenAccount" representedClassName="RenrenAccount" parentEntity="Account" syncable="YES"/>
     <elements>
         <element name="Account" positionX="0" positionY="0" width="128" height="90"/>
-        <element name="Contact" positionX="0" positionY="0" width="128" height="120"/>
+        <element name="Contact" positionX="0" positionY="0" width="128" height="135"/>
         <element name="FacebookAccount" positionX="0" positionY="0" width="128" height="45"/>
         <element name="LinkedContact" positionX="0" positionY="0" width="128" height="90"/>
         <element name="RenrenAccount" positionX="0" positionY="0" width="128" height="45"/>

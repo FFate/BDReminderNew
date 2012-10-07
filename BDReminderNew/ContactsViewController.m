@@ -135,7 +135,21 @@
 // do not add duplicated contact (same name and same BD)
 - (void) mergeContactsAndUpdateView: (NSMutableArray*) newContacts {
     // should check duplicate here
-    [self.contacts addObjectsFromArray:newContacts];    
+    for (Contact* newContact in newContacts) {
+        BOOL duplicate = NO;
+        for (Contact* oldContact in self.contacts) {
+            if ([oldContact myIsEqual:newContact]) {
+                duplicate = YES;
+                break;
+            }
+        }
+        
+        if (duplicate) {
+            NSLog(@"Throw away duplicate contact: (%@)%@", newContact.uid, newContact.name);
+            break;
+        } else [self.contacts addObject:newContact];
+    }
+    //[self.contacts addObjectsFromArray:newContacts];
     
     // force ContactsViewController reloadData
     [self.tableView reloadData];

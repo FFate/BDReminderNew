@@ -26,6 +26,8 @@
 - (BOOL) isSessionValid;
 - (NSString*) accountStatusText;
 
+- (BOOL) myIsEqual:(id)object;
+
 @end
 
 @interface Account (CoreDataGeneratedAccessors)
