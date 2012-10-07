@@ -8,6 +8,7 @@
 
 #import "AccountDetailsViewController.h"
 #import "RenrenAccount.h"
+#import "DejalActivityView.h"
 
 @interface AccountDetailsViewController ()
 
@@ -45,6 +46,26 @@
 - (void) updateAccountStatus: (Account*) account {
     [self updateAccountTypeAndInfoText:account];
 }
+
+- (void) showLoadingOverlayWithText:(NSString*) text {
+    [DejalBezelActivityView activityViewForView:self.view withLabel:text];
+}
+
+- (void) showLoadingOverlayWithText:(NSString *)text dismissAfterDelay:(NSTimeInterval)delay {
+    DejalBezelActivityView* loadingView = (DejalBezelActivityView*)[DejalBezelActivityView activityViewForView:self.view withLabel:text];
+    
+    [loadingView performSelector:@selector(animateRemove) withObject:nil afterDelay:delay];
+}
+
+- (void) updateLoadingOverlayText:(NSString*) text {
+    [DejalBezelActivityView removeViewAnimated:NO];
+    [self showLoadingOverlayWithText:text];
+}
+
+- (void) dismissLoadingOverlay {
+    [DejalBezelActivityView removeViewAnimated:NO];
+}
+
 
 - (id)initWithStyle:(UITableViewStyle)style
 {

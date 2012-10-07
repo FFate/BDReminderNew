@@ -7,10 +7,12 @@
 //
 
 #import "MyRenrenGetUserInfoDelegate.h"
+#import "RenrenAccount.h"
 
 @implementation MyRenrenGetUserInfoDelegate
 
 @synthesize viewController;
+@synthesize getFriendsDelegate;
 
 - (id)initWithViewController:(RenrenAccountDetailsViewController *)aViewController {
     self = [super init];
@@ -22,12 +24,21 @@
     NSArray* returnArray = (NSArray*) response.rootObject;
     ROUserResponseItem* user = (ROUserResponseItem*)[returnArray objectAtIndex:0];
     
-    //    RenrenAccount* account = (RenrenAccount*)[[AppDelegate delegate].accountsList objectAtIndex:accountIndex];
-    
     NSString* name = [[NSString alloc] initWithString:user.name];
-    Account* myAccount = (Account *)[[Account accountList] objectAtIndex:viewController.accountIndex];
-    myAccount.userName = name;
+    RenrenAccount* myAccount = (RenrenAccount *)viewController.account;
+    myAccount.userName = [[NSString alloc] initWithString:name];
+    myAccount.identifier = [[NSString alloc] initWithString:user.userId];
     viewController.userNameLabel.text = name;
+    
+    // update contacts
+    [viewController updateLoadingOverlayText:@"Getting Contacts..."];
+    
+    getFriendsDelegate = [[MyRenrenGetFriendsDelegate alloc] initWithViewController:viewController];
+    
+    ROGetFriendsRequestParam* friendUidsParams = [[ROGetFriendsRequestParam alloc] init];
+    friendUidsParams.page = @"1";
+    friendUidsParams.count = @"500";
+    [[Renren sharedRenren] getFriends:friendUidsParams andDelegate:getFriendsDelegate];
 }
 
 - (void)renren:(Renren *)renren requestFailWithError:(ROError*)error

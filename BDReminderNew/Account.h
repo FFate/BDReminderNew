@@ -15,7 +15,7 @@
 @interface Account : NSManagedObject
 
 @property (nonatomic, retain) NSString * userName;
-@property (nonatomic, retain) NSString * emailHash;
+@property (nonatomic, retain) NSString * identifier;
 @property (nonatomic, retain) NSSet *contact;
 
 + (NSMutableArray*) accountList;

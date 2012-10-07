@@ -8,6 +8,8 @@
 
 #import "MyRenrenLoginDelegate.h"
 #import "DejalActivityView.h"
+#import "MyRenrenGetFriendsDelegate.h"
+#import "MyRenrenGetUserInfoDelegate.h"
 
 @interface MyRenrenLoginDelegate()
 
@@ -16,6 +18,7 @@
 @implementation MyRenrenLoginDelegate
 
 @synthesize viewController;
+@synthesize getUserInfoDelegate;
 
 - (MyRenrenLoginDelegate*) initWithViewController: (RenrenAccountDetailsViewController *) sourceViewController {
     self = [super init];
@@ -28,12 +31,28 @@
     Account* account = (Account*)[[Account accountList] objectAtIndex:viewController.accountIndex];
     [viewController updateAccountStatus:account];
     [viewController.loginButton setTitle:@"Log out" forState:UIControlStateNormal];
+    
+    // update user info
+    [viewController showLoadingOverlayWithText:@"Getting Account Information..."];
+    
+    getUserInfoDelegate = [[MyRenrenGetUserInfoDelegate alloc] initWithViewController:viewController];
+    
+    ROUserInfoRequestParam* userInfoParams = [[ROUserInfoRequestParam alloc] init];
+    userInfoParams.fields = @"name";
+    [[Renren sharedRenren] getUsersInfo:userInfoParams andDelegate:getUserInfoDelegate];
 }
 
 - (void) renrenDidLogout:(Renren *)renren {
     // this account is logged out
     Account* account = (Account*)[[Account accountList] objectAtIndex:viewController.accountIndex];
+    
+    // update model
+    account.identifier = nil;
+    account.userName = nil;
+    
+    // update view
     [viewController updateAccountStatus:account];
+    [viewController updateAccountInfo:account];
     [viewController.loginButton setTitle:@"Log in" forState:UIControlStateNormal];
 }
 

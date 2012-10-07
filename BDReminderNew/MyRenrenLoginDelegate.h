@@ -15,6 +15,8 @@
 
 @property (nonatomic, retain) RenrenAccountDetailsViewController* viewController;
 
+@property (nonatomic, retain) id getUserInfoDelegate;
+
 - (MyRenrenLoginDelegate*) initWithViewController: (RenrenAccountDetailsViewController *) viewController;
 
 @end

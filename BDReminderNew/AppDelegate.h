@@ -15,6 +15,8 @@
 
 #define methodNotImplementedSoftWarning() NSLog(@"%s must be implemented, otherwise it may function inproperly", __PRETTY_FUNCTION__)
 
+#define PERSISTENT_STORE_FILE @"appData1007.sqlite"
+
 @interface AppDelegate : UIResponder <UIApplicationDelegate> {
     NSManagedObjectContext *managedObjectContext_;
     NSManagedObjectModel *managedObjectModel_;

@@ -12,9 +12,12 @@
 
 @implementation MyRenrenGetBirthdaysFromUidsDelegate
 
--(id)initWithAccount: (Account*) account {
+@synthesize viewController;
+
+- (id) initWithViewController: (RenrenAccountDetailsViewController*) viewController WithAccount: (Account*) account {
     self = [[MyRenrenGetBirthdaysFromUidsDelegate alloc] init];
     
+    self.viewController = viewController;
     self.account = account;
     
     return self;
@@ -40,6 +43,8 @@
     UINavigationController *nav = (UINavigationController*) [[UIApplication sharedApplication] keyWindow].rootViewController;
     ContactsViewController* contactsViewController = [[nav viewControllers] objectAtIndex:0];
     [contactsViewController mergeContactsAndUpdateView:newContacts];
+    
+    [viewController dismissLoadingOverlay];
 }
 
 @end

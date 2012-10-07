@@ -31,10 +31,6 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    
-    DejalBezelActivityView* loadingView = (DejalBezelActivityView*)[DejalBezelActivityView activityViewForView:self.view withLabel:@"Loading Contacts... (test use)"];
-    
-    [loadingView performSelector:@selector(animateRemove) withObject:nil afterDelay:1];
 }
 
 - (void)viewDidUnload

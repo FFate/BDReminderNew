@@ -14,7 +14,7 @@
 
 @dynamic userName;
 @dynamic contact;
-@dynamic emailHash;
+@dynamic identifier;
 
 -(Account *) init{
     mustOverride();

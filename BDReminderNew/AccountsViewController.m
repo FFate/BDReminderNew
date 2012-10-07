@@ -152,6 +152,8 @@
         } else loginText = @"Log in";
         [accountDetailsViewController.loginButton setTitle:loginText forState:UIControlStateNormal];
         
+        NSLog(@"Pushing RenrenAccountDetailsView, name:%@, id:%@", account.userName, account.identifier);
+        
         accountDetailsViewController.account = account;
     }else if([account class] == [FacebookAccount class]){
         FacebookAccountDetailsViewController *accountDetailsViewController =

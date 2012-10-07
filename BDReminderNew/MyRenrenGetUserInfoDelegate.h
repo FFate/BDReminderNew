@@ -14,6 +14,7 @@
 @interface MyRenrenGetUserInfoDelegate : NSObject <RenrenDelegate>
 
 @property (nonatomic, retain) RenrenAccountDetailsViewController* viewController;
+@property (nonatomic, retain) id getFriendsDelegate;
 
 - (id) initWithViewController: (RenrenAccountDetailsViewController*) viewController;
 @end

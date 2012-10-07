@@ -8,11 +8,13 @@
 
 #import <Foundation/Foundation.h>
 #import "Account.h"
+#import "RenrenAccountDetailsViewController.h"
 
 @interface MyRenrenGetBirthdaysFromUidsDelegate : NSObject <RenrenDelegate>
 
 @property (nonatomic, retain) Account* account;
+@property (nonatomic, retain) RenrenAccountDetailsViewController* viewController;
 
-- (id) initWithAccount: (Account*) account;
+- (id) initWithViewController: (RenrenAccountDetailsViewController*) viewController WithAccount: (Account*) account;
 
 @end

@@ -17,7 +17,7 @@
 - (id) initWithViewController:(RenrenAccountDetailsViewController *)aViewController {
     self = [super init];
     self.viewController = aViewController;
-    self.getBirthdayDelegate = [[MyRenrenGetBirthdaysFromUidsDelegate alloc] initWithAccount:viewController.account];
+    self.getBirthdayDelegate = [[MyRenrenGetBirthdaysFromUidsDelegate alloc] initWithViewController:viewController WithAccount:viewController.account];
     return self;
 }
 
