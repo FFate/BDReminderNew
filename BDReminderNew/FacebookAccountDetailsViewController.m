@@ -12,6 +12,7 @@
 @interface FacebookAccountDetailsViewController ()
 
 - (IBAction)userLogin:(id)sender;
+- (void) updateView;
 
 @end
 
@@ -44,22 +45,85 @@
     self.accountStatusLabel.text = [account accountStatusText];
 }
 
+- (void)updateView {
+    // get the app delegate, so that we can reference the session property
+    if (_loginDelegate.session.isOpen) {
+        // valid account UI is shown whenever the session is open
+        [self.loginButton setTitle:@"Log out" forState:UIControlStateNormal];
+        Account* account = (Account*)[[Account accountList] objectAtIndex:self.accountIndex];
+        [self updateAccountStatus:account];
+
+        } else {
+        // login-needed account UI is shown whenever the session is closed
+        [self.loginButton setTitle:@"Log in" forState:UIControlStateNormal];
+        Account* account = (Account*)[[Account accountList] objectAtIndex:self.accountIndex];
+        [self updateAccountStatus:account];
+
+    }
+}
+
 
 - (IBAction)userLogin:(id)sender {
-    [self.loginDelegate openSessionWithAllowLoginUI:YES];
+    //[self.loginDelegate openSessionWithAllowLoginUI:YES];
+    
+    if (_loginDelegate.session.isOpen) {
+        // if a user logs out explicitly, we delete any cached token information, and next
+        // time they run the applicaiton they will be presented with log in UX again; most
+        // users will simply close the app or switch away, without logging out; this will
+        // cause the implicit cached-token login to occur on next launch of the application
+        [_loginDelegate.session closeAndClearTokenInformation];
+        
+    } else {
+        if (_loginDelegate.session.state != FBSessionStateCreated) {
+            // Create a new, logged out session.
+            _loginDelegate.session = [[FBSession alloc] init];
+        }
+        
+        // if the session isn't open, let's open it now and present the login UX to the user
+        [_loginDelegate.session openWithCompletionHandler:^(FBSession *session,
+                                                         FBSessionState status,
+                                                         NSError *error) {
+            // and here we make sure to update our UX according to the new session state
+            [self updateView];
+        }];
+    }
+
 }
+
 
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
+    
+    [self updateView];
+
+    if(_loginDelegate.session.isOpen){
+        _loginDelegate.session = [[FBSession alloc] init];
+    }
+    // if we don't have a cached token, a call to open here would cause UX for login to
+    // occur; we don't want that to happen unless the user clicks the login button, and so
+    // we check here to make sure we have a token before calling open
+    if (_loginDelegate.session.state == FBSessionStateCreatedTokenLoaded) {
+
+        // even though we had a cached token, we need to login to make the session usable
+        [_loginDelegate.session openWithCompletionHandler:^(FBSession *session,
+                                                            FBSessionState status,
+                                                            NSError *error) {
+            // we recurse here, in order to update buttons and labels
+            [self updateView];
+
+        }];
+    }
+
 }
 
 - (void)viewDidUnload
 {
     [super viewDidUnload];
     // Release any retained subviews of the main view.
+    
 }
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation

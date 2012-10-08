@@ -363,13 +363,13 @@
 		188A20B61615DA9D0053641A /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				943C7052161B2BFB00F1D987 /* FacebookAccountDetailsViewController.h */,
-				943C7053161B2BFB00F1D987 /* FacebookAccountDetailsViewController.m */,
 				188A20B31615DA890053641A /* AccountCell.h */,
 				188A20B41615DA890053641A /* AccountCell.m */,
 				94408C4D15F528C200653E77 /* ContactCell.h */,
 				94408C4E15F528C200653E77 /* ContactCell.m */,
 				188A20C51615FA360053641A /* Delegates */,
+				943C7052161B2BFB00F1D987 /* FacebookAccountDetailsViewController.h */,
+				943C7053161B2BFB00F1D987 /* FacebookAccountDetailsViewController.m */,
 				18850603161453510031398D /* AccountDetailsViewController.h */,
 				18850604161453510031398D /* AccountDetailsViewController.m */,
 				94C18D2A1605F7EF00ADF52F /* AccountsViewController.h */,

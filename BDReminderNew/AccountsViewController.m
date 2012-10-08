@@ -162,11 +162,11 @@
         
         accountDetailsViewController.accountIndex = indexPath.row;
         
-        NSString* loginText;
+        /*NSString* loginText;
         if ([account isSessionValid]) {
             loginText = @"Log out";
         } else loginText = @"Log in";
-        [accountDetailsViewController.loginButton setTitle:loginText forState:UIControlStateNormal];
+        [accountDetailsViewController.loginButton setTitle:loginText forState:UIControlStateNormal];*/
         
         accountDetailsViewController.account = account;
     }else {

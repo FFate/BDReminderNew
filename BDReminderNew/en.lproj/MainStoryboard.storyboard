@@ -1,14 +1,13 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="2.0" toolsVersion="2549" systemVersion="11E2620" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="ERN-QM-BWX">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="2.0" toolsVersion="2843" systemVersion="11E2620" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="ERN-QM-BWX">
     <dependencies>
-        <deployment defaultVersion="1296" identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="1498"/>
+        <deployment defaultVersion="1536" identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="1929"/>
     </dependencies>
     <scenes>
         <!--Contacts View Controller - Friends-->
         <scene sceneID="tZg-Kp-Vp3">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="bzm-Ls-hdR" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <tableViewController id="LIV-po-5L7" customClass="ContactsViewController" sceneMemberID="viewController">
                     <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="55" sectionHeaderHeight="22" sectionFooterHeight="22" id="h6z-Yk-tc6">
                         <rect key="frame" x="0.0" y="64" width="320" height="416"/>
@@ -59,13 +58,13 @@
                         </barButtonItem>
                     </navigationItem>
                 </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="bzm-Ls-hdR" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-69" y="88"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="UoY-bL-kRA">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="ymX-JV-3ud" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <navigationController definesPresentationContext="YES" id="ERN-QM-BWX" sceneMemberID="viewController">
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="4Gb-5O-j29">
                         <autoresizingMask key="autoresizingMask"/>
@@ -74,13 +73,13 @@
                         <segue destination="LIV-po-5L7" kind="relationship" relationship="rootViewController" id="1mg-kt-DaS"/>
                     </connections>
                 </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ymX-JV-3ud" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-523" y="88"/>
         </scene>
         <!--Accounts View Controller - Account-->
         <scene sceneID="wGA-1q-DK5">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="bpj-9I-h1D" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <tableViewController id="BPV-mK-B3W" customClass="AccountsViewController" sceneMemberID="viewController">
                     <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="53" sectionHeaderHeight="22" sectionFooterHeight="22" id="WaT-SA-9DD">
                         <rect key="frame" x="0.0" y="64" width="320" height="416"/>
@@ -129,13 +128,13 @@
                     </tableView>
                     <navigationItem key="navigationItem" title="Account" id="U7p-UQ-XaM"/>
                 </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="bpj-9I-h1D" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="391" y="88"/>
         </scene>
         <!--Facebook Account Details View Controller-->
         <scene sceneID="Wbi-ef-Qxe">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="9Q2-QM-g2K" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <tableViewController storyboardIdentifier="FacebookAccountDetailsViewControllerIdentifier" id="jAM-Og-OLV" customClass="FacebookAccountDetailsViewController" sceneMemberID="viewController">
                     <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="grouped" separatorStyle="singleLineEtched" rowHeight="44" sectionHeaderHeight="10" sectionFooterHeight="10" id="rCp-Jv-vec">
                         <rect key="frame" x="0.0" y="20" width="320" height="416"/>
@@ -153,7 +152,7 @@
                                 <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </state>
                             <connections>
-                                <action selector="userLogin:" destination="jAM-Og-OLV" eventType="touchUpInside" id="f2U-hg-sjx"/>
+                                <action selector="userLogin:" destination="jAM-Og-OLV" eventType="touchUpInside" id="Dmq-qO-oI6"/>
                             </connections>
                         </button>
                         <sections>
@@ -227,14 +226,18 @@
                     </tableView>
                     <toolbarItems/>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
+                    <connections>
+                        <outlet property="accountStatusLabel" destination="64J-nc-9ow" id="4Ft-Gb-7Lu"/>
+                        <outlet property="loginButton" destination="bmx-0f-FNj" id="4JK-qM-dkW"/>
+                    </connections>
                 </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="9Q2-QM-g2K" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="852" y="204"/>
         </scene>
         <!--Renren Account Details View Controller - Renren Account-->
         <scene sceneID="Xsa-gL-F0G">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="cy1-0h-fMv" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <tableViewController storyboardIdentifier="RenrenAccountDetailsViewControllerIdentifier" id="dKc-Lp-6gV" customClass="RenrenAccountDetailsViewController" sceneMemberID="viewController">
                     <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="grouped" separatorStyle="singleLineEtched" rowHeight="44" sectionHeaderHeight="10" sectionFooterHeight="10" id="4nG-cb-Xdq">
                         <rect key="frame" x="0.0" y="20" width="320" height="460"/>
@@ -353,13 +356,13 @@
                         <outlet property="userNameLabel" destination="Uad-Mp-ZqE" id="x6Y-ug-cbG"/>
                     </connections>
                 </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="cy1-0h-fMv" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="852" y="-424"/>
         </scene>
         <!--Account Details View Controller - Account Details-->
         <scene sceneID="oT6-Ef-QRc">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="3Go-KL-sr0" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <tableViewController storyboardIdentifier="AccountDetailsViewControllerIdentifier" id="R1p-wl-WWt" customClass="AccountDetailsViewController" sceneMemberID="viewController">
                     <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="grouped" separatorStyle="singleLineEtched" rowHeight="44" sectionHeaderHeight="10" sectionFooterHeight="10" id="jfT-YD-8db">
                         <rect key="frame" x="0.0" y="20" width="320" height="460"/>
@@ -399,10 +402,60 @@
                         <outlet property="accountTypeLabel" destination="WWD-pK-a4R" id="NOm-qw-AEA"/>
                     </connections>
                 </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="3Go-KL-sr0" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1279" y="-424"/>
         </scene>
     </scenes>
+    <classes>
+        <class className="AccountCell" superclassName="UITableViewCell">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/AccountCell.h"/>
+            <relationships>
+                <relationship kind="outlet" name="accountIcon" candidateClass="UIImageView"/>
+                <relationship kind="outlet" name="accountNameLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="accountStatusLabel" candidateClass="UILabel"/>
+            </relationships>
+        </class>
+        <class className="AccountDetailsViewController" superclassName="UITableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/AccountDetailsViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="updateUserInfo:"/>
+                <relationship kind="action" name="userLogin:"/>
+                <relationship kind="outlet" name="accountTypeLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="loginButton" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="userNameLabel" candidateClass="UILabel"/>
+            </relationships>
+        </class>
+        <class className="AccountsViewController" superclassName="UITableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/AccountsViewController.h"/>
+        </class>
+        <class className="ContactCell" superclassName="UITableViewCell">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/ContactCell.h"/>
+            <relationships>
+                <relationship kind="outlet" name="birthdayLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="nameLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="personalImage" candidateClass="UIImageView"/>
+            </relationships>
+        </class>
+        <class className="ContactsViewController" superclassName="UITableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/ContactsViewController.h"/>
+        </class>
+        <class className="FacebookAccountDetailsViewController" superclassName="AccountDetailsViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/FacebookAccountDetailsViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="userLogin:"/>
+                <relationship kind="outlet" name="accountStatusLabel" candidateClass="UILabel"/>
+            </relationships>
+        </class>
+        <class className="RenrenAccountDetailsViewController" superclassName="AccountDetailsViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/RenrenAccountDetailsViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="updateUserInfo:"/>
+                <relationship kind="action" name="userLogin:"/>
+                <relationship kind="outlet" name="accountStatusLabel" candidateClass="UILabel"/>
+            </relationships>
+        </class>
+    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>

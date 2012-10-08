@@ -12,7 +12,7 @@
 #import "MyFacebookLoginDelegate.h"
 
 @class MyFacebookLoginDelegate;
-@class FBSession;
+
 
 @interface FacebookAccountDetailsViewController : AccountDetailsViewController
 
