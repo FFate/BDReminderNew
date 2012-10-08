@@ -36,6 +36,25 @@
 		18CB519D15EBAFC2009A8741 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 18CB519C15EBAFC2009A8741 /* CoreData.framework */; };
 		18E7525D161859E9009811BE /* MyRenrenGetFriendsDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 18E7525C161859E9009811BE /* MyRenrenGetFriendsDelegate.m */; };
 		18E7526116189116009811BE /* MyRenrenGetBirthdaysFromUidsDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 18E7526016189115009811BE /* MyRenrenGetBirthdaysFromUidsDelegate.m */; };
+		18F34D1D162303080070C767 /* QWeiboAccountDetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 18F34D1C162303080070C767 /* QWeiboAccountDetailsViewController.m */; };
+		18F34D21162306600070C767 /* QWeiboAccount.m in Sources */ = {isa = PBXBuildFile; fileRef = 18F34D20162306600070C767 /* QWeiboAccount.m */; };
+		18F34D231623088D0070C767 /* QWeibo-icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 18F34D221623088D0070C767 /* QWeibo-icon.png */; };
+		18F34D4F162313790070C767 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 18F34D4E162313790070C767 /* SystemConfiguration.framework */; };
+		18F34D51162313830070C767 /* CoreTelephony.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 18F34D50162313830070C767 /* CoreTelephony.framework */; };
+		18F34DA3162315600070C767 /* JSONKit.m in Sources */ = {isa = PBXBuildFile; fileRef = 18F34D84162315600070C767 /* JSONKit.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		18F34DA4162315600070C767 /* OpenApi.m in Sources */ = {isa = PBXBuildFile; fileRef = 18F34D86162315600070C767 /* OpenApi.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		18F34DA5162315600070C767 /* OpenSdkBase.m in Sources */ = {isa = PBXBuildFile; fileRef = 18F34D88162315600070C767 /* OpenSdkBase.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		18F34DA6162315600070C767 /* OpenSdkOauth.m in Sources */ = {isa = PBXBuildFile; fileRef = 18F34D8A162315600070C767 /* OpenSdkOauth.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		18F34DA7162315600070C767 /* OpenSdkRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 18F34D8C162315600070C767 /* OpenSdkRequest.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		18F34DA8162315600070C767 /* OpenSdkResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = 18F34D8E162315600070C767 /* OpenSdkResponse.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		18F34DA9162315600070C767 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 18F34D91162315600070C767 /* InfoPlist.strings */; };
+		18F34DAA162315600070C767 /* MainWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 18F34D93162315600070C767 /* MainWindow.xib */; };
+		18F34DAB162315600070C767 /* OpenSdkTestViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 18F34D95162315600070C767 /* OpenSdkTestViewController.xib */; };
+		18F34DAC162315600070C767 /* FeatureListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 18F34D98162315600070C767 /* FeatureListViewController.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		18F34DAD162315600070C767 /* MainWindow-iPad.xib in Resources */ = {isa = PBXBuildFile; fileRef = 18F34D9A162315600070C767 /* MainWindow-iPad.xib */; };
+		18F34DAF162315600070C767 /* OpenSdkTest-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 18F34D9D162315600070C767 /* OpenSdkTest-Info.plist */; };
+		18F34DB0162315600070C767 /* OpenSdkTestAppDelegate.mm in Sources */ = {isa = PBXBuildFile; fileRef = 18F34DA0162315600070C767 /* OpenSdkTestAppDelegate.mm */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		18F34DB1162315600070C767 /* OpenSdkTestViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 18F34DA2162315600070C767 /* OpenSdkTestViewController.mm */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		18F74ACA1613E8D80019970B /* FMDatabase.m in Sources */ = {isa = PBXBuildFile; fileRef = 18F74A421613E8D80019970B /* FMDatabase.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		18F74ACB1613E8D80019970B /* FMDatabaseAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 18F74A441613E8D80019970B /* FMDatabaseAdditions.m */; };
 		18F74ACC1613E8D80019970B /* FMResultSet.m in Sources */ = {isa = PBXBuildFile; fileRef = 18F74A461613E8D80019970B /* FMResultSet.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
@@ -182,6 +201,37 @@
 		18E7525C161859E9009811BE /* MyRenrenGetFriendsDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyRenrenGetFriendsDelegate.m; sourceTree = "<group>"; };
 		18E7525F16189115009811BE /* MyRenrenGetBirthdaysFromUidsDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyRenrenGetBirthdaysFromUidsDelegate.h; sourceTree = "<group>"; };
 		18E7526016189115009811BE /* MyRenrenGetBirthdaysFromUidsDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyRenrenGetBirthdaysFromUidsDelegate.m; sourceTree = "<group>"; };
+		18F34D1B162303080070C767 /* QWeiboAccountDetailsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QWeiboAccountDetailsViewController.h; sourceTree = "<group>"; };
+		18F34D1C162303080070C767 /* QWeiboAccountDetailsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QWeiboAccountDetailsViewController.m; sourceTree = "<group>"; };
+		18F34D1F162306600070C767 /* QWeiboAccount.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QWeiboAccount.h; sourceTree = "<group>"; };
+		18F34D20162306600070C767 /* QWeiboAccount.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QWeiboAccount.m; sourceTree = "<group>"; };
+		18F34D221623088D0070C767 /* QWeibo-icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "QWeibo-icon.png"; sourceTree = "<group>"; };
+		18F34D4E162313790070C767 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		18F34D50162313830070C767 /* CoreTelephony.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreTelephony.framework; path = System/Library/Frameworks/CoreTelephony.framework; sourceTree = SDKROOT; };
+		18F34D83162315600070C767 /* JSONKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSONKit.h; sourceTree = "<group>"; };
+		18F34D84162315600070C767 /* JSONKit.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JSONKit.m; sourceTree = "<group>"; };
+		18F34D85162315600070C767 /* OpenApi.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OpenApi.h; sourceTree = "<group>"; };
+		18F34D86162315600070C767 /* OpenApi.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OpenApi.m; sourceTree = "<group>"; };
+		18F34D87162315600070C767 /* OpenSdkBase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OpenSdkBase.h; sourceTree = "<group>"; };
+		18F34D88162315600070C767 /* OpenSdkBase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OpenSdkBase.m; sourceTree = "<group>"; };
+		18F34D89162315600070C767 /* OpenSdkOauth.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OpenSdkOauth.h; sourceTree = "<group>"; };
+		18F34D8A162315600070C767 /* OpenSdkOauth.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OpenSdkOauth.m; sourceTree = "<group>"; };
+		18F34D8B162315600070C767 /* OpenSdkRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OpenSdkRequest.h; sourceTree = "<group>"; };
+		18F34D8C162315600070C767 /* OpenSdkRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OpenSdkRequest.m; sourceTree = "<group>"; };
+		18F34D8D162315600070C767 /* OpenSdkResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OpenSdkResponse.h; sourceTree = "<group>"; };
+		18F34D8E162315600070C767 /* OpenSdkResponse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OpenSdkResponse.m; sourceTree = "<group>"; };
+		18F34D92162315600070C767 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		18F34D94162315600070C767 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/MainWindow.xib; sourceTree = "<group>"; };
+		18F34D96162315600070C767 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/OpenSdkTestViewController.xib; sourceTree = "<group>"; };
+		18F34D97162315600070C767 /* FeatureListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FeatureListViewController.h; sourceTree = "<group>"; };
+		18F34D98162315600070C767 /* FeatureListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FeatureListViewController.m; sourceTree = "<group>"; };
+		18F34D9B162315600070C767 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = "en.lproj/MainWindow-iPad.xib"; sourceTree = "<group>"; };
+		18F34D9D162315600070C767 /* OpenSdkTest-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "OpenSdkTest-Info.plist"; sourceTree = "<group>"; };
+		18F34D9E162315600070C767 /* OpenSdkTest-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "OpenSdkTest-Prefix.pch"; sourceTree = "<group>"; };
+		18F34D9F162315600070C767 /* OpenSdkTestAppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OpenSdkTestAppDelegate.h; sourceTree = "<group>"; };
+		18F34DA0162315600070C767 /* OpenSdkTestAppDelegate.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = OpenSdkTestAppDelegate.mm; sourceTree = "<group>"; };
+		18F34DA1162315600070C767 /* OpenSdkTestViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OpenSdkTestViewController.h; sourceTree = "<group>"; };
+		18F34DA2162315600070C767 /* OpenSdkTestViewController.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = OpenSdkTestViewController.mm; sourceTree = "<group>"; };
 		18F74A411613E8D80019970B /* FMDatabase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMDatabase.h; sourceTree = "<group>"; };
 		18F74A421613E8D80019970B /* FMDatabase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMDatabase.m; sourceTree = "<group>"; };
 		18F74A431613E8D80019970B /* FMDatabaseAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMDatabaseAdditions.h; sourceTree = "<group>"; };
@@ -328,6 +378,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				18F34D51162313830070C767 /* CoreTelephony.framework in Frameworks */,
+				18F34D4F162313790070C767 /* SystemConfiguration.framework in Frameworks */,
 				947895AF1619EC9D00E26947 /* Accounts.framework in Frameworks */,
 				18F74B111613E9050019970B /* libsqlite3.0.dylib in Frameworks */,
 				18CB519D15EBAFC2009A8741 /* CoreData.framework in Frameworks */,
@@ -380,6 +432,8 @@
 				94E9AF8015EBBE2300940CF7 /* ContactsViewController.m */,
 				188A20B71615E0B80053641A /* RenrenAccountDetailsViewController.h */,
 				188A20B81615E0B80053641A /* RenrenAccountDetailsViewController.m */,
+				18F34D1B162303080070C767 /* QWeiboAccountDetailsViewController.h */,
+				18F34D1C162303080070C767 /* QWeiboAccountDetailsViewController.m */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -431,6 +485,8 @@
 		18CB515315EBAF41009A8741 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				18F34D50162313830070C767 /* CoreTelephony.framework */,
+				18F34D4E162313790070C767 /* SystemConfiguration.framework */,
 				94AC5DB6161DC53500B5983C /* FacebookSDKResources.bundle */,
 				94AC5DB7161DC53500B5983C /* FBUserSettingsViewResources.bundle */,
 				94AC5DB4161DC52D00B5983C /* FacebookSDK.framework */,
@@ -494,6 +550,8 @@
 			isa = PBXGroup;
 			children = (
 				1806BD2415F8E82A005EEE12 /* Model.xcdatamodeld */,
+				18F34D1F162306600070C767 /* QWeiboAccount.h */,
+				18F34D20162306600070C767 /* QWeiboAccount.m */,
 				18CB518B15EBAF94009A8741 /* FacebookAccount.h */,
 				18CB518C15EBAF94009A8741 /* FacebookAccount.m */,
 				18CB518D15EBAF94009A8741 /* RenrenAccount.h */,
@@ -509,6 +567,71 @@
 				180265B3161DDE03004C135F /* UIImageTransformer.m */,
 			);
 			name = Model;
+			sourceTree = "<group>";
+		};
+		18F34D2716230D500070C767 /* QWeibo */ = {
+			isa = PBXGroup;
+			children = (
+				18F34D82162315600070C767 /* OpenSdkSource */,
+				18F34D8F162315600070C767 /* OpenSdkTest */,
+			);
+			name = QWeibo;
+			sourceTree = "<group>";
+		};
+		18F34D82162315600070C767 /* OpenSdkSource */ = {
+			isa = PBXGroup;
+			children = (
+				18F34D83162315600070C767 /* JSONKit.h */,
+				18F34D84162315600070C767 /* JSONKit.m */,
+				18F34D85162315600070C767 /* OpenApi.h */,
+				18F34D86162315600070C767 /* OpenApi.m */,
+				18F34D87162315600070C767 /* OpenSdkBase.h */,
+				18F34D88162315600070C767 /* OpenSdkBase.m */,
+				18F34D89162315600070C767 /* OpenSdkOauth.h */,
+				18F34D8A162315600070C767 /* OpenSdkOauth.m */,
+				18F34D8B162315600070C767 /* OpenSdkRequest.h */,
+				18F34D8C162315600070C767 /* OpenSdkRequest.m */,
+				18F34D8D162315600070C767 /* OpenSdkResponse.h */,
+				18F34D8E162315600070C767 /* OpenSdkResponse.m */,
+			);
+			name = OpenSdkSource;
+			path = QWeibo/OpenSdkSource;
+			sourceTree = "<group>";
+		};
+		18F34D8F162315600070C767 /* OpenSdkTest */ = {
+			isa = PBXGroup;
+			children = (
+				18F34D90162315600070C767 /* Classes */,
+				18F34D91162315600070C767 /* InfoPlist.strings */,
+				18F34D93162315600070C767 /* MainWindow.xib */,
+				18F34D95162315600070C767 /* OpenSdkTestViewController.xib */,
+				18F34D97162315600070C767 /* FeatureListViewController.h */,
+				18F34D98162315600070C767 /* FeatureListViewController.m */,
+				18F34D99162315600070C767 /* iPad */,
+				18F34D9D162315600070C767 /* OpenSdkTest-Info.plist */,
+				18F34D9E162315600070C767 /* OpenSdkTest-Prefix.pch */,
+				18F34D9F162315600070C767 /* OpenSdkTestAppDelegate.h */,
+				18F34DA0162315600070C767 /* OpenSdkTestAppDelegate.mm */,
+				18F34DA1162315600070C767 /* OpenSdkTestViewController.h */,
+				18F34DA2162315600070C767 /* OpenSdkTestViewController.mm */,
+			);
+			name = OpenSdkTest;
+			path = QWeibo/OpenSdkTest;
+			sourceTree = "<group>";
+		};
+		18F34D90162315600070C767 /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Classes;
+			sourceTree = "<group>";
+		};
+		18F34D99162315600070C767 /* iPad */ = {
+			isa = PBXGroup;
+			children = (
+				18F34D9A162315600070C767 /* MainWindow-iPad.xib */,
+			);
+			path = iPad;
 			sourceTree = "<group>";
 		};
 		18F74A401613E8D80019970B /* FMDB */ = {
@@ -761,6 +884,7 @@
 		18F74B121613EFF10019970B /* SNS */ = {
 			isa = PBXGroup;
 			children = (
+				18F34D2716230D500070C767 /* QWeibo */,
 				18F74B131613EFF60019970B /* Renren */,
 			);
 			name = SNS;
@@ -788,6 +912,7 @@
 		94F40E651614391B00C2A23C /* image */ = {
 			isa = PBXGroup;
 			children = (
+				18F34D221623088D0070C767 /* QWeibo-icon.png */,
 				941DC2AD1614399900BC48AB /* Facebook-icon.png */,
 				94F40E661614391B00C2A23C /* Renren-icon.png */,
 			);
@@ -893,6 +1018,12 @@
 				941DC2AE1614399900BC48AB /* Facebook-icon.png in Resources */,
 				94AC5DB8161DC53500B5983C /* FacebookSDKResources.bundle in Resources */,
 				94AC5DB9161DC53500B5983C /* FBUserSettingsViewResources.bundle in Resources */,
+				18F34D231623088D0070C767 /* QWeibo-icon.png in Resources */,
+				18F34DA9162315600070C767 /* InfoPlist.strings in Resources */,
+				18F34DAA162315600070C767 /* MainWindow.xib in Resources */,
+				18F34DAB162315600070C767 /* OpenSdkTestViewController.xib in Resources */,
+				18F34DAD162315600070C767 /* MainWindow-iPad.xib in Resources */,
+				18F34DAF162315600070C767 /* OpenSdkTest-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -999,6 +1130,17 @@
 				943C7054161B2BFB00F1D987 /* FacebookAccountDetailsViewController.m in Sources */,
 				180265B4161DDE03004C135F /* UIImageTransformer.m in Sources */,
 				18472838161FB9500023097E /* DejalActivityView.m in Sources */,
+				18F34D1D162303080070C767 /* QWeiboAccountDetailsViewController.m in Sources */,
+				18F34D21162306600070C767 /* QWeiboAccount.m in Sources */,
+				18F34DA3162315600070C767 /* JSONKit.m in Sources */,
+				18F34DA4162315600070C767 /* OpenApi.m in Sources */,
+				18F34DA5162315600070C767 /* OpenSdkBase.m in Sources */,
+				18F34DA6162315600070C767 /* OpenSdkOauth.m in Sources */,
+				18F34DA7162315600070C767 /* OpenSdkRequest.m in Sources */,
+				18F34DA8162315600070C767 /* OpenSdkResponse.m in Sources */,
+				18F34DAC162315600070C767 /* FeatureListViewController.m in Sources */,
+				18F34DB0162315600070C767 /* OpenSdkTestAppDelegate.mm in Sources */,
+				18F34DB1162315600070C767 /* OpenSdkTestViewController.mm in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1043,6 +1185,38 @@
 				18CB517C15EBAF41009A8741 /* en */,
 			);
 			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		18F34D91162315600070C767 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				18F34D92162315600070C767 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		18F34D93162315600070C767 /* MainWindow.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				18F34D94162315600070C767 /* en */,
+			);
+			name = MainWindow.xib;
+			sourceTree = "<group>";
+		};
+		18F34D95162315600070C767 /* OpenSdkTestViewController.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				18F34D96162315600070C767 /* en */,
+			);
+			name = OpenSdkTestViewController.xib;
+			sourceTree = "<group>";
+		};
+		18F34D9A162315600070C767 /* MainWindow-iPad.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				18F34D9B162315600070C767 /* en */,
+			);
+			name = "MainWindow-iPad.xib";
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -1109,6 +1283,10 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "BDReminderNew/BDReminderNew-Prefix.pch";
 				INFOPLIST_FILE = "BDReminderNew/BDReminderNew-Info.plist";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/BDReminderNew/QWeibo\"",
+				);
 				OTHER_LDFLAGS = "-lsqlite3.0";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
@@ -1127,6 +1305,10 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "BDReminderNew/BDReminderNew-Prefix.pch";
 				INFOPLIST_FILE = "BDReminderNew/BDReminderNew-Info.plist";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/BDReminderNew/QWeibo\"",
+				);
 				OTHER_LDFLAGS = "-lsqlite3.0";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;

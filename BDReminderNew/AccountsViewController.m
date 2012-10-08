@@ -10,10 +10,12 @@
 #import "Account.h"
 #import "RenrenAccount.h"
 #import "FacebookAccount.h"
+#import "QWeiboAccount.h"
 #import "AccountCell.h"
 #import "AccountDetailsViewController.h"
 #import "RenrenAccountDetailsViewController.h"
 #import "FacebookAccountDetailsViewController.h"
+#import "QWeiboAccountDetailsViewController.h"
 #import "DejalActivityView.h"
 
 @interface AccountsViewController ()
@@ -169,7 +171,23 @@
         [accountDetailsViewController.loginButton setTitle:loginText forState:UIControlStateNormal];*/
         
         accountDetailsViewController.account = account;
-    }else {
+    }else if ([account class] == [QWeiboAccount class]) {
+        QWeiboAccountDetailsViewController *accountDetailsViewController =
+        (QWeiboAccountDetailsViewController*)[storyboard instantiateViewControllerWithIdentifier:@"QWeiboAccountDetailsViewControllerIdentifier"];
+        [self.navigationController pushViewController:accountDetailsViewController animated:YES];
+        
+        accountDetailsViewController.accountIndex = indexPath.row;
+        
+        // set login button
+        NSString* loginText;
+        if ([account isSessionValid]) {
+            loginText = @"Log out";
+        } else loginText = @"Log in";
+        [accountDetailsViewController.loginButton setTitle:loginText forState:UIControlStateNormal];
+        
+        accountDetailsViewController.account = account;
+    }
+    else {
         // generic accountDetailsView
         AccountDetailsViewController* accountDetailsViewController =
         (AccountDetailsViewController*)[storyboard instantiateViewControllerWithIdentifier:@"AccountDetailsViewControllerIdentifier"];

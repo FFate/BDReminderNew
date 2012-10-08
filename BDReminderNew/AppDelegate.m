@@ -13,6 +13,7 @@
 #import "AccountsViewController.h"
 #import "RenrenAccount.h"
 #import "FacebookAccount.h"
+#import "QWeiboAccount.h"
 
 @implementation AppDelegate {
 
@@ -114,6 +115,9 @@
     
     FacebookAccount *facebookAccount = [[FacebookAccount alloc] init];
     [accountsList addObject:facebookAccount];
+    
+    QWeiboAccount *qweiboAccount = [[QWeiboAccount alloc] init];
+    [accountsList addObject:qweiboAccount];
     
     return accountsList;
 }
