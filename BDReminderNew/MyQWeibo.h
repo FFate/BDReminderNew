@@ -24,6 +24,8 @@
 
 - (id)initForApi:(NSString*)appKey appSecret:(NSString*)appSecret accessToken:(NSString*)accessToken accessSecret:(NSString*)accessSecret openid:(NSString *)openid oauthType:(uint16_t)oauthType;
 
+- (BOOL) revokeAuth;
+
 - (OpenSdkResponse*) getUserInfo;
 
 + (MyQWeibo*) activeSession;

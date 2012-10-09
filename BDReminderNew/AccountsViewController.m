@@ -154,8 +154,6 @@
         } else loginText = @"Log in";
         [accountDetailsViewController.loginButton setTitle:loginText forState:UIControlStateNormal];
         
-        NSLog(@"Pushing RenrenAccountDetailsView, name:%@, id:%@", account.userName, account.identifier);
-        
         accountDetailsViewController.account = account;
     }else if([account class] == [FacebookAccount class]){
         FacebookAccountDetailsViewController *accountDetailsViewController =
@@ -163,6 +161,9 @@
         [self.navigationController pushViewController:accountDetailsViewController animated:YES];
         
         accountDetailsViewController.accountIndex = indexPath.row;
+        
+        // set account type and status
+        [accountDetailsViewController updateAccountStatus:account];
         
         /*NSString* loginText;
         if ([account isSessionValid]) {

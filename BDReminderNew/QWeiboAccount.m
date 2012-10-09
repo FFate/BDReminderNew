@@ -7,7 +7,7 @@
 //
 
 #import "QWeiboAccount.h"
-
+#import "MyQWeibo.h"
 
 @implementation QWeiboAccount
 
@@ -30,8 +30,8 @@
 }
 
 - (BOOL) isSessionValid {
-    methodNotImplementedSoftWarning();
-    return NO;
+    //methodNotImplementedSoftWarning();
+    return [[MyQWeibo activeSession] isSessionValid];
 }
 
 @end

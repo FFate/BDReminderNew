@@ -8,6 +8,7 @@
 
 #import "QWeiboAccountDetailsViewController.h"
 #import "OpenApi.h"
+#import "MyQWeibo.h"
 
 #define oauth2TokenKey @"access_token="
 #define oauth2OpenidKey @"openid="
@@ -23,9 +24,21 @@
 
 // override
 - (IBAction) userLogin: (id)sender {
-    _OpenSdkOauth = [[OpenSdkOauth alloc] initAppKey:[OpenSdkBase getAppKey] appSecret:[OpenSdkBase getAppSecret]];
-    [self webViewShow];
-    [_OpenSdkOauth doWebViewAuthorize:_webView];
+    if (![[MyQWeibo activeSession] isSessionValid]) {
+        _OpenSdkOauth = [[OpenSdkOauth alloc] initAppKey:[OpenSdkBase getAppKey] appSecret:[OpenSdkBase getAppSecret]];
+        [self webViewShow];
+        [_OpenSdkOauth doWebViewAuthorize:_webView];
+    } else {
+        if ([[MyQWeibo activeSession] revokeAuth]) {
+            // logged out
+            
+            // update Model
+            
+            // update view
+            [self updateAccountStatus:self.account];
+            [self.loginButton setTitle:@"Log in" forState:UIControlStateNormal];
+        }
+    }
 }
 
 // this initMethod will get called by
@@ -128,7 +141,17 @@
     // create qweibo session
     [[MyQWeibo alloc] initForApi:_OpenSdkOauth.appKey appSecret:_OpenSdkOauth.appSecret accessToken:_OpenSdkOauth.accessToken accessSecret:_OpenSdkOauth.accessSecret openid:_OpenSdkOauth.openid oauthType:_OpenSdkOauth.oauthType];
     
-    [[MyQWeibo activeSession] getUserInfo];
+    [self updateAccountStatus:self.account];
+    [self.loginButton setTitle:@"Log out" forState:UIControlStateNormal];
+    
+    // get user info
+    OpenSdkResponse* userInfoResponse = [[MyQWeibo activeSession] getUserInfo];
+    // Going to update account information here
+}
+
+// override
+- (void) updateAccountStatus: (Account*) account {
+    self.accountStatusLabel.text = [account accountStatusText];
 }
 
 - (void)viewDidLoad

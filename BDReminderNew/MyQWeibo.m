@@ -26,6 +26,7 @@
 #define AppFrom @"ios-sdk1.2"
 
 #define UserInfoSuffix @"user/info"
+#define RevokeAuthSuffix @"auth/revoke_auth"
 
 /*
  * http请求方式
@@ -56,6 +57,38 @@
 	return self;
 }
 
+- (BOOL) revokeAuth {
+    NSString *requestUrl = [self getApiBaseUrl:RevokeAuthSuffix];
+    
+    _publishParams = [NSMutableDictionary dictionary];
+    
+    [_publishParams setObject:FORMAT_JSON forKey:@"format"];
+    [self addPublicParams];
+    
+    NSString *resultStr = [_OpenSdkRequest sendApiRequest:requestUrl httpMethod:GetMethod oauth:_OpenSdkOauth params:_publishParams files:nil oauthType:_OpenSdkOauth.oauthType retCode:&_retCode];
+    
+    if (resultStr == nil) {
+        NSLog(@"failed to send request");
+        return NO;
+    }
+    
+    if (_retCode == resSuccessed) {
+        OpenSdkResponse *response = [[OpenSdkResponse alloc] init];
+        [response parseData:resultStr];
+        if (response.ret == 0) {
+            NSLog(@"Logged out");
+            [self deleteSessionFromNSDefaults];
+            active = nil;
+            return YES;
+        } else {
+            NSLog(@"Logging out failed");
+            return NO;
+        }
+    }
+    
+    return NO;
+}
+
 - (void) saveSessionToNSDefaults {
     NSUserDefaults* defaults = [NSUserDefaults standardUserDefaults];
     [defaults setObject:_OpenSdkOauth.appKey        forKey:NSDEFAULT_APP_KEY];
@@ -66,8 +99,18 @@
     [defaults setInteger:_OpenSdkOauth.oauthType    forKey:NSDEFAULT_OAUTH_TYPE];
     
     [defaults synchronize];
+}
+
+- (void) deleteSessionFromNSDefaults {
+    NSUserDefaults* defaults = [NSUserDefaults standardUserDefaults];
+    [defaults removeObjectForKey:NSDEFAULT_APP_KEY];
+    [defaults removeObjectForKey:NSDEFAULT_APP_SECRET];
+    [defaults removeObjectForKey:NSDEFAULT_ACCESS_TOKEN];
+    [defaults removeObjectForKey:NSDEFAULT_ACCESS_SECRET];
+    [defaults removeObjectForKey:NSDEFAULT_OPEN_ID];
+    [defaults removeObjectForKey:NSDEFAULT_OAUTH_TYPE];
     
-    NSLog(@"Saving access token: %@", _OpenSdkOauth.accessToken);
+    [defaults synchronize];
 }
 
 + (OpenSdkOauth*) restoreOpenSdkOauthFromNSDefaults {
@@ -81,8 +124,6 @@
     restore.openid          = [defaults objectForKey:NSDEFAULT_OPEN_ID];
     restore.oauthType       = [defaults integerForKey:NSDEFAULT_OAUTH_TYPE];
     
-    NSLog(@"Restoring access token: %@", restore.accessToken);
-    
     return restore;
 }
 
@@ -91,30 +132,32 @@ static MyQWeibo* active = nil;
 + (MyQWeibo*) activeSession {
     if (active == nil) {
         active = [[MyQWeibo alloc] init];
-        active._OpenSdkOauth = [MyQWeibo restoreOpenSdkOauthFromNSDefaults];
+        [active isSessionValid];
         active._OpenSdkRequest = [[OpenSdkRequest alloc] init];
     }
-    
-    NSLog(@"Active session access token: %@", active._OpenSdkOauth.accessToken);
     
     return active;
 }
 
 - (BOOL) isSessionValid {
-    return ( self._OpenSdkOauth.appKey != nil
-            && ![self._OpenSdkOauth.appKey isEqual:@""]
-            
-            && self._OpenSdkOauth.appSecret != nil
-            && ![self._OpenSdkOauth.appSecret isEqual:@""]
-            
-            && self._OpenSdkOauth.accessToken != nil
-            && ![self._OpenSdkOauth.accessToken isEqual:@""]
-            
-            && self._OpenSdkOauth.accessSecret != nil
-            && ![self._OpenSdkOauth.accessSecret isEqual:@""]
-            
-            && self._OpenSdkOauth.openid != nil
-            && ![self._OpenSdkOauth.openid isEqual:@""]);
+    _OpenSdkOauth = [MyQWeibo restoreOpenSdkOauthFromNSDefaults];
+    
+    BOOL valid = ( self._OpenSdkOauth.appKey != nil
+                  && ![self._OpenSdkOauth.appKey isEqual:@""]
+                  
+                  && self._OpenSdkOauth.appSecret != nil
+                  && ![self._OpenSdkOauth.appSecret isEqual:@""]
+                  
+                  && self._OpenSdkOauth.accessToken != nil
+                  && ![self._OpenSdkOauth.accessToken isEqual:@""]
+                  
+                  //&& self._OpenSdkOauth.accessSecret != nil
+                  //&& ![self._OpenSdkOauth.accessSecret isEqual:@""]
+                  
+                  && self._OpenSdkOauth.openid != nil
+                  && ![self._OpenSdkOauth.openid isEqual:@""]);
+    
+    return valid;
 }
 
 - (OpenSdkResponse*) getUserInfo{
