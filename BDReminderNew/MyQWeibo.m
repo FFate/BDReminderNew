@@ -15,6 +15,8 @@
 #define NSDEFAULT_OPEN_ID       @"qweibo_open_id"
 #define NSDEFAULT_OAUTH_TYPE    @"qweibo_oauth_type"
 
+#define FORMAT_JSON             @"json"
+
 #pragma -
 #pragma mark base define
 
@@ -34,6 +36,7 @@
 @implementation MyQWeibo
 
 @synthesize _OpenSdkOauth;
+@synthesize _OpenSdkRequest;
 
 - (id)initForApi:(NSString*)appKey appSecret:(NSString*)appSecret accessToken:(NSString*)accessToken accessSecret:(NSString*)accessSecret openid:(NSString *)openid oauthType:(uint16_t)oauthType{
 	if ([super init])
@@ -89,6 +92,7 @@ static MyQWeibo* active = nil;
     if (active == nil) {
         active = [[MyQWeibo alloc] init];
         active._OpenSdkOauth = [MyQWeibo restoreOpenSdkOauthFromNSDefaults];
+        active._OpenSdkRequest = [[OpenSdkRequest alloc] init];
     }
     
     NSLog(@"Active session access token: %@", active._OpenSdkOauth.accessToken);
@@ -115,14 +119,11 @@ static MyQWeibo* active = nil;
 
 - (OpenSdkResponse*) getUserInfo{
     NSString *requestUrl = [self getApiBaseUrl:UserInfoSuffix];
-    NSString *format = @"json";
     
     _publishParams = [NSMutableDictionary dictionary];
     
-    [_publishParams setObject:format forKey:@"format"];
+    [_publishParams setObject:FORMAT_JSON forKey:@"format"];
     [self addPublicParams];
-    
-    uint16_t _retCode;
     
     NSString *resultStr = [_OpenSdkRequest sendApiRequest:requestUrl httpMethod:GetMethod oauth:_OpenSdkOauth params:_publishParams files:nil oauthType:_OpenSdkOauth.oauthType retCode:&_retCode];
     

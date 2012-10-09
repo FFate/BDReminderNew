@@ -12,13 +12,15 @@
 #import "OpenSdkResponse.h"
 
 @interface MyQWeibo : NSObject {
-    OpenSdkRequest *_OpenSdkRequest;
     //OpenSdkResponse *_OpenSdkResponse;
     
     NSMutableDictionary* _publishParams;
+    
+    uint16_t _retCode;
 }
 
 @property (nonatomic, retain) OpenSdkOauth *_OpenSdkOauth;
+@property (nonatomic, retain) OpenSdkRequest *_OpenSdkRequest;
 
 - (id)initForApi:(NSString*)appKey appSecret:(NSString*)appSecret accessToken:(NSString*)accessToken accessSecret:(NSString*)accessSecret openid:(NSString *)openid oauthType:(uint16_t)oauthType;
 
