@@ -8,6 +8,7 @@
 
 #import "AccountDetailsViewController.h"
 #import "OpenSdkOauth.h"
+#import "MyQWeibo.h"
 
 @interface QWeiboAccountDetailsViewController : AccountDetailsViewController <UIWebViewDelegate>
 {
@@ -17,6 +18,5 @@
     OpenSdkOauth *_OpenSdkOauth;
 }
 @property (weak, nonatomic) IBOutlet UILabel *accountStatusLabel;
-
 
 @end

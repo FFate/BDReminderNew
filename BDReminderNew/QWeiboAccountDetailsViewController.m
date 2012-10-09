@@ -125,9 +125,10 @@
 - (void)myLoginSucceed {
     NSLog(@"Login success event");
     
-    OpenApi *api = [[OpenApi alloc] initForApi:_OpenSdkOauth.appKey appSecret:_OpenSdkOauth.appSecret accessToken:_OpenSdkOauth.accessToken accessSecret:_OpenSdkOauth.accessSecret openid:_OpenSdkOauth.openid oauthType:_OpenSdkOauth.oauthType];
+    // create qweibo session
+    [[MyQWeibo alloc] initForApi:_OpenSdkOauth.appKey appSecret:_OpenSdkOauth.appSecret accessToken:_OpenSdkOauth.accessToken accessSecret:_OpenSdkOauth.accessSecret openid:_OpenSdkOauth.openid oauthType:_OpenSdkOauth.oauthType];
     
-    [api getUserInfo:@"json"];
+    [[MyQWeibo activeSession] getUserInfo];
 }
 
 - (void)viewDidLoad
