@@ -13,6 +13,8 @@
 @implementation LinkedContact
 
 @dynamic contact;
+@dynamic birthday;
+@dynamic name;
 
 static NSSet * linkedContactList;
 

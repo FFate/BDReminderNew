@@ -108,7 +108,6 @@
 	UIAlertView* alert = [[UIAlertView alloc] initWithTitle:@"提示" message:content delegate:self cancelButtonTitle:@"确定" otherButtonTitles:nil];
 	alert.tag = 'e';
 	[alert show];
-	[alert release];
 }
 
 #pragma -
@@ -135,15 +134,14 @@
 			continue;
 		}
 		
-		NSString* escaped_value = (NSString *)CFURLCreateStringByAddingPercentEscapes(
+		NSString* escaped_value = (NSString *)CFBridgingRelease(CFURLCreateStringByAddingPercentEscapes(
 																					  NULL, 
 																					  (CFStringRef)[params objectForKey:key],
 																					  NULL, 
                                                                                       (CFStringRef)@"!*'();:@&=+$,/?%#[]",
-																					  kCFStringEncodingUTF8);
+																					  kCFStringEncodingUTF8));
 		
 		[pairs addObject:[NSString stringWithFormat:@"%@=%@", key, escaped_value]];
-		[escaped_value release];
 	}
 	NSString* query = [pairs componentsJoinedByString:@"&"];
 	
@@ -218,21 +216,22 @@ static inline void output64Chunk( int c1, int c2, int c3, int pads, NSMutableDat
 		}
 	}
 	
-	return ( [[[NSString allocWithZone: [self zone]] initWithData: buffer encoding: NSASCIIStringEncoding] autorelease] );
+	//return ( [[NSString allocWithZone: self.zone] initWithData: buffer encoding: NSASCIIStringEncoding]);
+
+    return ( [[NSString alloc] initWithData: buffer encoding: NSASCIIStringEncoding]);
 }
 
 @end
 
 @implementation NSString (OpenEncoding)
 
-- (NSString *)URLEncodedString 
+- (NSString *)URLEncodedString
 {
-    NSString *result = (NSString *)CFURLCreateStringByAddingPercentEscapes(kCFAllocatorDefault,
+    NSString *result = (NSString *)CFBridgingRelease(CFURLCreateStringByAddingPercentEscapes(kCFAllocatorDefault,
                                                                            (CFStringRef)self,
                                                                            NULL,
 																		   CFSTR("!*'();:@&=+$,/?%#[]"),
-                                                                           kCFStringEncodingUTF8);
-    [result autorelease];
+                                                                           kCFStringEncodingUTF8));
 	return result;
 }
 

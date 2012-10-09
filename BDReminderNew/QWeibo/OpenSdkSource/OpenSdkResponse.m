@@ -44,11 +44,4 @@
         return CALLAPI_SUCCESSED;
     }
 }
-
-- (void)dealloc {
-	[_msg release];
-	[_responseDict release];
-	[super dealloc];
-}
-
 @end

@@ -38,7 +38,6 @@ static NSString *authPrefix = @"authorize";
 {
 	if ([super init]) 
 	{
-		[_appKey release];
         _appKey = [appKey copy];
 		_appSecret = [appSecret copy];
         _redirectURI = [[NSString alloc] initWithString:[OpenSdkBase getRedirectUri]];
@@ -94,7 +93,7 @@ static NSString *authPrefix = @"authorize";
     NSLog(@"appkey is %@", _appKey);
     NSString *authorizeURL = [oauthRequestBaseURL stringByAppendingString:authPrefix];
     
-    NSString *loadingURL = [[OpenSdkBase generateURL:authorizeURL params:params httpMethod:nil] retain];
+    NSString *loadingURL = [OpenSdkBase generateURL:authorizeURL params:params httpMethod:nil];
     
     NSLog(@"request url is %@", loadingURL);
 	NSMutableURLRequest* request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:loadingURL]];
@@ -129,11 +128,6 @@ static NSString *authPrefix = @"authorize";
 	
 	
 	//delete __conn ;
-}
-
-
-- (void)dealloc {
-    [super dealloc];
 }
 
 - (void) oauthDidSuccess:(NSString *)accessToken accessSecret:(NSString *)accessSecret openid:(NSString *)openid openkey:(NSString *)openkey expireIn:(NSString *)expireIn {

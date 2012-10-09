@@ -42,11 +42,11 @@
 		18F34D4F162313790070C767 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 18F34D4E162313790070C767 /* SystemConfiguration.framework */; };
 		18F34D51162313830070C767 /* CoreTelephony.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 18F34D50162313830070C767 /* CoreTelephony.framework */; };
 		18F34DA3162315600070C767 /* JSONKit.m in Sources */ = {isa = PBXBuildFile; fileRef = 18F34D84162315600070C767 /* JSONKit.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
-		18F34DA4162315600070C767 /* OpenApi.m in Sources */ = {isa = PBXBuildFile; fileRef = 18F34D86162315600070C767 /* OpenApi.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
-		18F34DA5162315600070C767 /* OpenSdkBase.m in Sources */ = {isa = PBXBuildFile; fileRef = 18F34D88162315600070C767 /* OpenSdkBase.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
-		18F34DA6162315600070C767 /* OpenSdkOauth.m in Sources */ = {isa = PBXBuildFile; fileRef = 18F34D8A162315600070C767 /* OpenSdkOauth.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
-		18F34DA7162315600070C767 /* OpenSdkRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 18F34D8C162315600070C767 /* OpenSdkRequest.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
-		18F34DA8162315600070C767 /* OpenSdkResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = 18F34D8E162315600070C767 /* OpenSdkResponse.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		18F34DA4162315600070C767 /* OpenApi.m in Sources */ = {isa = PBXBuildFile; fileRef = 18F34D86162315600070C767 /* OpenApi.m */; };
+		18F34DA5162315600070C767 /* OpenSdkBase.m in Sources */ = {isa = PBXBuildFile; fileRef = 18F34D88162315600070C767 /* OpenSdkBase.m */; };
+		18F34DA6162315600070C767 /* OpenSdkOauth.m in Sources */ = {isa = PBXBuildFile; fileRef = 18F34D8A162315600070C767 /* OpenSdkOauth.m */; };
+		18F34DA7162315600070C767 /* OpenSdkRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 18F34D8C162315600070C767 /* OpenSdkRequest.m */; };
+		18F34DA8162315600070C767 /* OpenSdkResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = 18F34D8E162315600070C767 /* OpenSdkResponse.m */; };
 		18F34DA9162315600070C767 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 18F34D91162315600070C767 /* InfoPlist.strings */; };
 		18F34DAA162315600070C767 /* MainWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 18F34D93162315600070C767 /* MainWindow.xib */; };
 		18F34DAB162315600070C767 /* OpenSdkTestViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 18F34D95162315600070C767 /* OpenSdkTestViewController.xib */; };

@@ -207,12 +207,12 @@
         if (ret == 2) {
 
             if (_OpenSdkResponse.ret == 3 && _OpenSdkResponse.errcode == 1) {
-                [OpenSdkBase showMessageBox:resultStr];
+                //[OpenSdkBase showMessageBox:resultStr];
                 [OpenSdkBase showMessageBox:@"用户授权已失效，需要重新授权"];
             }
         }
 
-        [OpenSdkBase showMessageBox:resultStr]; 
+        //[OpenSdkBase showMessageBox:resultStr];
     }
     else {
         [OpenSdkBase showMessageBox:@"调用user/info接口失败"];
@@ -362,16 +362,6 @@
 	
 	
 	//delete __conn ;
-}
-
-
-- (void)dealloc {
-    
-    [_OpenSdkOauth release];
-    [_OpenSdkRequest release];
-    [_publishParams release];
-    [_filePathName release];
-    [super dealloc];
 }
 
 @end

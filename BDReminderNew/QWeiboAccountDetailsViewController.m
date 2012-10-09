@@ -7,6 +7,7 @@
 //
 
 #import "QWeiboAccountDetailsViewController.h"
+#import "OpenApi.h"
 
 #define oauth2TokenKey @"access_token="
 #define oauth2OpenidKey @"openid="
@@ -107,6 +108,8 @@
         [_webView setHidden:YES];
         [_titleLabel setHidden:YES];
         
+        [self myLoginSucceed];
+        
 		return NO;
 	}
 	else
@@ -117,6 +120,14 @@
         }
 	}
     return YES;
+}
+
+- (void)myLoginSucceed {
+    NSLog(@"Login success event");
+    
+    OpenApi *api = [[OpenApi alloc] initForApi:_OpenSdkOauth.appKey appSecret:_OpenSdkOauth.appSecret accessToken:_OpenSdkOauth.accessToken accessSecret:_OpenSdkOauth.accessSecret openid:_OpenSdkOauth.openid oauthType:_OpenSdkOauth.oauthType];
+    
+    [api getUserInfo:@"json"];
 }
 
 - (void)viewDidLoad
