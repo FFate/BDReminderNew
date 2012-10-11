@@ -66,15 +66,15 @@
 - (IBAction)userLogin:(id)sender {
     //[self.loginDelegate openSessionWithAllowLoginUI:YES];
     
-    if (_loginDelegate.session.isOpen) {
+    if (FBSession.activeSession.isOpen) {
         // if a user logs out explicitly, we delete any cached token information, and next
         // time they run the applicaiton they will be presented with log in UX again; most
         // users will simply close the app or switch away, without logging out; this will
         // cause the implicit cached-token login to occur on next launch of the application
-        [_loginDelegate.session closeAndClearTokenInformation];
+        [FBSession.activeSession closeAndClearTokenInformation];
         
     } else {
-        if (_loginDelegate.session.state != FBSessionStateCreated) {
+        /*if (_loginDelegate.session.state != FBSessionStateCreated) {
             // Create a new, logged out session.
             _loginDelegate.session = [[FBSession alloc] init];
         }
@@ -85,7 +85,8 @@
                                                          NSError *error) {
             // and here we make sure to update our UX according to the new session state
             [self updateView];
-        }];
+        }];*/
+        [_loginDelegate openSessionWithAllowLoginUI:YES];
     }
 
 }
@@ -97,7 +98,7 @@
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
     
-    [self updateView];
+    /*[self updateView];
 
     if(_loginDelegate.session.isOpen){
         _loginDelegate.session = [[FBSession alloc] init];
@@ -115,7 +116,7 @@
             [self updateView];
 
         }];
-    }
+    }*/
 
 }
 

@@ -23,7 +23,7 @@ NSString *const SCSessionStateChangedNotification = @"com.qinsoon.BDReminder:SCS
 @synthesize viewController = _viewController;
 @synthesize session = _session;
 
-/*- (void)sessionStateChanged:(FBSession *)session
+- (void)sessionStateChanged:(FBSession *)session
                       state:(FBSessionState)state
                       error:(NSError *)error
 {
@@ -48,7 +48,7 @@ NSString *const SCSessionStateChangedNotification = @"com.qinsoon.BDReminder:SCS
             break;
         case FBSessionStateClosed:
         case FBSessionStateClosedLoginFailed:{
-            
+           [FBSession.activeSession closeAndClearTokenInformation]; 
         }
             break;
         default:
@@ -70,13 +70,12 @@ NSString *const SCSessionStateChangedNotification = @"com.qinsoon.BDReminder:SCS
 }
 
 - (BOOL)openSessionWithAllowLoginUI:(BOOL)allowLoginUI {
-    NSArray *permissions = [NSArray arrayWithObjects:@"publish_actions", @"user_photos", nil];
-    return [FBSession openActiveSessionWithPermissions:permissions
-                                          allowLoginUI:allowLoginUI
-                                     completionHandler:^(FBSession *session, FBSessionState state, NSError *error) {
-                                         [self sessionStateChanged:session state:state error:error];
-                                     }];
-}*/
+    return [FBSession openActiveSessionWithReadPermissions:nil
+                                              allowLoginUI:allowLoginUI
+                                         completionHandler:^(FBSession *session, FBSessionState state, NSError *error) {
+                                             [self sessionStateChanged:session state:state error:error];
+                                         }];
+}
 
 - (BOOL)application:(UIApplication *)application
             openURL:(NSURL *)url
@@ -98,13 +97,7 @@ NSString *const SCSessionStateChangedNotification = @"com.qinsoon.BDReminder:SCS
 
 - (void)applicationDidBecomeActive:(UIApplication *)application	{
     // this means the user switched back to this app without completing a login in Safari/Facebook App
-    if (FBSession.activeSession.state == FBSessionStateCreatedOpening) {
-        // BUG: for the iOS 6 preview we comment this line out to compensate for a race-condition in our
-        // state transition handling for integrated Facebook Login; production code should close a
-        // session in the opening state on transition back to the application; this line will again be
-        // active in the next production rev
-        //[FBSession.activeSession close]; // so we close our session and start over
-    }
+    [FBSession.activeSession handleDidBecomeActive];
 }
 
 
