@@ -10,6 +10,7 @@
 #import "OpenApi.h"
 #import "Contact.h"
 #import "MyQWeibo.h"
+#import "ContactsViewController.h"
 
 #define oauth2TokenKey @"access_token="
 #define oauth2OpenidKey @"openid="
@@ -35,9 +36,12 @@
         if ([[MyQWeibo activeSession] revokeAuth]) {
             // logged out            
             // update Model
+            self.account.identifier = nil;
+            self.account.userName = nil;
             
             // update view
             [self updateAccountStatus:self.account];
+            [self updateAccountInfo:self.account];
             [self.loginButton setTitle:@"Log in" forState:UIControlStateNormal];
         }
     }
@@ -123,7 +127,8 @@
         [_webView setHidden:YES];
         [_titleLabel setHidden:YES];
         
-        [self myLoginSucceed];
+        [self showLoadingOverlayWithText:@"Getting Account Information..."];
+        [NSThread detachNewThreadSelector:@selector(getUserInfoAndContactsInfoInNewThread) toTarget:self withObject:nil];
         
 		return NO;
 	}
@@ -137,9 +142,7 @@
     return YES;
 }
 
-- (void)myLoginSucceed {
-    NSLog(@"Login success event");
-    
+- (void) getUserInfoAndContactsInfoInNewThread {
     // create qweibo session
     [[MyQWeibo alloc] initForApi:_OpenSdkOauth.appKey appSecret:_OpenSdkOauth.appSecret accessToken:_OpenSdkOauth.accessToken accessSecret:_OpenSdkOauth.accessSecret openid:_OpenSdkOauth.openid oauthType:_OpenSdkOauth.oauthType];
     
@@ -147,7 +150,7 @@
     [self.loginButton setTitle:@"Log out" forState:UIControlStateNormal];
     
     // get user info
-    [self showLoadingOverlayWithText:@"Getting Account Information..."];
+    //[self showLoadingOverlayWithText:@"Getting Account Information..."];
     OpenSdkResponse* userInfoResponse = [[MyQWeibo activeSession] getUserInfo];
     
     // Going to update account information here
@@ -156,7 +159,7 @@
     self.userNameLabel.text = self.account.userName;
     
     // get friends list
-    [self updateLoadingOverlayText:@"Getting Contacts..."];
+    //[self updateLoadingOverlayText:@"Getting Contacts..."];
     OpenSdkResponse* followingListResponse = [[MyQWeibo activeSession] getMyFollowingList];
     NSArray* friendArray = [followingListResponse.responseDict objectForKey:@"info"];
     
@@ -183,11 +186,17 @@
         NSLog(@"Friend name: %@, BD: %@, head: %@", [data objectForKey:@"name"], birthday, headUrl);
         
         Contact* contact = [[Contact alloc] initWithUid:[data objectForKey:@"openid"]
-                                                   name:[data objectForKey:@"name"]
+                                                   name:[data objectForKey:@"nick"]
                                          birthdayString:birthday
                                                 headUrl:[data objectForKey:@"head"]
                                                 account:self.account];
+
+        [newContacts addObject:contact];
     }
+    
+    UINavigationController *nav = (UINavigationController*) [[UIApplication sharedApplication] keyWindow].rootViewController;
+    ContactsViewController* contactsViewController = [[nav viewControllers] objectAtIndex:0];
+    [contactsViewController mergeContactsAndUpdateView:newContacts];
     
     [self dismissLoadingOverlay];
 }
