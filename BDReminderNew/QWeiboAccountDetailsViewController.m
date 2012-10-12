@@ -174,16 +174,17 @@
         
         NSDictionary* data = friendInfoResponse.responseDict;
         
-        NSLog(@"control flow returned to QWeiboAccountViewController, parse friend info");
-        
         NSMutableString* birthday = [[NSMutableString alloc] init];
         [birthday appendFormat:@"%@-%@-%@", [data objectForKey:@"birth_year"],
          [data objectForKey:@"birth_month"], [data objectForKey:@"birth_day"]];
         
         NSMutableString* headUrl = [[data objectForKey:@"head"] mutableCopy];
         [headUrl replaceOccurrencesOfString:@"\\/" withString:@"\\" options:0 range:NSMakeRange(0, [headUrl length])];
+        // some hack is needed to properly get head image
+        [headUrl replaceOccurrencesOfString:@"app.qlogo.cn" withString:@"t1.qlogo.cn" options:0 range:NSMakeRange(0, [headUrl length])];
+        [headUrl appendFormat:@"/0"];
         
-        NSLog(@"Friend name: %@, BD: %@, head: %@", [data objectForKey:@"name"], birthday, headUrl);
+        NSLog(@"Friend name: %@, BD: %@, head: %@", [data objectForKey:@"nick"], birthday, headUrl);
         
         Contact* contact = [[Contact alloc] initWithUid:[data objectForKey:@"openid"]
                                                    name:[data objectForKey:@"nick"]

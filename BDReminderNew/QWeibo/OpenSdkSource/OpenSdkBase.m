@@ -104,7 +104,7 @@
 #pragma mark showMessageBox
 
 + (void) showMessageBox:(NSString*)content{
-	NSLog(@"%@", content);
+	//NSLog(@"%@", content);
 	//UIAlertView* alert = [[UIAlertView alloc] initWithTitle:@"提示" message:content delegate:self cancelButtonTitle:@"确定" otherButtonTitles:nil];
 	//alert.tag = 'e';
 	//[alert show];
