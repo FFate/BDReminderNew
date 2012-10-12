@@ -11,7 +11,6 @@
 
 @interface FacebookAccountDetailsViewController ()
 
-- (IBAction)userLogin:(id)sender;
 - (void) updateView;
 
 @end
@@ -19,7 +18,7 @@
 @implementation FacebookAccountDetailsViewController
 
 @synthesize loginDelegate = _loginDelegate;
-@synthesize accountStatusLabel = _accountStatusLabel;
+
 
 
 - (id)initWithStyle:(UITableViewStyle)style
@@ -42,20 +41,18 @@
 }
 
 - (void) updateAccountStatus: (Account*) account {
-    self.accountStatusLabel.text = [account accountStatusText];
+    //self.accountStatusLabel.text = [account accountStatusText];
 }
 
 - (void)updateView {
     // get the app delegate, so that we can reference the session property
     if (_loginDelegate.session.isOpen) {
         // valid account UI is shown whenever the session is open
-        [self.loginButton setTitle:@"Log out" forState:UIControlStateNormal];
         Account* account = (Account*)[[Account accountList] objectAtIndex:self.accountIndex];
         [self updateAccountStatus:account];
 
         } else {
         // login-needed account UI is shown whenever the session is closed
-        [self.loginButton setTitle:@"Log in" forState:UIControlStateNormal];
         Account* account = (Account*)[[Account accountList] objectAtIndex:self.accountIndex];
         [self updateAccountStatus:account];
 

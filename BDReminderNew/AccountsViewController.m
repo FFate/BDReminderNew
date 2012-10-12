@@ -17,6 +17,7 @@
 #import "FacebookAccountDetailsViewController.h"
 #import "QWeiboAccountDetailsViewController.h"
 #import "DejalActivityView.h"
+#import "NewAccountDetailsViewController.h"
 
 @interface AccountsViewController ()
 
@@ -156,22 +157,22 @@
         
         accountDetailsViewController.account = account;
     }else if([account class] == [FacebookAccount class]){
-        FacebookAccountDetailsViewController *accountDetailsViewController =
-        (FacebookAccountDetailsViewController*)[storyboard instantiateViewControllerWithIdentifier:@"FacebookAccountDetailsViewControllerIdentifier"];
-        [self.navigationController pushViewController:accountDetailsViewController animated:YES];
+        NewAccountDetailsViewController *accountDetailsViewController =
+        (NewAccountDetailsViewController*)[storyboard instantiateViewControllerWithIdentifier:@"AccountDetailsViewControllerIdentifier"];
         
         accountDetailsViewController.accountIndex = indexPath.row;
-        
-        // set account type and status
-        [accountDetailsViewController updateAccountStatus:account];
-        
-        /*NSString* loginText;
-        if ([account isSessionValid]) {
-            loginText = @"Log out";
-        } else loginText = @"Log in";
-        [accountDetailsViewController.loginButton setTitle:loginText forState:UIControlStateNormal];*/
-        
         accountDetailsViewController.account = account;
+        // set account type and status
+        
+        if(![account isSessionValid]){
+            [accountDetailsViewController userLogin];
+        }else{
+            [self.navigationController pushViewController:accountDetailsViewController animated:YES];
+            [accountDetailsViewController setTitle:@"Facebook"];
+            [accountDetailsViewController updateView];
+        }
+        
+       
     }else if ([account class] == [QWeiboAccount class]) {
         QWeiboAccountDetailsViewController *accountDetailsViewController =
         (QWeiboAccountDetailsViewController*)[storyboard instantiateViewControllerWithIdentifier:@"QWeiboAccountDetailsViewControllerIdentifier"];

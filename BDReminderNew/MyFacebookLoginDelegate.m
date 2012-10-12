@@ -39,8 +39,7 @@ NSString *const SCSessionStateChangedNotification = @"com.qinsoon.BDReminder:SCS
             // FBSample logic
             // Pre-fetch and cache the friends for the friend picker as soon as possible to improve
             // responsiveness when the user tags their friends.
-            [_viewController.loginButton setTitle:@"Log out" forState:UIControlStateNormal];
-            _viewController.accountStatusLabel.text = @"111";
+          
             NSLog(@"logged in");
             FBCacheDescriptor *cacheDescriptor = [FBFriendPickerViewController cacheDescriptor];
             [cacheDescriptor prefetchAndCacheForSession:session];

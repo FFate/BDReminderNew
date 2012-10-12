@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="2.0" toolsVersion="2549" systemVersion="11E53" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="ERN-QM-BWX">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="2.0" toolsVersion="2843" systemVersion="11E2620" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="ERN-QM-BWX">
     <dependencies>
-        <deployment defaultVersion="1296" identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="1498"/>
+        <deployment defaultVersion="1536" identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="1929"/>
     </dependencies>
     <scenes>
         <!--Contacts View Controller - Friends-->
@@ -132,41 +132,26 @@
             </objects>
             <point key="canvasLocation" x="391" y="88"/>
         </scene>
-        <!--Facebook Account Details View Controller-->
+        <!--New Account Details View Controller-->
         <scene sceneID="Wbi-ef-Qxe">
             <objects>
-                <tableViewController storyboardIdentifier="FacebookAccountDetailsViewControllerIdentifier" id="jAM-Og-OLV" customClass="FacebookAccountDetailsViewController" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="AccountDetailsViewControllerIdentifier" id="jAM-Og-OLV" customClass="NewAccountDetailsViewController" sceneMemberID="viewController">
                     <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="grouped" separatorStyle="singleLineEtched" rowHeight="44" sectionHeaderHeight="10" sectionFooterHeight="10" id="rCp-Jv-vec">
                         <rect key="frame" x="0.0" y="20" width="320" height="416"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
-                        <button key="tableHeaderView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="bmx-0f-FNj" userLabel="LoginButton">
-                            <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
-                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
-                            <state key="normal">
-                                <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
-                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                            </state>
-                            <state key="highlighted">
-                                <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                            </state>
-                            <connections>
-                                <action selector="userLogin:" destination="jAM-Og-OLV" eventType="touchUpInside" id="Dmq-qO-oI6"/>
-                            </connections>
-                        </button>
                         <sections>
-                            <tableViewSection headerTitle="Facebook Account" id="h3g-Vh-kJM">
+                            <tableViewSection headerTitle="Account Status" id="h3g-Vh-kJM">
                                 <cells>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="Ybl-PO-8JA">
-                                        <rect key="frame" x="0.0" y="80" width="320" height="46"/>
+                                        <rect key="frame" x="0.0" y="46" width="320" height="46"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                             <rect key="frame" x="10" y="1" width="300" height="43"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" id="64J-nc-9ow" userLabel="AccountStatusLabel">
-                                                    <rect key="frame" x="20" y="11" width="260" height="21"/>
+                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Y5T-BS-Kxo" userLabel="AccountStatus">
+                                                    <rect key="frame" x="12" y="6" width="277" height="32"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
@@ -181,7 +166,7 @@
                             <tableViewSection headerTitle="Account Information" id="RIH-xW-0mr">
                                 <cells>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="qco-Hy-zZd">
-                                        <rect key="frame" x="0.0" y="172" width="320" height="45"/>
+                                        <rect key="frame" x="0.0" y="138" width="320" height="45"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                             <rect key="frame" x="10" y="1" width="300" height="43"/>
@@ -199,7 +184,7 @@
                                         </view>
                                     </tableViewCell>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="hkO-Fy-7dS">
-                                        <rect key="frame" x="0.0" y="217" width="320" height="44"/>
+                                        <rect key="frame" x="0.0" y="183" width="320" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                             <rect key="frame" x="10" y="0.0" width="300" height="43"/>
@@ -208,7 +193,7 @@
                                         </view>
                                     </tableViewCell>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="ftN-6x-m3W">
-                                        <rect key="frame" x="0.0" y="261" width="320" height="45"/>
+                                        <rect key="frame" x="0.0" y="227" width="320" height="45"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                             <rect key="frame" x="10" y="0.0" width="300" height="43"/>
@@ -227,8 +212,7 @@
                     <toolbarItems/>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
-                        <outlet property="accountStatusLabel" destination="64J-nc-9ow" id="4Ft-Gb-7Lu"/>
-                        <outlet property="loginButton" destination="bmx-0f-FNj" id="4JK-qM-dkW"/>
+                        <outlet property="accountStatus" destination="Y5T-BS-Kxo" id="G7q-xC-Prv"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9Q2-QM-g2K" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -238,7 +222,6 @@
         <!--Weibo Account Details View Controller-->
         <scene sceneID="0RE-4G-2ko">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="elZ-D4-IbG" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <tableViewController storyboardIdentifier="QWeiboAccountDetailsViewControllerIdentifier" id="206-HJ-CvU" customClass="QWeiboAccountDetailsViewController" sceneMemberID="viewController">
                     <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="grouped" separatorStyle="singleLineEtched" rowHeight="44" sectionHeaderHeight="10" sectionFooterHeight="10" id="dol-F1-EhF">
                         <rect key="frame" x="0.0" y="20" width="320" height="460"/>
@@ -341,6 +324,7 @@
                         <outlet property="userNameLabel" destination="4aO-PS-F5Y" id="Iuq-GO-TA9"/>
                     </connections>
                 </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="elZ-D4-IbG" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1279" y="204"/>
         </scene>
@@ -469,52 +453,6 @@
             </objects>
             <point key="canvasLocation" x="852" y="-424"/>
         </scene>
-        <!--Account Details View Controller - Account Details-->
-        <scene sceneID="oT6-Ef-QRc">
-            <objects>
-                <tableViewController storyboardIdentifier="AccountDetailsViewControllerIdentifier" id="R1p-wl-WWt" customClass="AccountDetailsViewController" sceneMemberID="viewController">
-                    <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="grouped" separatorStyle="singleLineEtched" rowHeight="44" sectionHeaderHeight="10" sectionFooterHeight="10" id="jfT-YD-8db">
-                        <rect key="frame" x="0.0" y="20" width="320" height="460"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
-                        <sections>
-                            <tableViewSection headerTitle="Account Type" id="JhF-qs-Ozz">
-                                <cells>
-                                    <tableViewCell opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" userInteractionEnabled="NO" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="pD7-QL-ICs">
-                                        <rect key="frame" x="0.0" y="46" width="320" height="46"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                            <rect key="frame" x="10" y="1" width="300" height="43"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" id="WWD-pK-a4R" userLabel="AccountTypeLabel">
-                                                    <rect key="frame" x="20" y="11" width="260" height="21"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                                    <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                                </label>
-                                            </subviews>
-                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                        </view>
-                                    </tableViewCell>
-                                </cells>
-                            </tableViewSection>
-                        </sections>
-                        <connections>
-                            <outlet property="dataSource" destination="R1p-wl-WWt" id="DOy-Fw-2hn"/>
-                            <outlet property="delegate" destination="R1p-wl-WWt" id="hfo-sW-SS6"/>
-                        </connections>
-                    </tableView>
-                    <navigationItem key="navigationItem" title="Account Details" id="FXt-kG-r8o"/>
-                    <connections>
-                        <outlet property="accountTypeLabel" destination="WWD-pK-a4R" id="NOm-qw-AEA"/>
-                    </connections>
-                </tableViewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="3Go-KL-sr0" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1279" y="-424"/>
-        </scene>
     </scenes>
     <classes>
         <class className="AccountCell" superclassName="UITableViewCell">
@@ -549,16 +487,16 @@
         <class className="ContactsViewController" superclassName="UITableViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/ContactsViewController.h"/>
         </class>
-        <class className="FacebookAccountDetailsViewController" superclassName="AccountDetailsViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/FacebookAccountDetailsViewController.h"/>
+        <class className="NewAccountDetailsViewController" superclassName="UITableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/NewAccountDetailsViewController.h"/>
             <relationships>
-                <relationship kind="action" name="userLogin:"/>
-                <relationship kind="outlet" name="accountStatusLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="accountStatus" candidateClass="UILabel"/>
             </relationships>
         </class>
         <class className="QWeiboAccountDetailsViewController" superclassName="AccountDetailsViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/QWeiboAccountDetailsViewController.h"/>
             <relationships>
+                <relationship kind="outlet" name="_webView" candidateClass="UIWebView"/>
                 <relationship kind="outlet" name="accountStatusLabel" candidateClass="UILabel"/>
             </relationships>
         </class>
