@@ -42,5 +42,18 @@
          landmarkName = "accountTag"
          landmarkType = "19">
       </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "No"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         filePath = "BDReminderNew/MyFacebookLoginDelegate.m"
+         timestampString = "371712516.895297"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "15"
+         endingLineNumber = "15"
+         landmarkName = "@interface MyFacebookLoginDelegate()"
+         landmarkType = "2">
+      </FileBreakpoint>
    </FileBreakpoints>
 </Bucket>

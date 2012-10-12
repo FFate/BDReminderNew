@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "NewAccountDetailsViewController.h"
 #import "AccountDetailsViewController.h"
 #import "FacebookAccountDetailsViewController.h"
 #import "MyFacebookLoginDelegate.h"
@@ -14,9 +15,9 @@
 @class MyFacebookLoginDelegate;
 
 
-@interface FacebookAccountDetailsViewController : AccountDetailsViewController
+@interface FacebookAccountDetailsViewController : NewAccountDetailsViewController
 
-@property (weak, nonatomic) IBOutlet UILabel *accountStatusLabel;
+
 
 @property (nonatomic,retain) MyFacebookLoginDelegate *loginDelegate;
 

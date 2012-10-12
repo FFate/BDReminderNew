@@ -14,8 +14,7 @@ extern NSString *const SCSessionStateChangedNotification;
 
 @class FacebookAccountDetailsViewController;
 
-@interface MyFacebookLoginDelegate : NSObject<FBLoginViewDelegate>
-
+@interface MyFacebookLoginDelegate : NSObject
 @property (nonatomic, retain) FacebookAccountDetailsViewController* viewController;
 @property (strong, nonatomic) FBSession *session;
 
