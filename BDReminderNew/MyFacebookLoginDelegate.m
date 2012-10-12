@@ -40,7 +40,6 @@ NSString *const SCSessionStateChangedNotification = @"com.qinsoon.BDReminder:SCS
             // Pre-fetch and cache the friends for the friend picker as soon as possible to improve
             // responsiveness when the user tags their friends.
           
-            NSLog(@"logged in");
             FBCacheDescriptor *cacheDescriptor = [FBFriendPickerViewController cacheDescriptor];
             [cacheDescriptor prefetchAndCacheForSession:session];
         }
@@ -68,12 +67,24 @@ NSString *const SCSessionStateChangedNotification = @"com.qinsoon.BDReminder:SCS
 
 }
 
-- (BOOL)openSessionWithAllowLoginUI:(BOOL)allowLoginUI {
-    return [FBSession openActiveSessionWithReadPermissions:nil
-                                              allowLoginUI:allowLoginUI
-                                         completionHandler:^(FBSession *session, FBSessionState state, NSError *error) {
-                                             [self sessionStateChanged:session state:state error:error];
-                                         }];
+- (void)openSession {
+    FBSessionLoginBehavior behavior = FBSessionLoginBehaviorForcingWebView;
+    
+    // we pass the correct behavior here to indicate the login workflow to use (Facebook Login, fallback, etc.)
+    
+    [self.session openWithBehavior:behavior
+                  completionHandler:^(FBSession *session,
+                                      FBSessionState status,
+                                      NSError *error) {
+                                // this handler is called back whether the login succeeds or fails; in the
+                                // success case it will also be called back upon each state transition between
+                                // session-open and session-close
+                        [self sessionStateChanged:session state:status error:error];
+    }];
+}
+
+- (void)closeSession{
+    [self.session closeAndClearTokenInformation];
 }
 
 - (BOOL)application:(UIApplication *)application
@@ -83,7 +94,7 @@ NSString *const SCSessionStateChangedNotification = @"com.qinsoon.BDReminder:SCS
     // FBSample logic
     // We need to handle URLs by passing them to FBSession in order for SSO authentication
     // to work.
-    return [FBSession.activeSession handleOpenURL:url];
+    return [self.session handleOpenURL:url];
 }
 
 - (void)applicationWillTerminate:(UIApplication *)application {
@@ -91,7 +102,7 @@ NSString *const SCSessionStateChangedNotification = @"com.qinsoon.BDReminder:SCS
     // if the app is going away, we close the session object; this is a good idea because
     // things may be hanging off the session, that need releasing (completion block, etc.) and
     // other components in the app may be awaiting close notification in order to do cleanup
-    [FBSession.activeSession close];
+    [self.session close];
 }
 
 - (void)applicationDidBecomeActive:(UIApplication *)application	{

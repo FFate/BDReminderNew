@@ -31,8 +31,12 @@
 }
 
 - (BOOL) isSessionValid {
-    methodNotImplementedSoftWarning();
-    return NO;
+    //methodNotImplementedSoftWarning();
+    if(FBSession.activeSession.isOpen){
+        return YES;
+    }else {
+        return NO;
+    }
 }
 
 @end

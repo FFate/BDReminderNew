@@ -19,6 +19,8 @@ extern NSString *const SCSessionStateChangedNotification;
 @property (strong, nonatomic) FBSession *session;
 
 - (MyFacebookLoginDelegate*) initWithViewController: (FacebookAccountDetailsViewController *) viewController;
-- (BOOL) openSessionWithAllowLoginUI:(BOOL)allowLoginUI;
+
+- (void) openSession;
+- (void) closeSession;
 
 @end

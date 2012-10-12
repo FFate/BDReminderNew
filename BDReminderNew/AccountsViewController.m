@@ -17,7 +17,6 @@
 #import "FacebookAccountDetailsViewController.h"
 #import "QWeiboAccountDetailsViewController.h"
 #import "DejalActivityView.h"
-#import "NewAccountDetailsViewController.h"
 
 @interface AccountsViewController ()
 
@@ -157,19 +156,19 @@
         
         accountDetailsViewController.account = account;
     }else if([account class] == [FacebookAccount class]){
-        NewAccountDetailsViewController *accountDetailsViewController =
-        (NewAccountDetailsViewController*)[storyboard instantiateViewControllerWithIdentifier:@"AccountDetailsViewControllerIdentifier"];
+        FacebookAccountDetailsViewController *accountDetailsViewController =
+        (FacebookAccountDetailsViewController*)[storyboard instantiateViewControllerWithIdentifier:@"AccountDetailsViewControllerIdentifier"];
         
         accountDetailsViewController.accountIndex = indexPath.row;
         accountDetailsViewController.account = account;
+        [accountDetailsViewController setTitle:@"Facebook"];
         // set account type and status
         
-        if(![account isSessionValid]){
+        if (!accountDetailsViewController.loginDelegate.session.isOpen){
             [accountDetailsViewController userLogin];
         }else{
             [self.navigationController pushViewController:accountDetailsViewController animated:YES];
-            [accountDetailsViewController setTitle:@"Facebook"];
-            [accountDetailsViewController updateView];
+            accountDetailsViewController.accountStatus.text = @"Logged in";
         }
         
        
