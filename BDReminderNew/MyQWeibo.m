@@ -27,6 +27,8 @@
 
 #define UserInfoSuffix @"user/info"
 #define RevokeAuthSuffix @"auth/revoke_auth"
+#define FollowingListSuffix @"friends/idollist_name"
+#define OtherUserInfoSuffix @"user/other_info"
 
 /*
  * http请求方式
@@ -196,6 +198,64 @@ static MyQWeibo* active = nil;
         NSLog(@"Fail to call user/info");
         return nil;
     }
+}
+
+- (OpenSdkResponse*) getMyFollowingList {
+    NSString* requestUrl = [self getApiBaseUrl:FollowingListSuffix];
+    
+    _publishParams = [NSMutableDictionary dictionary];
+    
+    [_publishParams setObject:FORMAT_JSON forKey:@"format"];
+    [_publishParams setObject:@"200" forKey:@"reqnum"];
+    [_publishParams setObject:@"0" forKey:@"startindex"];
+    [self addPublicParams];
+    
+    NSString *resultStr = [_OpenSdkRequest sendApiRequest:requestUrl httpMethod:GetMethod oauth:_OpenSdkOauth params:_publishParams files:nil oauthType:_OpenSdkOauth.oauthType retCode:&_retCode];
+    
+    if (resultStr == nil ) {
+        NSLog(@"Failed to send request, result string is nil");
+        return nil;
+    }
+    
+    if (_retCode == resSuccessed) {
+        OpenSdkResponse *response = [[OpenSdkResponse alloc] init];
+        [response parseData:resultStr];
+        if (response.ret == 0) {
+            NSLog(@"Got following list");
+            return response;
+        } else {
+            NSLog(@"Returned error message");
+            return nil;
+        }
+    }
+    
+    return nil;
+}
+
+- (OpenSdkResponse*) getOtherUserInfoOfUID: (NSString*) uid {
+    NSString *requestUrl = [self getApiBaseUrl:OtherUserInfoSuffix];
+    
+    _publishParams = [NSMutableDictionary dictionary];
+    [_publishParams setObject:FORMAT_JSON forKey:@"format"];
+    [_publishParams setObject:uid forKey:@"fopenid"];
+    [self addPublicParams];
+    
+    NSString *resultStr = [_OpenSdkRequest sendApiRequest:requestUrl httpMethod:GetMethod oauth:_OpenSdkOauth params:_publishParams files:nil oauthType:_OpenSdkOauth.oauthType retCode:&_retCode];
+    
+    if (resultStr == nil) {
+        NSLog(@"failed to send getOtherUserInfo request");
+        return NO;
+    }
+    
+    if (_retCode == resSuccessed) {
+        OpenSdkResponse *response = [[OpenSdkResponse alloc] init];
+        [response parseData:resultStr];
+        if (response.ret == 0) {
+            return response;
+        }
+    }
+    
+    return nil;
 }
 
 /*

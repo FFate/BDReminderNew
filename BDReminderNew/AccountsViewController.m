@@ -178,6 +178,9 @@
         [self.navigationController pushViewController:accountDetailsViewController animated:YES];
         
         accountDetailsViewController.accountIndex = indexPath.row;
+        // set account type and status
+        [accountDetailsViewController updateAccountStatus:account];
+        [accountDetailsViewController updateAccountInfo:account];
         
         // set login button
         NSString* loginText;

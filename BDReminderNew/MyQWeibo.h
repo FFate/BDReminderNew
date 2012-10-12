@@ -27,6 +27,8 @@
 - (BOOL) revokeAuth;
 
 - (OpenSdkResponse*) getUserInfo;
+- (OpenSdkResponse*) getMyFollowingList;
+- (OpenSdkResponse*) getOtherUserInfoOfUID: (NSString*) uid;
 
 + (MyQWeibo*) activeSession;
 - (BOOL) isSessionValid;

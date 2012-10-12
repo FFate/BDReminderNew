@@ -8,6 +8,7 @@
 
 #import "QWeiboAccountDetailsViewController.h"
 #import "OpenApi.h"
+#import "Contact.h"
 #import "MyQWeibo.h"
 
 #define oauth2TokenKey @"access_token="
@@ -28,10 +29,11 @@
         _OpenSdkOauth = [[OpenSdkOauth alloc] initAppKey:[OpenSdkBase getAppKey] appSecret:[OpenSdkBase getAppSecret]];
         [self webViewShow];
         [_OpenSdkOauth doWebViewAuthorize:_webView];
+        
+        // myLoginSucceed would further take care of login success event
     } else {
         if ([[MyQWeibo activeSession] revokeAuth]) {
-            // logged out
-            
+            // logged out            
             // update Model
             
             // update view
@@ -145,8 +147,49 @@
     [self.loginButton setTitle:@"Log out" forState:UIControlStateNormal];
     
     // get user info
+    [self showLoadingOverlayWithText:@"Getting Account Information..."];
     OpenSdkResponse* userInfoResponse = [[MyQWeibo activeSession] getUserInfo];
+    
     // Going to update account information here
+    self.account.userName = [[NSString alloc] initWithString: [userInfoResponse.responseDict objectForKey: @"name"]];
+    self.account.identifier = [[NSString alloc] initWithString: [userInfoResponse.responseDict objectForKey: @"openid"]];
+    self.userNameLabel.text = self.account.userName;
+    
+    // get friends list
+    [self updateLoadingOverlayText:@"Getting Contacts..."];
+    OpenSdkResponse* followingListResponse = [[MyQWeibo activeSession] getMyFollowingList];
+    NSArray* friendArray = [followingListResponse.responseDict objectForKey:@"info"];
+    
+    NSMutableArray* newContacts = [[NSMutableArray alloc] initWithCapacity:[friendArray count]];
+    
+    for (NSDictionary* friend in friendArray) {
+        OpenSdkResponse* friendInfoResponse = [[MyQWeibo activeSession] getOtherUserInfoOfUID:[friend objectForKey: @"openid" ]];
+        if (friendInfoResponse == nil) {
+            NSLog(@"getting nil friendInfoResponse, something wrong");
+            abort();
+        }
+        
+        NSDictionary* data = friendInfoResponse.responseDict;
+        
+        NSLog(@"control flow returned to QWeiboAccountViewController, parse friend info");
+        
+        NSMutableString* birthday = [[NSMutableString alloc] init];
+        [birthday appendFormat:@"%@-%@-%@", [data objectForKey:@"birth_year"],
+         [data objectForKey:@"birth_month"], [data objectForKey:@"birth_day"]];
+        
+        NSMutableString* headUrl = [[data objectForKey:@"head"] mutableCopy];
+        [headUrl replaceOccurrencesOfString:@"\\/" withString:@"\\" options:0 range:NSMakeRange(0, [headUrl length])];
+        
+        NSLog(@"Friend name: %@, BD: %@, head: %@", [data objectForKey:@"name"], birthday, headUrl);
+        
+        Contact* contact = [[Contact alloc] initWithUid:[data objectForKey:@"openid"]
+                                                   name:[data objectForKey:@"name"]
+                                         birthdayString:birthday
+                                                headUrl:[data objectForKey:@"head"]
+                                                account:self.account];
+    }
+    
+    [self dismissLoadingOverlay];
 }
 
 // override
