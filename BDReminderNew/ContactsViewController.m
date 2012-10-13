@@ -134,22 +134,32 @@
 // merge newContacts array with the global contact array
 // do not add duplicated contact (same name and same BD)
 - (void) mergeContactsAndUpdateView: (NSMutableArray*) newContacts {
-    // should check duplicate here
-    for (Contact* newContact in newContacts) {
+    NSMutableArray* tempContactArray = [NSMutableArray array];
+    
+    // move non-duplicate contact from old array to tempContactArray
+    // (doing this to avoid mutation while enumeration)
+    for (Contact* oldContact in self.contacts) {
         BOOL duplicate = NO;
-        for (Contact* oldContact in self.contacts) {
-            if ([oldContact myIsEqual:newContact]) {
+        for (Contact* newContact in newContacts) {
+            if ([newContact myIsEqual:oldContact]) {
                 duplicate = YES;
                 break;
             }
         }
         
-        if (duplicate) {
-            NSLog(@"Throw away duplicate contact: (%@)%@", newContact.uid, newContact.name);
-            break;
-        } else [self.contacts addObject:newContact];
+        // if this contact also appears in newContacts, we do nothing
+        // (let the new one update the old one)
+        if (duplicate)
+            continue;
+        // otherwise we have to keep the old contact
+        else [tempContactArray addObject:oldContact];
     }
-    //[self.contacts addObjectsFromArray:newContacts];
+    
+    // add newContacts to tempContactArray
+    [tempContactArray addObjectsFromArray:newContacts];
+    
+    // update self.contacts to tempContactArray
+    self.contacts = tempContactArray;
     
     // force ContactsViewController reloadData
     [self.tableView reloadData];

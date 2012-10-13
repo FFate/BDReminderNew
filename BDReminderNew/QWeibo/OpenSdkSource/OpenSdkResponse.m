@@ -26,7 +26,7 @@
     if (self.ret != 0) {
         self.errcode = [[result objectForKey:@"errcode"] intValue];
         self.msg = [result objectForKey:@"msg"];
-        NSLog(@"调用接口失败");
+        // NSLog(@"调用接口失败");
         return CALLAPI_FAIL;
     }
     
@@ -35,11 +35,11 @@
     id tmpData = [result objectForKey:@"data"];
     
     if ([[NSNull null] isEqual:tmpData]) {
-        NSLog(@"没有数据");
+        // NSLog(@"没有数据");
         return CALLAPI_NO_DATA;
     }
     else {
-        NSLog(@"调用接口成功且有数据");
+        // NSLog(@"调用接口成功且有数据");
         self.responseDict = tmpData;
         return CALLAPI_SUCCESSED;
     }

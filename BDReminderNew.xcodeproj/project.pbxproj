@@ -16,6 +16,7 @@
 		188A20B91615E0B80053641A /* RenrenAccountDetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 188A20B81615E0B80053641A /* RenrenAccountDetailsViewController.m */; };
 		188A20C11615F4910053641A /* MyRenrenLoginDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 188A20C01615F4910053641A /* MyRenrenLoginDelegate.m */; };
 		188A20C41615FA260053641A /* MyRenrenGetUserInfoDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 188A20C31615FA260053641A /* MyRenrenGetUserInfoDelegate.m */; };
+		189BDF4E1628FA2B00058E3E /* defaultHead.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 189BDF4D1628FA2B00058E3E /* defaultHead.jpeg */; };
 		18CB515515EBAF41009A8741 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 18CB515415EBAF41009A8741 /* UIKit.framework */; };
 		18CB515715EBAF41009A8741 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 18CB515615EBAF41009A8741 /* Foundation.framework */; };
 		18CB515915EBAF41009A8741 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 18CB515815EBAF41009A8741 /* CoreGraphics.framework */; };
@@ -172,6 +173,7 @@
 		188A20C01615F4910053641A /* MyRenrenLoginDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyRenrenLoginDelegate.m; sourceTree = "<group>"; };
 		188A20C21615FA260053641A /* MyRenrenGetUserInfoDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyRenrenGetUserInfoDelegate.h; sourceTree = "<group>"; };
 		188A20C31615FA260053641A /* MyRenrenGetUserInfoDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyRenrenGetUserInfoDelegate.m; sourceTree = "<group>"; };
+		189BDF4D1628FA2B00058E3E /* defaultHead.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = defaultHead.jpeg; sourceTree = "<group>"; };
 		18CB515015EBAF41009A8741 /* BDReminderNew.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BDReminderNew.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		18CB515415EBAF41009A8741 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		18CB515615EBAF41009A8741 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -938,6 +940,7 @@
 		94F40E651614391B00C2A23C /* image */ = {
 			isa = PBXGroup;
 			children = (
+				189BDF4D1628FA2B00058E3E /* defaultHead.jpeg */,
 				18F34D221623088D0070C767 /* QWeibo-icon.png */,
 				941DC2AD1614399900BC48AB /* Facebook-icon.png */,
 				94F40E661614391B00C2A23C /* Renren-icon.png */,
@@ -1050,6 +1053,7 @@
 				18F34DAF162315600070C767 /* OpenSdkTest-Info.plist in Resources */,
 				94455BEA1626A3E4006CC9B8 /* FacebookSDKResources.bundle in Resources */,
 				94455BEB1626A3E4006CC9B8 /* FBUserSettingsViewResources.bundle in Resources */,
+				189BDF4E1628FA2B00058E3E /* defaultHead.jpeg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

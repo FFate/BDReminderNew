@@ -54,7 +54,11 @@
         self.birthday = [dateFormatter dateFromString:birthday];
         
         // get head
-        self.head = [UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:headUrl]]];
+        UIImage* head = [UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:headUrl]]];
+        if (head == nil) {
+            head = [UIImage imageNamed:@"defaultHead.jpeg"];
+        }
+        self.head = head;
     }
     
     return self;

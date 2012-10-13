@@ -135,15 +135,15 @@ static NSData *HMAC_SHA1(NSString *data, NSString *key) {
 	NSString *retString = [[NSString alloc] initWithData:responseData encoding:NSUTF8StringEncoding];
     NSHTTPURLResponse *httpResponse = (NSHTTPURLResponse *)response;
 	
-	NSLog(@"response code:%d string:%@", httpResponse.statusCode, retString);
+	// // NSLog(@"response code:%d string:%@", httpResponse.statusCode, retString);
     if (httpResponse.statusCode == 200) {
         *retCode = resSuccessed;
-        NSLog(@"访问接口成功");
+        // // NSLog(@"访问接口成功");
         return retString;
     }
 	else {
         *retCode = resFailled;
-        NSLog(@"访问接口失败，请检查接口访问路径是否正确无误");
+        // // NSLog(@"访问接口失败，请检查接口访问路径是否正确无误");
         return nil;
     }
 }
@@ -173,7 +173,7 @@ static NSData *HMAC_SHA1(NSString *data, NSString *key) {
        NSString *tmpEncodedUrl = [tmpUrlWithParam stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
        NSURL *sigUrl = [NSURL generateUrlWithType:tmpEncodedUrl];
         NSString *sigNonce = [NSString stringWithFormat:@"%u", arc4random() % 9999999 + 123456];
-       NSLog(@"sigNonce %@\n", sigNonce);
+       // NSLog(@"sigNonce %@\n", sigNonce);
        NSString *sigTimeStamp = [NSString stringWithFormat:@"%d", (int)[[NSDate date] timeIntervalSince1970]];
        
        NSMutableDictionary *finalParams;
@@ -222,7 +222,7 @@ static NSData *HMAC_SHA1(NSString *data, NSString *key) {
                            params:(NSMutableDictionary *)params 
                       queryString:(NSString **)queryString{
     NSMutableDictionary *tmpParams = [[NSMutableDictionary alloc] init];
-    NSLog(@"params count is %d", [params count]);
+    // NSLog(@"params count is %d", [params count]);
     [tmpParams setObject:appKey forKey:OAuthConsumerKeyKey];
     [tmpParams setObject:accessToken forKey:OAuth2TokenKey];
     [tmpParams setObject:openid forKey:OAuth2OpenidKey];
@@ -231,13 +231,13 @@ static NSData *HMAC_SHA1(NSString *data, NSString *key) {
     [tmpParams setObject:OAuth2ScopeValue forKey:OAuth2ScopeKey];
     
     NSString *tmpParamString = [self connectParams:tmpParams];
-    NSLog(@"params connect %@", tmpParamString);
+    // NSLog(@"params connect %@", tmpParamString);
     NSString *tmpUrl = url;
     
     if (tmpParamString && ![tmpParamString isEqualToString:@""]) {
-        NSLog(@"enter if %@", tmpUrl);
+        // NSLog(@"enter if %@", tmpUrl);
         tmpUrl = [tmpUrl stringByAppendingFormat:@"?%@", tmpParamString];
-        NSLog(@"tmpUrl %@", tmpUrl);
+        // NSLog(@"tmpUrl %@", tmpUrl);
     }
     
     *queryString = [[NSString alloc] init];
@@ -256,7 +256,7 @@ static NSData *HMAC_SHA1(NSString *data, NSString *key) {
     
 	NSMutableString *requestUrl = [[NSMutableString alloc] initWithString:url];
 	if (queryString) {
-        NSLog(@"queryString is %@", queryString);
+        // NSLog(@"queryString is %@", queryString);
         if (oauthType == InAuth1) {
             
             [requestUrl appendFormat:@"?%@", queryString];
@@ -267,7 +267,7 @@ static NSData *HMAC_SHA1(NSString *data, NSString *key) {
         }
 	}
 	
-    NSLog(@"request url is %@", requestUrl);
+    // NSLog(@"request url is %@", requestUrl);
 	NSMutableURLRequest *request = [[NSMutableURLRequest alloc] initWithURL:[NSURL generateUrlWithType:requestUrl]];
 	[request setHTTPMethod:@"GET"];
 	[request setTimeoutInterval:20.0f];
@@ -282,7 +282,7 @@ static NSData *HMAC_SHA1(NSString *data, NSString *key) {
 - (NSString *)httpPost:(NSString *)url queryString:(NSString *)queryString retCode:(uint16_t *)retCode {
 	
 	NSMutableURLRequest *request = [[NSMutableURLRequest alloc] initWithURL:[NSURL generateUrlWithType:url]];
-    NSLog(@"request url: %@", queryString);
+    // NSLog(@"request url: %@", queryString);
 	[request setHTTPMethod:@"POST"];
 	[request setTimeoutInterval:20.0f];
 	[request setValue:@"application/x-www-form-urlencoded" forHTTPHeaderField:@"Content-Type"];
@@ -297,7 +297,7 @@ static NSData *HMAC_SHA1(NSString *data, NSString *key) {
  */
 
 - (NSString *)httpPostWithFile:(NSDictionary *)files url:(NSString *)url queryString:(NSString *)queryString retCode:(uint16_t *)retCode {
-	NSLog(@"querystring is %@", queryString);
+	// NSLog(@"querystring is %@", queryString);
     
 	NSMutableURLRequest *imageRequest = [[NSMutableURLRequest alloc] initWithURL:[NSURL generateUrlWithType:url]];
 	[imageRequest setHTTPMethod:@"POST"];
@@ -315,7 +315,7 @@ static NSData *HMAC_SHA1(NSString *data, NSString *key) {
 	for (NSString *key in Params) {
 		
 		NSString *value = [Params valueForKey:key];
-        NSLog(@"key is %@, value is %@", key, value);
+        // NSLog(@"key is %@, value is %@", key, value);
 		NSString *formItem = [NSString stringWithFormat:paramsTemplate, boundaryVal, key, value];
 		[requestBody appendData:[formItem dataUsingEncoding:NSUTF8StringEncoding]];
 	}
@@ -325,10 +325,10 @@ static NSData *HMAC_SHA1(NSString *data, NSString *key) {
 	for (NSString *key in files) {
 		
 		NSString *imagePath = [files objectForKey:key];
-        NSLog(@"filePath ---- %@", imagePath);
+        // NSLog(@"filePath ---- %@", imagePath);
         
 		NSData *imageData = [NSData dataWithContentsOfFile:imagePath];
-        NSLog(@"imageData size is:%d", [imageData length]);
+        // NSLog(@"imageData size is:%d", [imageData length]);
         
 		NSString *fileItem = [NSString stringWithFormat:fileTemplate, key, [[imagePath componentsSeparatedByString:@"/"] lastObject]];
 		[requestBody appendData:[fileItem dataUsingEncoding:NSUTF8StringEncoding]];
@@ -339,8 +339,8 @@ static NSData *HMAC_SHA1(NSString *data, NSString *key) {
     [imageRequest setValue:[NSString stringWithFormat:@"%d", [requestBody length]] forHTTPHeaderField:@"Content-Length"];
 	[imageRequest setHTTPBody:requestBody];
     
-    NSLog(@"request %@", imageRequest);
-    NSLog(@"request url: %@", queryString);
+    // NSLog(@"request %@", imageRequest);
+    // NSLog(@"request url: %@", queryString);
 	return [self getResponseData:imageRequest retCode:retCode];
 }
 
@@ -363,7 +363,7 @@ static NSData *HMAC_SHA1(NSString *data, NSString *key) {
 		return	nil;
 	}
 	
-    NSLog(@"url is %@", url);
+    // NSLog(@"url is %@", url);
     NSString *queryString = nil;
     NSString *oauthUrl  = nil;
     
@@ -371,7 +371,7 @@ static NSData *HMAC_SHA1(NSString *data, NSString *key) {
         
         if ((oauth.accessToken == (NSString *)[NSNull null]) || (oauth.accessToken.length == 0) ||
             (oauth.accessSecret == (NSString *)[NSNull null]) || (oauth.accessSecret.length == 0)) {
-                NSLog(@"授权失败或没有授权");
+                // NSLog(@"授权失败或没有授权");
                 [OpenSdkBase showMessageBox:@"授权失败或没有授权，请重新授权"];
                 return nil;
         }
@@ -389,7 +389,7 @@ static NSData *HMAC_SHA1(NSString *data, NSString *key) {
     { 
         if ((oauth.accessToken == (NSString *)[NSNull null]) || (oauth.accessToken.length == 0) ||
             (oauth.openid == (NSString *)[NSNull null]) || (oauth.openid.length == 0)) {
-            NSLog(@"授权失败或没有授权");
+            // NSLog(@"授权失败或没有授权");
             [OpenSdkBase showMessageBox:@"授权失败或没有授权，请重新授权"];
             return nil;
         }
@@ -403,7 +403,7 @@ static NSData *HMAC_SHA1(NSString *data, NSString *key) {
                                  queryString:&queryString];
     }
     
-    NSLog(@"oauthUrl is %@ httpmethod is %@", oauthUrl, httpMethod);
+    // NSLog(@"oauthUrl is %@ httpmethod is %@", oauthUrl, httpMethod);
 	
 	NSString *retString = nil;
 	if ([httpMethod isEqualToString:@"GET"]) {

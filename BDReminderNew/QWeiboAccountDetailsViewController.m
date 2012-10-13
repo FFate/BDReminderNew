@@ -181,15 +181,15 @@
         NSMutableString* headUrl = [[data objectForKey:@"head"] mutableCopy];
         [headUrl replaceOccurrencesOfString:@"\\/" withString:@"\\" options:0 range:NSMakeRange(0, [headUrl length])];
         // some hack is needed to properly get head image
-        [headUrl replaceOccurrencesOfString:@"app.qlogo.cn" withString:@"t1.qlogo.cn" options:0 range:NSMakeRange(0, [headUrl length])];
-        [headUrl appendFormat:@"/0"];
+        // add /100 to specify head size (100*100)
+        [headUrl appendFormat:@"/100"];
         
         NSLog(@"Friend name: %@, BD: %@, head: %@", [data objectForKey:@"nick"], birthday, headUrl);
         
         Contact* contact = [[Contact alloc] initWithUid:[data objectForKey:@"openid"]
                                                    name:[data objectForKey:@"nick"]
                                          birthdayString:birthday
-                                                headUrl:[data objectForKey:@"head"]
+                                                headUrl:headUrl
                                                 account:self.account];
 
         [newContacts addObject:contact];
