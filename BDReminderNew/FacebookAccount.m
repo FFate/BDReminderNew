@@ -11,6 +11,7 @@
 
 @implementation FacebookAccount
 
+
 -(FacebookAccount *) init{
     self = (FacebookAccount *) [NSEntityDescription insertNewObjectForEntityForName:@"FacebookAccount" inManagedObjectContext:[AppDelegate delegate].managedObjectContext];
     

@@ -164,11 +164,10 @@
         [accountDetailsViewController setTitle:@"Facebook"];
         // set account type and status
         
-        if (!accountDetailsViewController.loginDelegate.session.isOpen){
+        if (![account isSessionValid]){
             [accountDetailsViewController userLogin];
         }else{
             [self.navigationController pushViewController:accountDetailsViewController animated:YES];
-            accountDetailsViewController.accountStatus.text = @"Logged in";
         }
         
        

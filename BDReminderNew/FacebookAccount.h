@@ -9,6 +9,7 @@
 #import <Foundation/Foundation.h>
 #import <CoreData/CoreData.h>
 #import "Account.h"
+#import <FacebookSDK/FacebookSDK.h>
 
 
 @interface FacebookAccount : Account

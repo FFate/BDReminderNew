@@ -28,16 +28,17 @@
 - (id)initWithCoder:(NSCoder *)aDecoder {
     self = [super initWithCoder:aDecoder];
     [self initDelegatesChecklist];
-    if (!self.loginDelegate.session.isOpen) {
+    
+    if (!FBSession.activeSession.isOpen) {
         // create a fresh session object
-        self.loginDelegate.session = [[FBSession alloc] init];
+        FBSession.activeSession = [[FBSession alloc] init];
         
         // if we don't have a cached token, a call to open here would cause UX for login to
         // occur; we don't want that to happen unless the user clicks the login button, and so
         // we check here to make sure we have a token before calling open
-        if (self.loginDelegate.session.state == FBSessionStateCreatedTokenLoaded) {
+        if (FBSession.activeSession.state == FBSessionStateCreatedTokenLoaded) {
             // even though we had a cached token, we need to login to make the session usable
-            [self.loginDelegate.session openWithCompletionHandler:^(FBSession *session,
+            [FBSession.activeSession openWithCompletionHandler:^(FBSession *session,
                                                              FBSessionState status,
                                                              NSError *error) {
                 // we recurse here, in order to update buttons and labels
@@ -70,6 +71,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    [self updateView];
 	// Do any additional setup after loading the view.
 }
 
