@@ -132,11 +132,10 @@
 }
 
 // merge newContacts array with the global contact array
-// do not add duplicated contact (same name and same BD)
 - (void) mergeContactsAndUpdateView: (NSMutableArray*) newContacts {
     NSMutableArray* tempContactArray = [NSMutableArray array];
     
-    // move non-duplicate contact from old array to tempContactArray
+    // move non-duplicate contacts from old array to tempContactArray
     // (doing this to avoid mutation while enumeration)
     for (Contact* oldContact in self.contacts) {
         BOOL duplicate = NO;
@@ -154,6 +153,13 @@
         // otherwise we have to keep the old contact
         else [tempContactArray addObject:oldContact];
     }
+    
+    // remove old contacts array
+    for (Contact* persistentContact in self.contacts) {
+        if (![tempContactArray containsObject:persistentContact])
+            [[AppDelegate delegate].managedObjectContext deleteObject:persistentContact];
+    }
+    self.contacts = nil;
     
     // add newContacts to tempContactArray
     [tempContactArray addObjectsFromArray:newContacts];
