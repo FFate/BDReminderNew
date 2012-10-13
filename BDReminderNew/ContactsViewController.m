@@ -11,6 +11,7 @@
 #import "Contact.h"
 #import "ContactCell.h"
 #import "DejalActivityView.h"
+#import "Account.h"
 
 #define ENABLE_DELETE_CONTACT YES
 
@@ -150,8 +151,64 @@
     [[AppDelegate delegate].managedObjectContext deleteObject:linkedContact];
 }
 
+- (void) mergeContactsAndUpdateView:(NSMutableArray *)newContacts {
+    for (Contact* contact in newContacts) {
+        // NSLog(@"Merging Contact %@", contact.name);
+        // for each contact, check
+        // 1. if any existing linked contact A matches it
+        // 2. if the same contact already linked with A
+        // if nether, add this contact as a new linked
+        BOOL addAsNewLinked = YES;
+        
+        for (LinkedContact* linked in [LinkedContact linkedContactList]) {
+            if ([linked match: contact]) {
+                //NSLog(@"Linked %@ matches this contact", linked.name);
+                // found a match, check if we should link to it or replace an old one
+                Contact* replace = nil;
+                for (Contact* existing in linked.contact) {
+                    if ([existing myIsEqual:contact]) {
+                        replace = existing;
+                        break;
+                    }
+                }
+                
+                if (replace) {
+                    //NSLog(@"Linked %@ already contains contact from this site %@ - removing", linked.name, [replace.account accountSiteName]);
+                    // delete old one
+                    [linked removeContactObject:replace];
+                    [[Contact contactList] removeObject:replace];
+                    [[AppDelegate delegate].managedObjectContext delete:replace];
+                }
+                // add or replace with the new one
+                // update linked relationship
+                //NSLog(@"Adding contact from %@ to Linked %@", [contact.account accountSiteName], linked.name);
+                [linked addContactObject:contact];
+                [contact linkTo:linked];
+                // update contact relationship
+                [[Contact contactList] addObject:contact];
+                
+                addAsNewLinked = NO;
+                break;
+            }
+        }
+        
+        if (addAsNewLinked) {
+            //NSLog(@"No match, then creating linked contact for contact %@", contact.name);
+            LinkedContact* new = [[LinkedContact alloc] initWithContact:contact];
+            [[LinkedContact linkedContactList] addObject:new];
+            
+            [[Contact contactList] addObject:contact];
+        }
+    }
+    
+    // force ContactsViewController reloadData
+    [self.tableView reloadData];
+    
+    [AppDelegate NSLogAllLinkedContacts];
+}
+
 // merge newContacts array with the global contact array
-- (void) mergeContactsAndUpdateView: (NSMutableArray*) newContacts {
+- (void) mergeContactsAndUpdateViewOld: (NSMutableArray*) newContacts{
     NSMutableArray* tempContactArray = [NSMutableArray array];
     
     // move non-duplicate contacts from old array to tempContactArray
@@ -186,11 +243,13 @@
     
     // update self.contacts to tempContactArray
     [Contact setContactList:tempContactArray];
-    [LinkedContact linkContactsFrom:self.contacts to:[LinkedContact linkedContactList]];
+    [LinkedContact linkContactsFrom:[Contact contactList] to:[LinkedContact linkedContactList]];
     self.contacts = [LinkedContact linkedContactList];
     
     // force ContactsViewController reloadData
     [self.tableView reloadData];
+    
+    [AppDelegate NSLogAllLinkedContacts];
 }
 
 @end

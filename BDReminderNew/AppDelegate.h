@@ -35,4 +35,6 @@
 
 + (AppDelegate*) delegate;
 
++ (void) NSLogAllLinkedContacts;
+
 @end

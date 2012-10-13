@@ -32,7 +32,7 @@
 
 - (BOOL) match: (Contact*) contact {
     // naive matching
-    if ([self.name isEqual:contact.name] && [self.birthday isEqual:contact.birthday])
+    if ([self.name isEqual:contact.name])
         return YES;
     else return NO;
 }

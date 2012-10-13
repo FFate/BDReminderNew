@@ -163,6 +163,8 @@
     [Account setAccountList:accounts];
     [Contact setContactList:contacts];
     [LinkedContact setLinkedContactList:linkedContacts];
+    
+    [AppDelegate NSLogAllLinkedContacts];
         
     UINavigationController *navigationController = (UINavigationController *) self.window.rootViewController;
     ContactsViewController *contactsViewController =
@@ -199,7 +201,21 @@
     
     return returnArray;
 }
-							
+
++ (void) NSLogAllLinkedContacts {
+    NSLog(@"Output all linked contacts");
+    // test use
+    NSMutableString* msg = [[NSMutableString alloc] initWithString:@"\n"];
+    for (LinkedContact* link in [LinkedContact linkedContactList]) {
+        [msg appendFormat:@"Name: %@, site: ", link.name];
+        for (Contact* contact in link.contact) {
+            [msg appendFormat:@"%@,", [contact.account accountSiteName]];
+        }
+        [msg appendFormat:@"\n"];
+    }
+    NSLog(msg);
+}
+
 - (void)applicationWillResignActive:(UIApplication *)application
 {
     // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
