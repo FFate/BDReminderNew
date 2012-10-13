@@ -15,4 +15,12 @@
 
 @property (nonatomic, retain) MyFacebookLoginDelegate* loginDelegate;
 
+@property (strong, nonatomic) IBOutlet UILabel *userName;
+@property (weak, nonatomic) IBOutlet FBProfilePictureView *userImage;
+
+-(void)updateUserInfo;
+-(void)getFriendsInfo;
+
+
 @end
+

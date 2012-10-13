@@ -23,6 +23,11 @@ NSString *const SCSessionStateChangedNotification = @"com.qinsoon.BDReminder:SCS
 @synthesize viewController = _viewController;
 @synthesize session = _session;
 
+- (void)request:(FBRequest *)request didLoad:(id)result {
+    // result is a NSDictionary of your friends and their birthdays!
+}
+
+
 - (void)sessionStateChanged:(FBSession *)session
                       state:(FBSessionState)state
                       error:(NSError *)error
@@ -39,13 +44,25 @@ NSString *const SCSessionStateChangedNotification = @"com.qinsoon.BDReminder:SCS
             // FBSample logic
             // Pre-fetch and cache the friends for the friend picker as soon as possible to improve
             // responsiveness when the user tags their friends.
-          
+            
+            /*NSArray *permissions = [[NSArray alloc] initWithObjects:
+                                    @"user_birthday",
+                                    @"friends_birthday",
+                                    nil];
+            [FBSession.activeSession reauthorizeWithReadPermissions:permissions
+                                                  completionHandler:^(FBSession *session,
+                                                                      NSError *error){
+                                                      
+                                                  }];*/
+
             FBCacheDescriptor *cacheDescriptor = [FBFriendPickerViewController cacheDescriptor];
             [cacheDescriptor prefetchAndCacheForSession:session];
+            [self.viewController getFriendsInfo];
         }
             break;
         case FBSessionStateClosed:
             NSLog(@"Login closed");
+            [FBSession.activeSession closeAndClearTokenInformation]; 
         case FBSessionStateClosedLoginFailed:{
             NSLog(@"Login failed");
            [FBSession.activeSession closeAndClearTokenInformation]; 
@@ -60,7 +77,7 @@ NSString *const SCSessionStateChangedNotification = @"com.qinsoon.BDReminder:SCS
     
     if (error) {
         UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Error"
-                                                            message:error.localizedDescription
+                                                            message:@"Login failed"
                                                            delegate:nil
                                                   cancelButtonTitle:@"OK"
                                                   otherButtonTitles:nil];

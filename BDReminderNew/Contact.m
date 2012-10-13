@@ -32,6 +32,8 @@
     return self;
 }
 
+#define DATE_FORMAT @"yyyy-MM-dd"
+
 -(Contact*) initWithUid: (NSString*) uid
                    name:(NSString *)name
           birthdayString:(NSString *)birthday
@@ -76,18 +78,6 @@
         return ([another.uid isEqual:self.uid] &&([another.account class] == [self.account class]));
     }
     return NO;
-}
-
-- (void) linkTo: (LinkedContact*) linkedContact {
-    // remove current linkage
-    if (self.aggregatedContact) {
-        [self.aggregatedContact removeContactObject:self];
-        self.aggregatedContact = nil;
-    }
-    
-    // build new linkage
-    self.aggregatedContact = linkedContact;
-    [linkedContact addContactObject:self];
 }
 
 static NSMutableArray* contactList;

@@ -14,5 +14,4 @@
     #import <Foundation/Foundation.h>
     #import <CoreData/CoreData.h>
     #import "AppDelegate.h"
-    #import "Util.h"
 #endif

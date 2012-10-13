@@ -127,9 +127,11 @@
 
 #pragma mark - Table view delegate
 
+
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     //AccountDetailsViewController *accountDetailsViewController = (AccountDetailsViewController*) self.navigationController.visibleViewController;
+    
     Account* account = (Account*)[self.accounts objectAtIndex:indexPath.row];
     
     UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"MainStoryboard" bundle:nil];
@@ -169,7 +171,6 @@
         }else{
             [self.navigationController pushViewController:accountDetailsViewController animated:YES];
         }
-        
        
     }else if ([account class] == [QWeiboAccount class]) {
         QWeiboAccountDetailsViewController *accountDetailsViewController =

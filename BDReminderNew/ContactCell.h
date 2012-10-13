@@ -7,14 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "LinkedContact.h"
 
 @interface ContactCell : UITableViewCell
 
 @property (nonatomic, strong) IBOutlet UILabel *nameLabel;
 @property (nonatomic, strong) IBOutlet UILabel *birthdayLabel;
 @property (nonatomic, strong) IBOutlet UIImageView *personalImage;
-
-- (void) showAccountSiteIcons: (LinkedContact*) linkedContact;
 
 @end

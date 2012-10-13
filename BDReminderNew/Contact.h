@@ -21,7 +21,6 @@
 
 @property (nonatomic, retain) LinkedContact *aggregatedContact;
 
-// test use only
 -(Contact*) initWithName: (NSString*) name birthday: (NSDate*) birthday;
 
 // birthday as yyyy-MM-dd
@@ -30,8 +29,6 @@
 -(NSString*) getBirthdayString;
 
 - (BOOL) myIsEqual:(id)object;
-
-- (void) linkTo: (LinkedContact*) linkedContact;
 
 + (NSMutableArray*) contactList;
 + (void) setContactList: (NSMutableArray*) anotherContactList;

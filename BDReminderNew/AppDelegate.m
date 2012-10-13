@@ -14,7 +14,6 @@
 #import "RenrenAccount.h"
 #import "FacebookAccount.h"
 #import "QWeiboAccount.h"
-#import "LinkedContact.h"
 
 @implementation AppDelegate {
 
@@ -68,6 +67,8 @@
 }
 
 - (NSURL *) applicationDocumentsDirectory {
+    //return [[[NSFileManager defaultManager] URLsForDirectory:NSDocumentationDirectory inDomains:NSUserDomainMask] lastObject];
+    
     NSString *LOG_DIRECTORY = @"BDReminder";
     static NSURL *ald = nil;
     
@@ -123,6 +124,7 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
+    //BOOL createContactsOnLoad = NO;
     BOOL RESET_PERSISTENT_STORE = NO;
     
     if (RESET_PERSISTENT_STORE) {
@@ -144,78 +146,88 @@
         //that's it !
     }
     
-    // fetch Contact
-    NSMutableArray* contacts = [self fetchEntityFromPersistentStoreWithEntityName:@"Contact"];
-    // fetch Account
-    NSMutableArray* accounts = [self fetchEntityFromPersistentStoreWithEntityName:@"Account"];
-    if (accounts == nil || [accounts count] == 0) {
-        NSLog(@"Failed to fetch accounts from persistent store. Will create account list");
-        accounts = [self buildAccountsList];
-    }
-    // fetch LinkedContact
-    NSMutableArray* linkedContacts = [self fetchEntityFromPersistentStoreWithEntityName:@"LinkedContact"];
-    if (linkedContacts == nil || [linkedContacts count] == 0) {
-        NSLog(@"No linked contacts exist, will automatically link contacts");
-        [LinkedContact linkContactsFrom: contacts to: linkedContacts];
-    }
-    
-    // set contacts and accounts
-    [Account setAccountList:accounts];
-    [Contact setContactList:contacts];
-    [LinkedContact setLinkedContactList:linkedContacts];
-    
-    [AppDelegate NSLogAllLinkedContacts];
+    /*if (createContactsOnLoad) {
+        // create contacts when application is loaded
+        contacts = [NSMutableArray arrayWithCapacity:20];
         
-    UINavigationController *navigationController = (UINavigationController *) self.window.rootViewController;
-    ContactsViewController *contactsViewController =
-    [[navigationController viewControllers] objectAtIndex:0];
-    //contactsViewController.contacts = contacts;
-    contactsViewController.contacts = linkedContacts;
+        NSDateComponents *comps = [[NSDateComponents alloc] init];
+        [comps setDay:10];
+        [comps setMonth:2];
+        [comps setYear:1987];
+        NSCalendar *gregorian = [[NSCalendar alloc] initWithCalendarIdentifier:NSGregorianCalendar];
+        
+        NSDate *date = [gregorian dateFromComponents:comps];
+        Contact *contact = [[Contact alloc] initWithName: @"Qinsoon" birthday: date];
+        
+        [contacts addObject:contact];
+        
+        contact = [[Contact alloc] initWithName:@"FFate" birthday:date];
+        
+        [contacts addObject:contact];
+    } else {*/
     
-    return YES;
-}
-
-- (NSMutableArray*) fetchEntityFromPersistentStoreWithEntityName: (NSString*) entityName {
-    NSMutableArray* returnArray = [NSMutableArray array];
+    // fetch Contact from persistence store
+    
+    NSMutableArray* contacts;
     
     NSFetchRequest *request = [[NSFetchRequest alloc] init];
-    NSEntityDescription *entity = [NSEntityDescription entityForName:entityName inManagedObjectContext:[self managedObjectContext]];
+    NSEntityDescription *entity = [NSEntityDescription entityForName:@"Contact" inManagedObjectContext:[self managedObjectContext]];
     if (entity == nil) {
-        NSLog(@"%@ entity is nil, something wrong!", entityName);
+        NSLog(@"Contact entity is nil, something wrong!");
         abort();
     }
     [request setEntity:entity];
     
     NSError *error = nil;
-    returnArray = [[[self managedObjectContext] executeFetchRequest:request error:&error] mutableCopy];
+    contacts = [[[self managedObjectContext] executeFetchRequest:request error:&error] mutableCopy];
+    
+    if (error != nil ) {
+        NSLog(@"Unresolved error %@, %@", error, [error userInfo]);
+        abort();
+    }        
+    
+    if (contacts == nil) {
+        NSLog(@"Failed to fetch contacts from persistent store");
+        abort();
+    }
+    
+    // fetch accounts from persistence store
+    
+    NSMutableArray* accounts;
+    
+    request = [[NSFetchRequest alloc] init];
+    entity = [NSEntityDescription entityForName:@"Account" inManagedObjectContext:[self managedObjectContext]];
+    if (entity == nil) {
+        NSLog(@"Account entity is nil, something wrong!");
+        abort();
+    }
+    [request setEntity:entity];
+    
+    error = nil;
+    accounts = [[[self managedObjectContext] executeFetchRequest:request error:&error] mutableCopy];
     
     if (error != nil ) {
         NSLog(@"Unresolved error %@, %@", error, [error userInfo]);
         abort();
     }
     
-    if (returnArray == nil) {
-        NSLog(@"Failed to fetch %@ from persistent store", entityName);
-        abort();
+    if (accounts == nil || [accounts count] == 0) {
+        NSLog(@"Failed to fetch accounts from persistent store");
+        accounts = [self buildAccountsList];
     }
     
-    return returnArray;
+    // set contacts and accounts
+    [Account setAccountList:accounts];
+    [Contact setContactList:contacts];
+        
+    UINavigationController *navigationController = (UINavigationController *) self.window.rootViewController;
+    ContactsViewController *contactsViewController =
+    [[navigationController viewControllers] objectAtIndex:0];
+    contactsViewController.contacts = contacts;
+    
+    return YES;
 }
-
-+ (void) NSLogAllLinkedContacts {
-    NSLog(@"Output all linked contacts");
-    // test use
-    NSMutableString* msg = [[NSMutableString alloc] initWithString:@"\n"];
-    for (LinkedContact* link in [LinkedContact linkedContactList]) {
-        [msg appendFormat:@"Name: %@, site: ", link.name];
-        for (Contact* contact in link.contact) {
-            [msg appendFormat:@"%@,", [contact.account accountSiteName]];
-        }
-        [msg appendFormat:@"\n"];
-    }
-    NSLog(msg);
-}
-
+							
 - (void)applicationWillResignActive:(UIApplication *)application
 {
     // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
