@@ -32,8 +32,6 @@
     return self;
 }
 
-#define DATE_FORMAT @"yyyy-MM-dd"
-
 -(Contact*) initWithUid: (NSString*) uid
                    name:(NSString *)name
           birthdayString:(NSString *)birthday

@@ -92,7 +92,7 @@
     
     NSURL* url = request.URL;
     
-    NSLog(@"response url is %@", url);
+    //NSLog(@"response url is %@", url);
 	NSRange start = [[url absoluteString] rangeOfString:oauth2TokenKey];
     
     //如果找到tokenkey,就获取其他key的value值
@@ -113,7 +113,7 @@
 			}
 		}
         
-        NSLog(@"token is %@, openid is %@, expireTime is %@", accessToken, openid, expirationDate);
+        //NSLog(@"token is %@, openid is %@, expireTime is %@", accessToken, openid, expirationDate);
         
         if ((accessToken == (NSString *) [NSNull null]) || (accessToken.length == 0)
             || (openid == (NSString *) [NSNull null]) || (openkey.length == 0)
@@ -184,7 +184,7 @@
         // add /100 to specify head size (100*100)
         [headUrl appendFormat:@"/100"];
         
-        NSLog(@"Friend name: %@, BD: %@, head: %@", [data objectForKey:@"nick"], birthday, headUrl);
+        //NSLog(@"Friend name: %@, BD: %@, head: %@", [data objectForKey:@"nick"], birthday, headUrl);
         
         Contact* contact = [[Contact alloc] initWithUid:[data objectForKey:@"openid"]
                                                    name:[data objectForKey:@"nick"]

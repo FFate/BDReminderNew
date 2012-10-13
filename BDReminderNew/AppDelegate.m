@@ -68,8 +68,6 @@
 }
 
 - (NSURL *) applicationDocumentsDirectory {
-    //return [[[NSFileManager defaultManager] URLsForDirectory:NSDocumentationDirectory inDomains:NSUserDomainMask] lastObject];
-    
     NSString *LOG_DIRECTORY = @"BDReminder";
     static NSURL *ald = nil;
     
@@ -169,7 +167,8 @@
     UINavigationController *navigationController = (UINavigationController *) self.window.rootViewController;
     ContactsViewController *contactsViewController =
     [[navigationController viewControllers] objectAtIndex:0];
-    contactsViewController.contacts = contacts;
+    //contactsViewController.contacts = contacts;
+    contactsViewController.contacts = linkedContacts;
     
     return YES;
 }
