@@ -130,7 +130,7 @@
 {
     // Navigation logic may go here. Create and push another view controller.
     /*
-     <#DetailViewController#> *detailViewController = [[<#DetailViewController#> alloc] initWithNibName:@"<#Nib name#>" bundle:nil];
+     DetailViewController *detailViewController = [[DetailViewController alloc] initWithNibName:@"Nib name" bundle:nil];
      // ...
      // Pass the selected object to the new view controller.
      [self.navigationController pushViewController:detailViewController animated:YES];
@@ -151,9 +151,11 @@
     [[AppDelegate delegate].managedObjectContext deleteObject:linkedContact];
 }
 
+static BOOL VERBOSE_MERGE = NO;
+
 - (void) mergeContactsAndUpdateView:(NSMutableArray *)newContacts {
     for (Contact* contact in newContacts) {
-        // NSLog(@"Merging Contact %@", contact.name);
+        if (VERBOSE_MERGE) NSLog(@"Merging Contact %@", contact.name);
         // for each contact, check
         // 1. if any existing linked contact A matches it
         // 2. if the same contact already linked with A
@@ -162,7 +164,7 @@
         
         for (LinkedContact* linked in [LinkedContact linkedContactList]) {
             if ([linked match: contact]) {
-                //NSLog(@"Linked %@ matches this contact", linked.name);
+                if (VERBOSE_MERGE) NSLog(@"Linked %@ matches this contact", linked.name);
                 // found a match, check if we should link to it or replace an old one
                 Contact* replace = nil;
                 for (Contact* existing in linked.contact) {
@@ -172,16 +174,16 @@
                     }
                 }
                 
-                if (replace) {
-                    //NSLog(@"Linked %@ already contains contact from this site %@ - removing", linked.name, [replace.account accountSiteName]);
+                if (replace && [replace myIsEqual:contact]) {
+                    if (VERBOSE_MERGE) NSLog(@"Linked %@ already contains contact from this site %@ - removing", linked.name, [replace.account accountSiteName]);
                     // delete old one
+                    [[AppDelegate delegate].managedObjectContext deleteObject:replace];
                     [linked removeContactObject:replace];
                     [[Contact contactList] removeObject:replace];
-                    [[AppDelegate delegate].managedObjectContext delete:replace];
                 }
                 // add or replace with the new one
                 // update linked relationship
-                //NSLog(@"Adding contact from %@ to Linked %@", [contact.account accountSiteName], linked.name);
+                if (VERBOSE_MERGE) NSLog(@"Adding contact from %@ to Linked %@", [contact.account accountSiteName], linked.name);
                 [linked addContactObject:contact];
                 [contact linkTo:linked];
                 // update contact relationship
@@ -193,7 +195,7 @@
         }
         
         if (addAsNewLinked) {
-            //NSLog(@"No match, then creating linked contact for contact %@", contact.name);
+            if (VERBOSE_MERGE) NSLog(@"No match, then creating linked contact for contact %@", contact.name);
             LinkedContact* new = [[LinkedContact alloc] initWithContact:contact];
             [[LinkedContact linkedContactList] addObject:new];
             
