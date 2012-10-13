@@ -15,8 +15,19 @@
 
 @property (nonatomic, retain) NSString * name;
 @property (nonatomic, retain) NSDate * birthday;
+@property (nonatomic, retain) UIImage* head;
 
 @property (nonatomic, retain) NSSet *contact;
+
+- (id) initWithContact: (Contact*) contact;
+
+- (BOOL) match: (Contact*) contact;
+- (BOOL) alreadyLinkedWith: (Contact*) contact;
+
++ (NSMutableArray*) linkedContactList;
++ (void) setLinkedContactList: (NSMutableArray*) anotherLinkedContactList;
++ (void) linkContactsFrom: (NSMutableArray*) contacts to: (NSMutableArray*) linkedContacts;
+
 @end
 
 @interface LinkedContact (CoreDataGeneratedAccessors)

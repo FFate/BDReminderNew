@@ -80,6 +80,18 @@
     return NO;
 }
 
+- (void) linkTo: (LinkedContact*) linkedContact {
+    // remove current linkage
+    if (self.aggregatedContact) {
+        [self.aggregatedContact removeContactObject:self];
+        self.aggregatedContact = nil;
+    }
+    
+    // build new linkage
+    self.aggregatedContact = linkedContact;
+    [linkedContact addContactObject:self];
+}
+
 static NSMutableArray* contactList;
 
 + (NSMutableArray*) contactList {
