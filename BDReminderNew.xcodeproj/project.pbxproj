@@ -16,6 +16,7 @@
 		188A20B91615E0B80053641A /* RenrenAccountDetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 188A20B81615E0B80053641A /* RenrenAccountDetailsViewController.m */; };
 		188A20C11615F4910053641A /* MyRenrenLoginDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 188A20C01615F4910053641A /* MyRenrenLoginDelegate.m */; };
 		188A20C41615FA260053641A /* MyRenrenGetUserInfoDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 188A20C31615FA260053641A /* MyRenrenGetUserInfoDelegate.m */; };
+		1895FCA2162A521900964D03 /* Util.m in Sources */ = {isa = PBXBuildFile; fileRef = 1895FCA1162A521900964D03 /* Util.m */; };
 		189BDF4E1628FA2B00058E3E /* defaultHead.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 189BDF4D1628FA2B00058E3E /* defaultHead.jpeg */; };
 		18CB515515EBAF41009A8741 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 18CB515415EBAF41009A8741 /* UIKit.framework */; };
 		18CB515715EBAF41009A8741 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 18CB515615EBAF41009A8741 /* Foundation.framework */; };
@@ -173,6 +174,8 @@
 		188A20C01615F4910053641A /* MyRenrenLoginDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyRenrenLoginDelegate.m; sourceTree = "<group>"; };
 		188A20C21615FA260053641A /* MyRenrenGetUserInfoDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyRenrenGetUserInfoDelegate.h; sourceTree = "<group>"; };
 		188A20C31615FA260053641A /* MyRenrenGetUserInfoDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyRenrenGetUserInfoDelegate.m; sourceTree = "<group>"; };
+		1895FCA0162A521900964D03 /* Util.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Util.h; path = BDReminderNew/Util.h; sourceTree = "<group>"; };
+		1895FCA1162A521900964D03 /* Util.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Util.m; path = BDReminderNew/Util.m; sourceTree = "<group>"; };
 		189BDF4D1628FA2B00058E3E /* defaultHead.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = defaultHead.jpeg; sourceTree = "<group>"; };
 		18CB515015EBAF41009A8741 /* BDReminderNew.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BDReminderNew.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		18CB515415EBAF41009A8741 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
@@ -490,6 +493,8 @@
 		18CB514515EBAF41009A8741 = {
 			isa = PBXGroup;
 			children = (
+				1895FCA0162A521900964D03 /* Util.h */,
+				1895FCA1162A521900964D03 /* Util.m */,
 				94F40E651614391B00C2A23C /* image */,
 				18CB515A15EBAF41009A8741 /* BDReminderNew */,
 				18CB517815EBAF41009A8741 /* BDReminderNewTests */,
@@ -1173,6 +1178,7 @@
 				187904741623BBFC000C63F9 /* MyQWeibo.m in Sources */,
 				941F730416272A1C00F8E8E0 /* NewAccountDetailsViewController.m in Sources */,
 				94E86FC11628263A004EAF03 /* FacebookAccountDetailsViewController.m in Sources */,
+				1895FCA2162A521900964D03 /* Util.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -37,6 +37,4 @@
 - (void)addContact:(NSSet *)values;
 - (void)removeContact:(NSSet *)values;
 
-+ (void)traverseAccountListAndGetContacts;
-
 @end
