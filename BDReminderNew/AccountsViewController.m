@@ -200,4 +200,9 @@
     }
 }
 
+- (void) viewWillAppear:(BOOL)animated {
+    NSLog(@"AccountsView viewWillAppear");
+    [self.tableView reloadData];
+}
+
 @end

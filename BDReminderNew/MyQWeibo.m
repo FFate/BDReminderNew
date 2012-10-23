@@ -69,26 +69,12 @@
     
     NSString *resultStr = [_OpenSdkRequest sendApiRequest:requestUrl httpMethod:GetMethod oauth:_OpenSdkOauth params:_publishParams files:nil oauthType:_OpenSdkOauth.oauthType retCode:&_retCode];
     
-    if (resultStr == nil) {
-        NSLog(@"failed to send request");
-        return NO;
-    }
-    
-    if (_retCode == resSuccessed) {
-        OpenSdkResponse *response = [[OpenSdkResponse alloc] init];
-        [response parseData:resultStr];
-        if (response.ret == 0) {
-            NSLog(@"Logged out");
-            [self deleteSessionFromNSDefaults];
-            active = nil;
-            return YES;
-        } else {
-            NSLog(@"Logging out failed");
-            return NO;
-        }
-    }
-    
-    return NO;
+    OpenSdkResponse *response = [[OpenSdkResponse alloc] init];
+    [response parseData:resultStr];
+    NSLog(@"Logged out");
+    [self deleteSessionFromNSDefaults];
+    active = nil;
+    return YES;
 }
 
 - (void) saveSessionToNSDefaults {
