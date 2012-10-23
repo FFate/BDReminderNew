@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<model name="" userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="1811" systemVersion="11E53" minimumToolsVersion="Xcode 4.1" macOSVersion="Automatic" iOSVersion="Automatic">
+<model name="" userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="1811" systemVersion="11G63b" minimumToolsVersion="Xcode 4.1" macOSVersion="Automatic" iOSVersion="Automatic">
     <entity name="Account" representedClassName="Account" isAbstract="YES" syncable="YES">
         <attribute name="identifier" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="userName" optional="YES" attributeType="String" syncable="YES"/>
@@ -18,6 +18,7 @@
         <attribute name="birthday" optional="YES" attributeType="Date" syncable="YES"/>
         <attribute name="head" optional="YES" attributeType="Transformable" valueTransformerName="UIImageTransformer" syncable="YES"/>
         <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="nextBirthday" optional="YES" attributeType="Date" syncable="YES"/>
         <relationship name="contact" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Contact" inverseName="aggregatedContact" inverseEntity="Contact" syncable="YES"/>
     </entity>
     <entity name="QWeiboAccount" representedClassName="QWeiboAccount" parentEntity="Account" syncable="YES"/>
@@ -26,7 +27,7 @@
         <element name="Account" positionX="0" positionY="0" width="128" height="90"/>
         <element name="Contact" positionX="0" positionY="0" width="128" height="135"/>
         <element name="FacebookAccount" positionX="0" positionY="0" width="128" height="45"/>
-        <element name="LinkedContact" positionX="0" positionY="0" width="128" height="105"/>
+        <element name="LinkedContact" positionX="0" positionY="0" width="128" height="120"/>
         <element name="QWeiboAccount" positionX="0" positionY="0" width="128" height="45"/>
         <element name="RenrenAccount" positionX="0" positionY="0" width="128" height="45"/>
     </elements>

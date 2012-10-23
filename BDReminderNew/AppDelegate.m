@@ -211,6 +211,7 @@
         for (Contact* contact in link.contact) {
             [msg appendFormat:@"%@,", [contact.account accountSiteName]];
         }
+        [msg appendFormat:@"BD: %@", [Util stringFromNSDate:link.birthday]];
         [msg appendFormat:@"\n"];
     }
     NSLog(msg);

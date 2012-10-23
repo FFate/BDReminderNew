@@ -16,6 +16,7 @@
 @property (nonatomic, retain) NSString * name;
 @property (nonatomic, retain) NSDate * birthday;
 @property (nonatomic, retain) UIImage* head;
+@property (nonatomic, retain) NSDate * nextBirthday;
 
 @property (nonatomic, retain) NSSet *contact;
 
@@ -25,6 +26,7 @@
 - (BOOL) alreadyLinkedWith: (Contact*) contact;
 
 + (NSMutableArray*) linkedContactList;
++ (void) sortLinkedContactByRecentBDFirst;
 + (void) setLinkedContactList: (NSMutableArray*) anotherLinkedContactList;
 + (void) linkContactsFrom: (NSMutableArray*) contacts to: (NSMutableArray*) linkedContacts;
 
@@ -36,8 +38,5 @@
 - (void)removeContactObject:(Contact *)value;
 - (void)addContact:(NSSet *)values;
 - (void)removeContact:(NSSet *)values;
-
-+ (void)buildAggregatedContactList;
-+ (void)sortContactListbyBD;
 
 @end

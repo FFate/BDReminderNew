@@ -33,6 +33,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    [LinkedContact sortLinkedContactByRecentBDFirst];
 }
 
 - (void)viewDidUnload
@@ -70,7 +71,7 @@
     
     LinkedContact *linkedContact = [self.contacts objectAtIndex:indexPath.row];
     cell.nameLabel.text = linkedContact.name;
-    cell.birthdayLabel.text = [Util stringFromNSDate:linkedContact.birthday];
+    cell.birthdayLabel.text = [Util stringFromNSDate:linkedContact.nextBirthday];
     cell.personalImage.image = linkedContact.head;
     // set site image
     if (linkedContact.contact.count == 1) {
@@ -210,52 +211,7 @@ static BOOL VERBOSE_MERGE = NO;
     }
     
     // force ContactsViewController reloadData
-    [self.tableView reloadData];
-    
-    [AppDelegate NSLogAllLinkedContacts];
-}
-
-// merge newContacts array with the global contact array
-// this method should not be in use now
-- (void) mergeContactsAndUpdateViewOld: (NSMutableArray*) newContacts{
-    NSMutableArray* tempContactArray = [NSMutableArray array];
-    
-    // move non-duplicate contacts from old array to tempContactArray
-    // (doing this to avoid mutation while enumeration)
-    for (Contact* oldContact in [Contact contactList]) {
-        BOOL duplicate = NO;
-        for (Contact* newContact in newContacts) {
-            if ([newContact myIsEqual:oldContact]) {
-                duplicate = YES;
-                break;
-            }
-        }
-        
-        // if this contact also appears in newContacts, we do nothing
-        // (let the new one update the old one)
-        if (duplicate)
-            continue;
-        // otherwise we have to keep the old contact
-        else [tempContactArray addObject:oldContact];
-    }
-    
-    // remove old contacts array
-    for (Contact* persistentContact in [Contact contactList]) {
-        if (![tempContactArray containsObject:persistentContact])
-            [[AppDelegate delegate].managedObjectContext deleteObject:persistentContact];
-    }
-    [Contact setContactList:nil];
-    self.contacts = nil;
-    
-    // add newContacts to tempContactArray
-    [tempContactArray addObjectsFromArray:newContacts];
-    
-    // update self.contacts to tempContactArray
-    [Contact setContactList:tempContactArray];
-    [LinkedContact linkContactsFrom:[Contact contactList] to:[LinkedContact linkedContactList]];
-    self.contacts = [LinkedContact linkedContactList];
-    
-    // force ContactsViewController reloadData
+    [LinkedContact sortLinkedContactByRecentBDFirst];
     [self.tableView reloadData];
     
     [AppDelegate NSLogAllLinkedContacts];
