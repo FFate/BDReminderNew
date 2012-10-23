@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="2.0" toolsVersion="2843" systemVersion="11E2620" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="ERN-QM-BWX">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="2.0" toolsVersion="2843" systemVersion="11G63b" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="ERN-QM-BWX">
     <dependencies>
         <deployment defaultVersion="1536" identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="1929"/>
@@ -39,6 +39,10 @@
                                             <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                             <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         </label>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" id="oAe-g0-2d4" userLabel="Site Icon">
+                                            <rect key="frame" x="231" y="13" width="27" height="27"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        </imageView>
                                     </subviews>
                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 </view>
@@ -46,6 +50,7 @@
                                     <outlet property="birthdayLabel" destination="foC-Jj-DWI" id="ztr-Iv-Stg"/>
                                     <outlet property="nameLabel" destination="gT1-b3-8DD" id="bKE-H9-s2d"/>
                                     <outlet property="personalImage" destination="78a-vI-VHM" id="lk7-2J-rWE"/>
+                                    <outlet property="siteIconImageView" destination="oAe-g0-2d4" id="SfH-4L-45W"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -489,6 +494,7 @@
                 <relationship kind="outlet" name="birthdayLabel" candidateClass="UILabel"/>
                 <relationship kind="outlet" name="nameLabel" candidateClass="UILabel"/>
                 <relationship kind="outlet" name="personalImage" candidateClass="UIImageView"/>
+                <relationship kind="outlet" name="siteIconImageView" candidateClass="UIImageView"/>
             </relationships>
         </class>
         <class className="ContactsViewController" superclassName="UITableViewController">
@@ -513,7 +519,6 @@
         <class className="QWeiboAccountDetailsViewController" superclassName="AccountDetailsViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/QWeiboAccountDetailsViewController.h"/>
             <relationships>
-                <relationship kind="action" name="userLogin:"/>
                 <relationship kind="outlet" name="_webView" candidateClass="UIWebView"/>
                 <relationship kind="outlet" name="accountStatusLabel" candidateClass="UILabel"/>
             </relationships>
@@ -521,8 +526,6 @@
         <class className="RenrenAccountDetailsViewController" superclassName="AccountDetailsViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/RenrenAccountDetailsViewController.h"/>
             <relationships>
-                <relationship kind="action" name="updateUserInfo:"/>
-                <relationship kind="action" name="userLogin:"/>
                 <relationship kind="outlet" name="accountStatusLabel" candidateClass="UILabel"/>
             </relationships>
         </class>

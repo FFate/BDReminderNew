@@ -72,8 +72,14 @@
     cell.nameLabel.text = linkedContact.name;
     cell.birthdayLabel.text = [Util stringFromNSDate:linkedContact.birthday];
     cell.personalImage.image = linkedContact.head;
-    // Configure the cell...
-    [cell showAccountSiteIcons:linkedContact];
+    // set site image
+    if (linkedContact.contact.count == 1) {
+        for (Contact *c in linkedContact.contact) {
+            cell.siteIconImageView.image = [c.account accountIcon];
+        }
+    } else {
+        cell.siteIconImageView.image = [UIImage imageNamed:@"link.png"];
+    }
     
     return cell;
 }
@@ -210,6 +216,7 @@ static BOOL VERBOSE_MERGE = NO;
 }
 
 // merge newContacts array with the global contact array
+// this method should not be in use now
 - (void) mergeContactsAndUpdateViewOld: (NSMutableArray*) newContacts{
     NSMutableArray* tempContactArray = [NSMutableArray array];
     

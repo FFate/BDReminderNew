@@ -14,7 +14,6 @@
 @property (nonatomic, strong) IBOutlet UILabel *nameLabel;
 @property (nonatomic, strong) IBOutlet UILabel *birthdayLabel;
 @property (nonatomic, strong) IBOutlet UIImageView *personalImage;
-
-- (void) showAccountSiteIcons: (LinkedContact*) linkedContact;
+@property (weak, nonatomic) IBOutlet UIImageView *siteIconImageView;
 
 @end
