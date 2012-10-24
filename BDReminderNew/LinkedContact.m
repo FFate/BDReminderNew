@@ -9,7 +9,6 @@
 #import "LinkedContact.h"
 #import "Contact.h"
 
-
 @implementation LinkedContact
 
 @dynamic contact;
@@ -114,8 +113,8 @@ static NSMutableArray* linkedContactList = nil;
         default:
             break;
     }
-    NSLog(@"%@(%@) %@ %@(%@)", self.name, [Util stringFromNSDate:self.birthday],
-          compare, second.name, [Util stringFromNSDate:second.birthday]);
+    //NSLog(@"%@(%@) %@ %@(%@)", self.name, [Util stringFromNSDate:self.birthday],
+    //      compare, second.name, [Util stringFromNSDate:second.birthday]);
     return result;
 }
 

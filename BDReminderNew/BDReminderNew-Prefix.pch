@@ -15,4 +15,5 @@
     #import <CoreData/CoreData.h>
     #import "AppDelegate.h"
     #import "Util.h"
+    #import "AppSettings.h"
 #endif

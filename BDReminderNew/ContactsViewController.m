@@ -12,6 +12,7 @@
 #import "ContactCell.h"
 #import "DejalActivityView.h"
 #import "Account.h"
+#import "BDLocalNotifications.h"
 
 #define ENABLE_DELETE_CONTACT YES
 
@@ -204,8 +205,8 @@ static BOOL VERBOSE_MERGE = NO;
         if (addAsNewLinked) {
             if (VERBOSE_MERGE) NSLog(@"No match, then creating linked contact for contact %@", contact.name);
             LinkedContact* new = [[LinkedContact alloc] initWithContact:contact];
+            [BDLocalNotifications addBDLocalNotificationFor:new];
             [[LinkedContact linkedContactList] addObject:new];
-            
             [[Contact contactList] addObject:contact];
         }
     }

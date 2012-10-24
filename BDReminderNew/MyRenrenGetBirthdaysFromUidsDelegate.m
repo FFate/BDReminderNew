@@ -10,6 +10,8 @@
 #import "Contact.h"
 #import "ContactsViewController.h"
 
+#define VERBOSE_FRIEND_INFO NO
+
 @implementation MyRenrenGetBirthdaysFromUidsDelegate
 
 @synthesize viewController;
@@ -29,7 +31,7 @@
     NSMutableArray* newContacts = [[NSMutableArray alloc] initWithCapacity:[returnArray count]];
     
     for (ROResponseItem* friend in returnArray) {
-        NSLog(@"Friend id: %@, name: %@, BD:%@, head:%@",
+        if (VERBOSE_FRIEND_INFO) NSLog(@"Friend id: %@, name: %@, BD:%@, head:%@",
               [friend valueForItemKey:@"uid"],
               [friend valueForItemKey:@"name"],
               [friend valueForItemKey:@"birthday"],

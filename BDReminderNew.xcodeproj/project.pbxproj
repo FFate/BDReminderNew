@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		180265B4161DDE03004C135F /* UIImageTransformer.m in Sources */ = {isa = PBXBuildFile; fileRef = 180265B3161DDE03004C135F /* UIImageTransformer.m */; };
 		1806BD2715F8E82A005EEE12 /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 1806BD2415F8E82A005EEE12 /* Model.xcdatamodeld */; };
+		180BBFEF1637716A007E80BF /* BDLocalNotifications.m in Sources */ = {isa = PBXBuildFile; fileRef = 180BBFEE1637716A007E80BF /* BDLocalNotifications.m */; };
+		180BBFF316379238007E80BF /* AppSettings.m in Sources */ = {isa = PBXBuildFile; fileRef = 180BBFF216379237007E80BF /* AppSettings.m */; };
 		18472838161FB9500023097E /* DejalActivityView.m in Sources */ = {isa = PBXBuildFile; fileRef = 18472837161FB9500023097E /* DejalActivityView.m */; };
 		187904741623BBFC000C63F9 /* MyQWeibo.m in Sources */ = {isa = PBXBuildFile; fileRef = 187904731623BBFC000C63F9 /* MyQWeibo.m */; };
 		18850605161453510031398D /* AccountDetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 18850604161453510031398D /* AccountDetailsViewController.m */; };
@@ -161,6 +163,10 @@
 		180265B3161DDE03004C135F /* UIImageTransformer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UIImageTransformer.m; sourceTree = "<group>"; };
 		1806BD2515F8E82A005EEE12 /* Model 2.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "Model 2.xcdatamodel"; sourceTree = "<group>"; };
 		1806BD2615F8E82A005EEE12 /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
+		180BBFED1637716A007E80BF /* BDLocalNotifications.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BDLocalNotifications.h; sourceTree = "<group>"; };
+		180BBFEE1637716A007E80BF /* BDLocalNotifications.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BDLocalNotifications.m; sourceTree = "<group>"; };
+		180BBFF116379237007E80BF /* AppSettings.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppSettings.h; sourceTree = "<group>"; };
+		180BBFF216379237007E80BF /* AppSettings.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppSettings.m; sourceTree = "<group>"; };
 		18472836161FB9500023097E /* DejalActivityView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DejalActivityView.h; sourceTree = "<group>"; };
 		18472837161FB9500023097E /* DejalActivityView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DejalActivityView.m; sourceTree = "<group>"; };
 		187904721623BBFC000C63F9 /* MyQWeibo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyQWeibo.h; sourceTree = "<group>"; };
@@ -544,6 +550,10 @@
 				18CB518915EBAF6B009A8741 /* Model */,
 				18CB516315EBAF41009A8741 /* AppDelegate.h */,
 				18CB516415EBAF41009A8741 /* AppDelegate.m */,
+				180BBFF116379237007E80BF /* AppSettings.h */,
+				180BBFF216379237007E80BF /* AppSettings.m */,
+				180BBFED1637716A007E80BF /* BDLocalNotifications.h */,
+				180BBFEE1637716A007E80BF /* BDLocalNotifications.m */,
 				18CB516615EBAF41009A8741 /* MainStoryboard.storyboard */,
 				18CB515B15EBAF41009A8741 /* Supporting Files */,
 			);
@@ -1183,6 +1193,8 @@
 				941F730416272A1C00F8E8E0 /* NewAccountDetailsViewController.m in Sources */,
 				94E86FC11628263A004EAF03 /* FacebookAccountDetailsViewController.m in Sources */,
 				1895FCA2162A521900964D03 /* Util.m in Sources */,
+				180BBFEF1637716A007E80BF /* BDLocalNotifications.m in Sources */,
+				180BBFF316379238007E80BF /* AppSettings.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

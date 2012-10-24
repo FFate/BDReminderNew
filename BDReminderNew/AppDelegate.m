@@ -15,6 +15,7 @@
 #import "FacebookAccount.h"
 #import "QWeiboAccount.h"
 #import "LinkedContact.h"
+#import "BDLocalNotifications.h"
 
 @implementation AppDelegate {
 
@@ -123,9 +124,10 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-    BOOL RESET_PERSISTENT_STORE = NO;
+    BOOL RESET = YES;
     
-    if (RESET_PERSISTENT_STORE) {
+    if (RESET) {
+        // ---------RESET PERSISTENT STORE-------------
         NSError * error;
         // retrieve the store URL
         NSURL * storeURL = [[self.managedObjectContext persistentStoreCoordinator] URLForPersistentStore:[[[self.managedObjectContext persistentStoreCoordinator] persistentStores] lastObject]];
@@ -142,6 +144,19 @@
         }
         [self.managedObjectContext unlock];
         //that's it !
+        
+        // ---------RESET LOCAL NOTIFICATIONS-------------
+        [[UIApplication sharedApplication] cancelAllLocalNotifications];
+        
+        // ---------RESET NSDEFAULTS-------------
+        NSDictionary *defaultsDictionary = [[NSUserDefaults standardUserDefaults] dictionaryRepresentation];
+        for (NSString *key in [defaultsDictionary allKeys]) {
+            [[NSUserDefaults standardUserDefaults] removeObjectForKey:key];
+        }
+        [[NSUserDefaults standardUserDefaults] synchronize];
+        
+        // ---------RESET BADGES-------------
+        [[UIApplication sharedApplication] setApplicationIconBadgeNumber:0];
     }
     
     // fetch Contact
