@@ -7,6 +7,8 @@
 //
 
 #import "FacebookAccountDetailsViewController.h"
+#import "Contact.h"
+#import "ContactsViewController.h"
 
 @interface FacebookAccountDetailsViewController ()
 
@@ -84,10 +86,87 @@
                               if (error) {
                                   NSLog(@"Error: %@", [error localizedDescription]);
                               } else {
-                                  NSLog(@"Result: %@", result);
+                                  NSLog(@"Received data");
+                                  // deal with the result
+                                  NSArray* friendsArray = [result objectForKey:@"data"];
+                                  NSMutableArray *newContacts = [[NSMutableArray alloc] initWithCapacity:[friendsArray count]];
                                   
+                                  for (NSDictionary* friend in friendsArray) {
+                                      // converting birthday format (from "Dec 3, 1986" -> "1986-12-03")
+                                      NSString* birthdayOriginalFormat = [friend objectForKey:@"birthday"];
+                                      NSString* birthday;
+                                      if (birthdayOriginalFormat != (id) [NSNull null]) {
+                                          NSLog(@"original bd: %@", birthdayOriginalFormat);
+                                          birthday = [self getBirthdayInFormat:birthdayOriginalFormat];
+                                      }
+                                      
+                                      // new Contact
+                                      Contact *contact = [[Contact alloc] initWithUid:[[friend objectForKey:@"uid"] stringValue]
+                                                                                 name:[friend objectForKey:@"name"]
+                                                                       birthdayString:birthday
+                                                                              headUrl:[friend objectForKey:@"pic_square"]
+                                                                              account:self.account];
+                                      [newContacts addObject:contact];
+                                      NSLog(@"Name: %@, BD: %@, UID: %@, PIC: %@", [friend objectForKey:@"name"], birthday, [friend objectForKey:@"uid"], [friend objectForKey:@"pic_square"]);
+                                  }
+                                  
+                                  // merge into contact view
+                                  UINavigationController *nav = (UINavigationController*) [[UIApplication sharedApplication] keyWindow].rootViewController;
+                                  ContactsViewController* contactsViewController = [[nav viewControllers] objectAtIndex:0];
+                                  [contactsViewController mergeContactsAndUpdateView:newContacts];
                               }
                           }];
+}
+
+- (NSString*) getBirthdayInFormat: (NSString*) origin {
+    NSMutableString *result = [[NSMutableString alloc] init];
+    
+    NSString *monthDay = origin;
+    NSString *year = @"0000";
+    if ([origin rangeOfString:@","].location != NSNotFound) {
+        NSArray *split = [origin componentsSeparatedByString:@","];
+        year = split[1];
+        monthDay = split[0];
+    }
+    
+    // get year
+    [result appendString:year];
+    
+    // get month
+    [result appendString:@"-"];
+    // String is like December 3
+    NSArray *split = [monthDay componentsSeparatedByString:@" "];
+    NSString *month = split[0];
+    if ([month isEqualToString:@"January"])
+        [result appendString:@"01"];
+    else if ([month isEqualToString:@"February"])
+        [result appendString:@"02"];
+    else if ([month isEqualToString:@"March"])
+        [result appendString:@"03"];
+    else if ([month isEqualToString:@"April"])
+        [result appendString:@"04"];
+    else if ([month isEqualToString:@"May"])
+        [result appendString:@"05"];
+    else if ([month isEqualToString:@"June"])
+        [result appendString:@"06"];
+    else if ([month isEqualToString:@"July"])
+        [result appendString:@"07"];
+    else if ([month isEqualToString:@"August"])
+        [result appendString:@"08"];
+    else if ([month isEqualToString:@"September"])
+        [result appendString:@"09"];
+    else if ([month isEqualToString:@"October"])
+        [result appendString:@"10"];
+    else if ([month isEqualToString:@"November"])
+        [result appendString:@"11"];
+    else if ([month isEqualToString:@"December"])
+        [result appendString:@"12"];
+    
+    // get day
+    [result appendString:@"-"];
+    [result appendString:split[1]];
+    
+    return result;
 }
 
 - (void)getFriendsInfoOld{
